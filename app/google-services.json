@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "435570718312",
+    "firebase_url": "https://biol-33292.firebaseio.com",
+    "project_id": "biol-33292",
+    "storage_bucket": "biol-33292.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435570718312:android:f6cecdfa755c3e06",
+        "android_client_info": {
+          "package_name": "biolaer.dk.biolaer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435570718312-2192b3sl8725a8gtnsosrfkcmh0lulkp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "biolaer.dk.biolaer",
+            "certificate_hash": "f2792ad903186b19da5324d3ee04ec1926bc2d13"
+          }
+        },
+        {
+          "client_id": "435570718312-fk20e8ppttrt1te6mp35vt489nc2qnf4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDe-pe6v1Z3X12WSxtU7paFxDsxWM9QpsM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435570718312-fk20e8ppttrt1te6mp35vt489nc2qnf4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
