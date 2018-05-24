@@ -4,9 +4,9 @@ It's an app to help students who studies biology. :)
 
 We are programming it for EASJ Slagelse Marianne Skov.
 
-Author:
+Authors:
 
-Sebastian Ougter Olsen, Mathias Elholm Blomgaard, 
+<b>[Sebastian Ougter Olsen](https://github.com/SebastianOugterOlsen)<b>, <b>[Mathias Elholm Blomgaard](https://github.com/Matttuu)<b>, 
 
-Thomas Christensen, Daniel Lyck og <b>[Michael Trans](https://github.com/mich282q)<b>.
+<b>[Thomas Christensen](https://github.com/Thom9521)<b>, <b>[Daniel Lyck](https://github.com/dani832m)<b> og <b>[Michael Trans](https://github.com/mich282q)<b>.
 
