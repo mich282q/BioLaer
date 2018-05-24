@@ -8,5 +8,5 @@ Author:
 
 Sebastian Ougter Olsen, Mathias Elholm Blomgaard, 
 
-Thomas Christensen, Daniel Lyck og Michael Trans.
+Thomas Christensen, Daniel Lyck og <b>[Michael Trans](https://github.com/mich282q)<b>.
 
