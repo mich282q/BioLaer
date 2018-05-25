@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         final Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
-        final Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+        final Spinner categorySpin = (Spinner) findViewById(R.id.categorySpinner);
 
         /**Opretter en arrayapadter med brug af string array og knytter spinner_array på som er
          lavet i xml-filen under values. */
@@ -43,11 +43,11 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         //Sætter adapteren til spinneren
-        categorySpinner.setAdapter(adapter);
+        categorySpin.setAdapter(adapter);
 
 
         //Metode som vælger ud fra spinnerens valg
-        categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        categorySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){

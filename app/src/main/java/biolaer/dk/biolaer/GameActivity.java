@@ -24,6 +24,7 @@ public class GameActivity extends AppCompatActivity {
                 startActivity(questionsActivity);
             }
         });
+
         //Metode til startBtn som får knappen til at springe videre til HighscoreActivity
         highscoreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
