@@ -30,6 +30,7 @@
         tools:layout_marginTop="8dp" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout2"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -76,11 +77,15 @@
         android:id="@+id/infoBtn"
         android:layout_width="25dp"
         android:layout_height="25dp"
+        android:layout_marginBottom="15dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginTop="3dp"
         android:background="@drawable/info_icon"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
-        tools:layout_editor_absoluteY="385dp" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
+        app:layout_constraintVertical_bias="0.143" />
 
 </android.support.constraint.ConstraintLayout>

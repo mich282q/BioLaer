@@ -19,9 +19,15 @@ public class LevelActivity extends AppCompatActivity {
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (easyBtn.getText()=="Let"){
                 easyBtn.setText("Direkte ELISA");
-                hardBtn.setText("Indirekte Sandwich ELISA");
+                hardBtn.setText("Indirekte Sandwich ELISA");}
+                else{
+                    easyBtn.setText("Let");
+                    hardBtn.setText("Svær");
+                }
             }
+
         });
 
     }
