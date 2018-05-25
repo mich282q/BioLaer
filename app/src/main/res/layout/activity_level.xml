@@ -30,6 +30,7 @@
         tools:layout_marginTop="8dp" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"

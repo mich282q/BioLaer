@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 /**   Denne klasse indeholder onCreate metoden som starter vores MainActivity
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         confirmBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                confirmBtn.setText("Rip");
+                                Toast.makeText(MainActivity.this, "Virker ikke :)", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
