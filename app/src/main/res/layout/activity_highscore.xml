@@ -73,7 +73,7 @@
     </RelativeLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/infoBtn"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginEnd="10dp"
