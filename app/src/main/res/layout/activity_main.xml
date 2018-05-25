@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="#F2F2F2"
-    android:screenOrientation="portrait">
+    >
 
     <ImageView
         android:layout_width="421dp"
