@@ -16,7 +16,7 @@ public class GameActivity extends AppCompatActivity {
         Button startBtn = (Button) findViewById(R.id.startBtn);
         Button highscoreBtn = (Button) findViewById(R.id.highscoreBtn);
 
-        //Metode til startBtn som får knappen til at springe videre til QuestionsActivity
+        //Metode til startBtn som får knappen til at springe videre til LevelActivity
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
