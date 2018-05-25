@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Denne XML fil bruges til spinner knappen på MainActivity -->
+<!-- Denne XML fil bruges til styling på alle menuknapper som ikke indgår i spillet -->
 
 
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
@@ -25,11 +25,5 @@
 
         </shape></item>
 
-
-        <!--    Viser et ikon, til categorySpin, kode udkommenteret in case vi skal bruge den.
-        item >
-            <bitmap android:gravity="right|center" android:src="@drawable/ic_spinner" />
-         </item>
-         -->
     </layer-list></item>
 </selector>
