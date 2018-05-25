@@ -16,8 +16,8 @@
         tools:layout_editor_absoluteY="-29dp" />
 
 
-
     <ImageView
+        android:id="@+id/logoImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -31,12 +31,13 @@
 
     <Spinner
         android:id="@+id/categorySpinner"
-        android:layout_width="170dp"
-        android:layout_height="89dp"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="96dp"
         android:layout_marginEnd="108dp"
         android:layout_marginStart="150dp"
         android:drawSelectorOnTop="true"
+        android:background="@drawable/spinner_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

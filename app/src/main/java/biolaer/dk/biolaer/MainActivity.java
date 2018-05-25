@@ -9,19 +9,29 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+
+/**   Denne klasse indeholder onCreate metoden som starter vores MainActivity
+ *    I MainActivity vælger man hvilken kategory indenfor biologiens verden man ønsker
+ *    at bliver 'quizzet' om.
+ *
+ *    @author  Daniel, Mathias, Michael, Sebastian og Thomas.
+ *    @version 1.0
+ *    @since Maj 2018
+ * */
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Tvinger activityen til at være i Portrait orientation mode. 
+        // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
         Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
 
-        /*Opretter en arrayapadter med brug af string array og knytter spinner_array på som er
+        /**Opretter en arrayapadter med brug af string array og knytter spinner_array på som er
         lavet i xml filen under values. */
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spinners_array, android.R.layout.simple_spinner_item);
