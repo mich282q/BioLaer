@@ -6,30 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="421dp"
+        android:layout_height="560dp"
+        android:src="@drawable/test5"
+        tools:layout_editor_absoluteX="-33dp"
+        tools:layout_editor_absoluteY="-29dp" />
 
     <ImageView
-        android:id="@+id/logoImg"
-        android:layout_width="310dp"
-        android:layout_height="276dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/logofinal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher_logo_hvid" />
+        tools:layout_marginTop="8dp" />
 
     <Spinner
         android:id="@+id/categorySpinner"
-        android:layout_width="246dp"
-        android:layout_height="55dp"
+        android:layout_width="170dp"
+        android:layout_height="89dp"
         android:layout_marginBottom="96dp"
-        android:layout_marginEnd="69dp"
-        android:layout_marginStart="69dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginStart="150dp"
         android:drawSelectorOnTop="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button

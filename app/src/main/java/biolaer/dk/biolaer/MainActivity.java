@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spinners_array, android.R.layout.simple_spinner_item);
 
-        //Bare udseende, så det bliver lidt lækre når man klikker på spinneren.
+        //Bare udseende, så det bliver lidt mere lækkert når man klikker på spinneren.
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         //Sætter adapteren til spinneren
