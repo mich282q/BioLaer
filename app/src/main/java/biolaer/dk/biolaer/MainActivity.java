@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
@@ -16,6 +17,17 @@ public class MainActivity extends AppCompatActivity {
 
         Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
         Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+
+        /*Opretter en arrayapadter med brug af string array og knytter spinner_array på som er
+        lavet i xml filen under values. */
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.spinners_array, android.R.layout.simple_spinner_item);
+
+        //Bare udseende, så det bliver lidt lækre når man klikker på spinneren.
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        //Sætter adapteren til spinneren
+        categorySpinner.setAdapter(adapter);
 
     }
 }

@@ -26,6 +26,7 @@
         android:layout_marginBottom="96dp"
         android:layout_marginEnd="69dp"
         android:layout_marginStart="69dp"
+        android:drawSelectorOnTop="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
