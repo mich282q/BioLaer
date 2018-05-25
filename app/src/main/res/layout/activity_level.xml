@@ -7,25 +7,67 @@
     tools:context=".LevelActivity">
 
     <ImageView
-        android:layout_width="422dp"
+        android:id="@+id/imageView2"
+        android:layout_width="421dp"
         android:layout_height="560dp"
         android:src="@drawable/test5"
         tools:layout_editor_absoluteX="-33dp"
         tools:layout_editor_absoluteY="-29dp" />
 
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/logoImg"
+        android:layout_width="227dp"
+        android:layout_height="237dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
+
         android:src="@drawable/logofinal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_marginTop="8dp" />
 
+    <Button
+        android:id="@+id/easyBtn"
+        android:layout_width="300dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="152dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/button_default"
+        android:text="Let"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/hardBtn"
+        android:layout_width="300dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/button_default"
+        android:text="Svær"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <!-- android:background="@drawable/info_icon" skal skiftes til det rigtige icon -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/info_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        tools:layout_editor_absoluteY="408dp" />
 
 
 </android.support.constraint.ConstraintLayout>
