@@ -10,72 +10,90 @@
         android:id="@+id/textView3"
         android:layout_width="117dp"
         android:layout_height="42dp"
+        android:layout_marginBottom="17dp"
         android:layout_marginEnd="133dp"
         android:layout_marginStart="134dp"
+        android:layout_marginTop="88dp"
         android:text="Spil Slut"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="88dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="162dp"
         android:layout_marginStart="162dp"
+        android:layout_marginTop="17dp"
         android:text="Din Score"
+        app:layout_constraintBottom_toTopOf="@+id/Your_Score"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="147dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:layout_marginEnd="165dp"
         android:layout_marginStart="165dp"
+        android:layout_marginTop="5dp"
         android:text="Din Rang"
+        app:layout_constraintBottom_toTopOf="@+id/Your_Rank"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="238dp" />
+        app:layout_constraintTop_toBottomOf="@+id/Your_Score" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="22dp"
         android:layout_marginEnd="141dp"
         android:layout_marginStart="148dp"
         android:text="Prøv Igen"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="485dp" />
+        app:layout_constraintTop_toBottomOf="@+id/Name_Field" />
 
     <EditText
         android:id="@+id/Your_Score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="1dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="176dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <EditText
         android:id="@+id/Your_Rank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="23dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="6dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="265dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView6"
@@ -83,22 +101,26 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="272dp"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
         android:text="Indtast Navn:"
+        app:layout_constraintBottom_toTopOf="@+id/Name_Field"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="381dp" />
+        app:layout_constraintTop_toBottomOf="@+id/Your_Rank" />
 
     <EditText
         android:id="@+id/Name_Field"
         android:layout_width="wrap_content"
-        android:layout_height="51dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="34dp"
         android:layout_marginStart="30dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="400dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
 </android.support.constraint.ConstraintLayout>
