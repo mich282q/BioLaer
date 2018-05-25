@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         confirmBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+                                //Viser en lille besked på skærmen :)
                                 Toast.makeText(MainActivity.this, "Virker ikke :)", Toast.LENGTH_SHORT).show();
                             }
                         });
