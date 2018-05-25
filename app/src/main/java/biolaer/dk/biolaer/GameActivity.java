@@ -20,8 +20,8 @@ public class GameActivity extends AppCompatActivity {
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent questionsActivity = new Intent(getApplicationContext(), QuestionsActivity.class);
-                startActivity(questionsActivity);
+                Intent levelActivity = new Intent(getApplicationContext(), LevelActivity.class);
+                startActivity(levelActivity);
             }
         });
 
