@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".LevelActivity">
 
+    <ImageView
+        android:layout_width="422dp"
+        android:layout_height="560dp"
+        android:src="@drawable/test5"
+        tools:layout_editor_absoluteX="-33dp"
+        tools:layout_editor_absoluteY="-29dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/logofinal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_marginTop="8dp" />
+
+
+
+
 </android.support.constraint.ConstraintLayout>
