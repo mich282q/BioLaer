@@ -38,8 +38,8 @@
                                       <entry key="backgroundColor" value="ffffff" />
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
                                       <entry key="foregroundImage" value="$USER_HOME$/Pictures/RectangleGreen.png" />
-                                      <entry key="foregroundLayerName" value="Rectangle_Green" />
-                                      <entry key="outputName" value="RectangleGreen" />
+                                      <entry key="foregroundLayerName" value="rectanglegreen" />
+                                      <entry key="outputName" value="rectanglegreena" />
                                     </map>
                                   </option>
                                 </PersistentState>
