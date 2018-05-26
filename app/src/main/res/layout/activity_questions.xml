@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".QuestionsActivity">
 
+
+    <!-- WIP (Work in progress) Er ikke helt sikker på om jeg kan have ImageView som baggrund
+    sammentidigt med jeg har elementer ovenpå? -->
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/btn_capture_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/game_rectangle"
+           />
+
+    </LinearLayout>
+
+</RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
