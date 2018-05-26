@@ -14,14 +14,15 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-/**   Denne klasse indeholder onCreate metoden som starter vores MainActivity
- *    I MainActivity vælger man hvilken kategory indenfor biologiens verden man ønsker
- *    at bliver 'quizzet' om.
+/**
+ * Denne klasse indeholder onCreate metoden som starter vores MainActivity
+ * I MainActivity vælger man hvilken kategory indenfor biologiens verden man ønsker
+ * at bliver 'quizzet' om.
  *
- *    @author  Daniel, Mathias, Michael, Sebastian og Thomas.
- *    @version 1.0
- *    @since Maj 2018
- * */
+ * @author Daniel, Mathias, Michael, Sebastian og Thomas.
+ * @version 1.0
+ * @since Maj 2018
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         categorySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                switch (position) {
                     case 0://Her har vi ELISA
                         //Metode som får confirmBtn til at udføre en ordre
                         confirmBtn.setOnClickListener(new View.OnClickListener() {
@@ -86,5 +87,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    }
+}
 
