@@ -1,8 +1,9 @@
 # BioLaer
 
-It's an app to help students who studies biology. :)
+This projekt is programmed with Android Studies.
+The idea was to make a biology application to help students understand the term ELISA. 
 
-We are programming it for EASJ Slagelse Marianne Skov.
+ 
 
 Authors:
 
