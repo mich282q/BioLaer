@@ -6,4 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".OptionsActivity">
 
+    <ImageView
+        android:id="@+id/btn_capture_photo"
+        android:layout_width="385dp"
+        android:layout_height="115dp"
+        android:src="@drawable/game_rectangle"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
+    </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
