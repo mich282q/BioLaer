@@ -1,5 +1,6 @@
 package biolaer.dk.biolaer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,24 @@ public class HighscoreActivity extends AppCompatActivity {
                 }
             }
 
+        });
+
+        //Metode som får easyBtn til at hoppe til EasyHsActivity
+        easyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent easyHsActivity = new Intent(getApplicationContext(), EasyHsActivity.class);
+                startActivity(easyHsActivity);
+            }
+        });
+
+        //Metode som får hardBtn til at hoppe til HardHsActivty
+        hardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent hardHsActivity = new Intent(getApplicationContext(), HardHsActivity.class);
+                startActivity(hardHsActivity);
+            }
         });
     }
 }
