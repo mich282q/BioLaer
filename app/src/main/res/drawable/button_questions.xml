@@ -8,9 +8,9 @@
         <item><shape>
 
             <!-- Under stroke sektionen sættes der en tykkelses og en farve på kanten-->
-            <stroke android:width="2dp" android:color="#F2F2F2"/>
+            <stroke android:width="2dp" android:color="#707070" />
 
-            <solid android:color="@android:color/white"/> <!-- Sætter baggrundsfarve hvid -->
+            <solid android:color="#F2F2F2"/> <!-- Sætter baggrundsfarve hvid -->
             <padding
                 android:bottom="3dp"
                 android:left="3dp"
