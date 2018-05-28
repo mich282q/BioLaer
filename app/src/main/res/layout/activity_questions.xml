@@ -52,6 +52,16 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <TextView
+        android:id="@+id/countDownTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:gravity="center|center_horizontal"
+        android:text="00:60"
+        android:textColor="@android:color/black"
+        android:textSize="40sp" />
+
     <RelativeLayout
         android:id="@+id/relativeLayout8"
         android:layout_width="230dp"
