@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         final Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
         final Spinner categorySpin = (Spinner) findViewById(R.id.categorySpinner);
+        Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
         /**Opretter en ArrayApadter med brug af string array og knytter spinner_array på som er
          lavet i xml-filen under values. */
@@ -81,6 +82,15 @@ public class MainActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
                 //Metoden er nødvendig for at onItemSelectedListener kan virke
                 //Umiddelbart er det ikke nødvendigt at have noget her
+            }
+        });
+
+        optionsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
+                startActivity(optionsActivity);
             }
         });
     }

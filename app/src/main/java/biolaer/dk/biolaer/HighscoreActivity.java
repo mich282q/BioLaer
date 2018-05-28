@@ -17,6 +17,7 @@ public class HighscoreActivity extends AppCompatActivity {
         final Button easyBtn = (Button) findViewById(R.id.easyBtn);
         final Button hardBtn = (Button) findViewById(R.id.hardBtn);
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
+        Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
         //Metode til info-knappen, som ændret teksten på knapperne frem og tilbage.
         infoBtn.setOnClickListener(new View.OnClickListener() {
@@ -56,6 +57,15 @@ public class HighscoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 HighscoreActivity.super.onBackPressed();
+            }
+        });
+
+        optionsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
+                startActivity(optionsActivity);
             }
         });
     }
