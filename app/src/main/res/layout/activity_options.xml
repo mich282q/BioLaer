@@ -54,7 +54,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="237dp"
-        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="260dp">
 
         <LinearLayout
