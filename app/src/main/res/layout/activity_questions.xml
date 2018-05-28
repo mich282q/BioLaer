@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".QuestionsActivity">
 
 
@@ -24,7 +25,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="150dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/info_icon"
                 tools:layout_editor_absoluteX="0dp"
@@ -34,7 +35,10 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp" />
+                android:layout_weight="1"
+                android:textSize="30sp"
+                tools:layout_editor_absoluteY="334dp" />
+
         </LinearLayout>
     </RelativeLayout>
 
@@ -47,10 +51,13 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <RelativeLayout
-        android:layout_width="330dp"
-        android:layout_height="242dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="372dp">
+        android:layout_width="230dp"
+        android:layout_height="238dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="77dp"
+        app:layout_constraintEnd_toStartOf="@+id/infoBtn1"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="374dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,25 +68,30 @@
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="36sp" />
+                android:background="@drawable/button_questions"
+                android:textAlignment="viewStart"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="36sp" />
+                android:background="@drawable/button_questions"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="36sp" />
+                android:background="@drawable/button_questions"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="36sp" />
+                android:background="@drawable/button_questions"
+                android:textSize="30sp" />
         </LinearLayout>
     </RelativeLayout>
 

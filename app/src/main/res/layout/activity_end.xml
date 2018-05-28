@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".EndActivity">
 
 
@@ -11,7 +12,10 @@
         android:id="@+id/relativeLayout3"
         android:layout_width="320dp"
         android:layout_height="416dp"
-        tools:layout_editor_absoluteX="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="115dp">
 
         <LinearLayout
@@ -76,6 +80,7 @@
                 android:id="@+id/insertNameTxt"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
+                android:background="@drawable/button_questions"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textSize="30sp"
