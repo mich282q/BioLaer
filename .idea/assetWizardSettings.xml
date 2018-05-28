@@ -37,9 +37,9 @@
                                       <entry key="backgroundAssetType" value="COLOR" />
                                       <entry key="backgroundColor" value="ffffff" />
                                       <entry key="backgroundLayerName" value="ic_launcher_background" />
-                                      <entry key="foregroundImage" value="$USER_HOME$/Pictures/RectangleGreen.png" />
-                                      <entry key="foregroundLayerName" value="rectanglegreen" />
-                                      <entry key="outputName" value="rectanglegreena" />
+                                      <entry key="foregroundImage" value="$USER_HOME$/Pictures/IC Home 24px.png" />
+                                      <entry key="foregroundLayerName" value="home" />
+                                      <entry key="outputName" value="homeknap" />
                                     </map>
                                   </option>
                                 </PersistentState>
