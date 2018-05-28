@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Denne XML fil bruges til styling på alle menuknapper som ikke indgår i spillet -->
+
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item><layer-list>
+        <item><shape>
+
+            <!-- Under stroke sektionen sættes der en tykkelses og en farve på kanten-->
+            <stroke android:width="2dp" android:color="#F2F2F2"/>
+
+            <solid android:color="@android:color/white"/> <!-- Sætter baggrundsfarve hvid -->
+            <padding
+                android:bottom="3dp"
+                android:left="3dp"
+                android:right="3dp"
+                android:top="3dp" />
+        </shape></item>
+
+    </layer-list></item>
+</selector>
