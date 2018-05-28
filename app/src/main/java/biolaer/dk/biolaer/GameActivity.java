@@ -15,6 +15,7 @@ public class GameActivity extends AppCompatActivity {
 
         Button startBtn = (Button) findViewById(R.id.startBtn);
         Button highscoreBtn = (Button) findViewById(R.id.highscoreBtn);
+        Button returnBtn = (Button) findViewById(R.id.returnBtn);
 
         //Metode til startBtn som får knappen til at springe videre til LevelActivity
         startBtn.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +32,14 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent highscoreActivity = new Intent(getApplicationContext(), HighscoreActivity.class);
                 startActivity(highscoreActivity);
+            }
+        });
+
+        //Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
+        returnBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GameActivity.super.onBackPressed();
             }
         });
     }
