@@ -8,9 +8,11 @@
     tools:context=".EasyHsActivity">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout6"
         android:layout_width="195dp"
         android:layout_height="453dp"
-        tools:layout_editor_absoluteX="195dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout7"
         tools:layout_editor_absoluteY="115dp">
 
         <LinearLayout
@@ -34,9 +36,11 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout7"
         android:layout_width="195dp"
         android:layout_height="451dp"
-        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayout6"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="115dp">
 
         <LinearLayout
