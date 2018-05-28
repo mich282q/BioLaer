@@ -16,9 +16,12 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout4"
         android:layout_width="match_parent"
         android:layout_height="144dp"
-        tools:layout_editor_absoluteY="114dp">
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/btn_capture_photo">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,11 +55,13 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <RelativeLayout
+        android:id="@+id/relativeLayout5"
         android:layout_width="match_parent"
         android:layout_height="237dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="260dp">
+        android:layout_marginBottom="70dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4">
 
         <LinearLayout
             android:layout_width="match_parent"
