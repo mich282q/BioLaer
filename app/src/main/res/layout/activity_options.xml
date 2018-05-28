@@ -16,7 +16,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="453dp"
+        android:layout_height="144dp"
         tools:layout_editor_absoluteY="114dp">
 
         <LinearLayout
@@ -25,14 +25,83 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/menuTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu"
                 android:textAlignment="center"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/menuBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/home" />
 
         </LinearLayout>
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Point"
+        tools:layout_editor_absoluteX="325dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="237dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="260dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/soundTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lyd"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bgTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Baggrund"
+                android:textAlignment="center" />
+
+            <SeekBar
+                android:id="@+id/bgSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/effectTxt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Effekter"
+                android:textAlignment="center" />
+
+            <SeekBar
+                android:id="@+id/effectSeek"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="308dp"
+        tools:layout_editor_absoluteY="35dp" />
 
 </android.support.constraint.ConstraintLayout>
