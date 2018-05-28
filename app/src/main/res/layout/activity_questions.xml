@@ -9,26 +9,29 @@
 
     <!-- WIP (Work in progress) Er ikke helt sikker på om jeg kan have ImageView som baggrund
     sammentidigt med jeg har elementer ovenpå? -->
+
+    <ImageView
+        android:id="@+id/btn_capture_photo"
+        android:layout_width="421dp"
+        android:layout_height="115dp"
+        android:src="@drawable/game_rectangle"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="120dp"
-
-    >
-
-    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="120dp"
 
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
-        <ImageView
-            android:id="@+id/btn_capture_photo"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/game_rectangle"
-           />
+            android:layout_height="match_parent">
 
-    </LinearLayout>
 
-</RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

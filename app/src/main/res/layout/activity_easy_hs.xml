@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/easyPointTxt"
+                android:id="@+id/hardPointTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Point"
@@ -31,17 +31,6 @@
         </LinearLayout>
 
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/letTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Let"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="22dp" />
 
     <RelativeLayout
         android:layout_width="195dp"
@@ -56,11 +45,12 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/easyNavnTxt"
+                android:id="@+id/hardNavnTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Navn"
                 android:textAlignment="center" />
+
             <ListView
                 android:id="@+id/navnList"
                 android:layout_width="match_parent"
@@ -71,9 +61,20 @@
 
     <ImageView
         android:id="@+id/btn_capture_photo"
-        android:layout_width="385dp"
+        android:layout_width="421dp"
         android:layout_height="115dp"
         android:src="@drawable/game_rectangle"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/hardSværTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Let"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="22dp" />
 </android.support.constraint.ConstraintLayout>

@@ -32,17 +32,6 @@
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/hardSværTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="Svær"
-        android:textSize="30sp"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="22dp" />
-
     <RelativeLayout
         android:layout_width="195dp"
         android:layout_height="451dp"
@@ -72,10 +61,21 @@
 
     <ImageView
         android:id="@+id/btn_capture_photo"
-        android:layout_width="385dp"
+        android:layout_width="421dp"
         android:layout_height="115dp"
         android:src="@drawable/game_rectangle"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <TextView
+        android:id="@+id/hardSværTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Svær"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="160dp"
+        tools:layout_editor_absoluteY="22dp" />
 
 </android.support.constraint.ConstraintLayout>
