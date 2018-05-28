@@ -8,6 +8,7 @@
 
 
     <RelativeLayout
+        android:id="@+id/relativeLayout3"
         android:layout_width="320dp"
         android:layout_height="416dp"
         tools:layout_editor_absoluteX="32dp"
@@ -81,16 +82,6 @@
                 tools:layout_editor_absoluteX="13dp"
                 tools:layout_editor_absoluteY="418dp" />
 
-            <Button
-                android:id="@+id/tryAgainBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="141dp"
-                android:text="Prøv Igen"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="497dp" />
-
         </LinearLayout>
     </RelativeLayout>
 
@@ -101,5 +92,19 @@
         android:src="@drawable/game_rectangle"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
+
+    <Button
+        android:id="@+id/tryAgainBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="152dp"
+        android:layout_marginStart="26dp"
+        android:text="Prøv Igen"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.966"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout3" />
 
 </android.support.constraint.ConstraintLayout>

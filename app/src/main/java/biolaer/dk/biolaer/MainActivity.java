@@ -15,15 +15,14 @@ import android.widget.Toast;
 
 
 /**
- * Denne klasse indeholder onCreate metoden som starter vores MainActivity
- * I MainActivity vælger man hvilken kategory indenfor biologiens verden man ønsker
- * at bliver 'quizzet' om.
+ * Denne klasse indeholder bl.a. onCreate-metoden, som starter vores MainActivity.
+ * I MainActivity vælger man hvilken kategori indenfor biologiens verden man ønsker
+ * der bliver 'quizzet' om.
  *
  * @author Daniel, Mathias, Michael, Sebastian og Thomas.
  * @version 1.0
  * @since Maj 2018
  */
-
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         final Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
         final Spinner categorySpin = (Spinner) findViewById(R.id.categorySpinner);
 
-        /**Opretter en arrayapadter med brug af string array og knytter spinner_array på som er
+        /**Opretter en ArrayApadter med brug af string array og knytter spinner_array på som er
          lavet i xml-filen under values. */
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spinners_array, android.R.layout.simple_spinner_item);
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Sætter adapteren til spinneren
         categorySpin.setAdapter(adapter);
-
 
         //Metode som vælger ud fra spinnerens valg
         categorySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
