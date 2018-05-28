@@ -87,7 +87,7 @@
 
     <ImageView
         android:id="@+id/btn_capture_photo"
-        android:layout_width="385dp"
+        android:layout_width="match_parent"
         android:layout_height="115dp"
         android:src="@drawable/game_rectangle"
         tools:layout_editor_absoluteX="0dp"
