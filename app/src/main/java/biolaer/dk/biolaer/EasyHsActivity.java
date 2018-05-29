@@ -18,6 +18,10 @@ import java.util.ArrayList;
 
 public class EasyHsActivity extends AppCompatActivity {
 
+    private DatabaseReference mDatabase;
+    private ListView scoreList_dynamic;
+    private ArrayList<String> listNavn = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,21 +32,13 @@ public class EasyHsActivity extends AppCompatActivity {
 
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
 
-        //Metode som får returnBtn til at hoppe tilbage til aktiviteten, som var før den nuværende.
-        returnBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EasyHsActivity.super.onBackPressed();
-            }
-        });
 
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference().child("highscore_easy").child("id1");
-        ListView listView = (ListView) findViewById(R.id.scoreList_dynamic);
-         final ArrayList<String> listNavn = new ArrayList<>();
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
-        listView.setAdapter(arrayAdapter);
+        scoreList_dynamic.setAdapter(arrayAdapter);
 
         mDatabase.addChildEventListener(new ChildEventListener() {
             @Override
@@ -76,7 +72,13 @@ public class EasyHsActivity extends AppCompatActivity {
         });
 
 
-
+        //Metode som får returnBtn til at hoppe tilbage til aktiviteten, som var før den nuværende.
+        returnBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EasyHsActivity.super.onBackPressed();
+            }
+        });
 
 
 
