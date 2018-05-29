@@ -66,10 +66,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /**Baggrundsmusikken
         MusicService mServ = new MusicService();
         Intent music = new Intent();
         music.setClass(this,MusicService.class);
         startService(music);
+         **/
 
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -89,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
         //Sætter adapteren til spinneren
         categorySpin.setAdapter(adapter);
 
-
-
         //Metode som vælger ud fra spinnerens valg
         categorySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -106,21 +106,31 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(gameActivity);
                             }
                         });
-
                         break;
+
                     case 1: //Midlertidig "Test"
                         //Metode som får confirmBtn til at udføre en ordre
                         confirmBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
                                 //Viser en lille besked på skærmen :)
-                                Toast.makeText(MainActivity.this, "Virker ikke :)", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Under udvikling.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        break;
+
+                    case 2: //Midlertidig "Test"
+                        //Metode som får confirmBtn til at udføre en ordre
+                        confirmBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //Viser en lille besked på skærmen :)
+                                Toast.makeText(MainActivity.this, "Under udvikling.", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
                 }
             }
-
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -138,8 +148,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-
 }
-
