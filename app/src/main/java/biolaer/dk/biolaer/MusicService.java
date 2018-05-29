@@ -32,7 +32,7 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
     public void onCreate (){
         super.onCreate();
 
-        mPlayer = MediaPlayer.create(this, R.raw.bensound_memories);
+        mPlayer = MediaPlayer.create(this, R.raw.baggroundmusic);
         mPlayer.setOnErrorListener(this);
 
         if(mPlayer!= null)
@@ -72,7 +72,7 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
 
     public void resumeMusic()
     {
-        if(mPlayer.isPlaying();
+        if(mPlayer.isPlaying()== false);
         {
             mPlayer.seekTo(length);
             mPlayer.start();
@@ -114,4 +114,4 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
             }
         }
         return false;
-    }
+    }}
