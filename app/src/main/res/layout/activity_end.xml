@@ -7,111 +7,116 @@
     android:background="#F2F2F2"
     tools:context=".EndActivity">
 
+    <TextView
+        android:id="@+id/endTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="150dp"
+        android:text="Spillet er slut!"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout3"
-        android:layout_width="320dp"
-        android:layout_height="416dp"
-        android:layout_marginBottom="36dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
+    <TextView
+        android:id="@+id/scoreTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:text="Din score:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/pointTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endTxt" />
+
+    <TextView
+        android:id="@+id/pointTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/rankTitleTxt"
+        app:layout_constraintEnd_toEndOf="@+id/rankTitleTxt"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rankTitleTxt"
+        app:layout_constraintTop_toBottomOf="@+id/scoreTxt" />
+
+    <TextView
+        android:id="@+id/rankTitleTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:text="Din rang:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/rankTxt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pointTxt" />
+
+    <TextView
+        android:id="@+id/rankTxt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Begynder"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rankTitleTxt" />
+
+    <EditText
+        android:id="@+id/insertNameTxt"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/button_questions"
+        android:ems="10"
+        android:hint="Indtast dit navn"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_capture_photo">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="289dp"
-            android:orientation="vertical">
-
-
-            <TextView
-                android:id="@+id/endTxt"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:text="Spil Slut"
-                android:textAlignment="center"
-                android:textSize="30sp"
-                tools:layout_editor_absoluteX="134dp"
-                tools:layout_editor_absoluteY="88dp" />
-
-            <TextView
-                android:id="@+id/scoreTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Din Score"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                tools:layout_editor_absoluteX="163dp"
-                tools:layout_editor_absoluteY="147dp" />
-
-            <TextView
-                android:id="@+id/pointTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/rankTitleTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Din Rang"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                tools:layout_editor_absoluteX="165dp"
-                tools:layout_editor_absoluteY="264dp" />
-
-            <TextView
-                android:id="@+id/rankTxt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="30sp" />
-
-            <TextView
-                android:id="@+id/editName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Indtast Navn:"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                tools:layout_editor_absoluteX="4dp"
-                tools:layout_editor_absoluteY="399dp" />
-
-            <EditText
-                android:id="@+id/insertNameTxt"
-                android:layout_width="match_parent"
-                android:layout_height="65dp"
-                android:background="@drawable/button_questions"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="30sp"
-                tools:layout_editor_absoluteX="13dp"
-                tools:layout_editor_absoluteY="418dp" />
-
-        </LinearLayout>
-    </RelativeLayout>
+        app:layout_constraintTop_toBottomOf="@+id/rankTxt"
+        app:layout_constraintVertical_bias="0.304" />
 
     <ImageView
         android:id="@+id/btn_capture_photo"
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:src="@drawable/game_rectangle"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/tryAgainBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginBottom="100dp"
-        android:layout_marginEnd="152dp"
-        android:layout_marginStart="26dp"
-        android:text="Prøv Igen"
+        android:id="@+id/submitBtn"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Indsend navn"
         android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toEndOf="@+id/relativeLayout3" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/insertNameTxt" />
 
 </android.support.constraint.ConstraintLayout>
