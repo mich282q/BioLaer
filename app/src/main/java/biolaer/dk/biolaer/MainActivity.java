@@ -1,8 +1,12 @@
 package biolaer.dk.biolaer;
 
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.ActivityInfo;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         //Sætter adapteren til spinneren
         categorySpin.setAdapter(adapter);
 
+        MusicService mServ = new MusicService();
+        Intent music = new Intent();
+        music.setClass(this,MusicService.class);
+        startService(music);
+
         //Metode som vælger ud fra spinnerens valg
         categorySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -96,6 +105,35 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
+    }
+
+    private boolean mIsBound = false;
+    private MusicService mServ;
+    private ServiceConnection Scon =new ServiceConnection(){
+
+        public void onServiceConnected(ComponentName name, IBinder
+                binder) {
+            mServ = ((MusicService.ServiceBinder)binder).getService();
+        }
+
+        public void onServiceDisconnected(ComponentName name) {
+            mServ = null;
+        }
+    };
+
+    void doBindService(){
+        bindService(new Intent(this,MusicService.class),
+                Scon, Context.BIND_AUTO_CREATE);
+        mIsBound = true;
+    }
+
+    void doUnbindService()
+    {
+        if(mIsBound)
+        {
+            unbindService(Scon);
+            mIsBound = false;
+        }
     }
 
 }

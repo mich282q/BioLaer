@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="#F2F2F2"
+    android:name="MusicService"
+    android:enabled="true"
     >
 
     <ImageView
