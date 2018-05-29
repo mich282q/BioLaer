@@ -98,7 +98,7 @@
         app:layout_constraintVertical_bias="0.304" />
 
     <ImageView
-        android:id="@+id/btn_capture_photo"
+        android:id="@+id/greenRectangle_imageView"
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:src="@drawable/game_rectangle"
@@ -107,7 +107,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/submitBtn"
+        android:id="@+id/submitBtn_button"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"

@@ -14,7 +14,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         // Tvinger activityen til at være i Portrait orientation mode.
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        //this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Button startBtn = (Button) findViewById(R.id.startBtn);
         Button highscoreBtn = (Button) findViewById(R.id.highscoreBtn);

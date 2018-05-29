@@ -8,7 +8,7 @@
     tools:context=".OptionsActivity">
 
     <ImageView
-        android:id="@+id/btn_capture_photo"
+        android:id="@+id/greenRectangle_imageView"
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:src="@drawable/game_rectangle"
@@ -21,7 +21,7 @@
         android:layout_height="144dp"
         android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout5"
-        app:layout_constraintTop_toBottomOf="@+id/btn_capture_photo"
+        app:layout_constraintTop_toBottomOf="@+id/greenRectangle_imageView"
         tools:layout_editor_absoluteX="59dp">
 
         <LinearLayout
@@ -131,7 +131,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.914"
-        app:layout_constraintStart_toStartOf="@+id/btn_capture_photo"
+        app:layout_constraintStart_toStartOf="@+id/greenRectangle_imageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
