@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".EasyHsActivity">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout6"
         android:layout_width="195dp"
         android:layout_height="453dp"
-        tools:layout_editor_absoluteX="195dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout7"
         tools:layout_editor_absoluteY="115dp">
 
         <LinearLayout
@@ -18,7 +21,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/hardPointTxt"
+                android:id="@+id/easyPointTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Point"
@@ -33,9 +36,11 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout7"
         android:layout_width="195dp"
         android:layout_height="451dp"
-        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayout6"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="115dp">
 
         <LinearLayout
@@ -45,7 +50,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/hardNavnTxt"
+                android:id="@+id/easyNavnTxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Navn"
@@ -68,13 +73,20 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
-        android:id="@+id/hardSværTxt"
+        android:id="@+id/easySværTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="Let"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="22dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.017" />
 </android.support.constraint.ConstraintLayout>

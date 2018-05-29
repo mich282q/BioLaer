@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".QuestionsActivity">
 
 
@@ -11,10 +12,12 @@
     sammentidigt med jeg har elementer ovenpå? -->
 
     <RelativeLayout
+        android:id="@+id/relativeLayout9"
         android:layout_width="match_parent"
-        android:layout_height="259dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="115dp">
+        android:layout_height="265dp"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout8"
+        app:layout_constraintTop_toBottomOf="@+id/btn_capture_photo"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +27,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
+                android:layout_height="150dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/info_icon"
                 tools:layout_editor_absoluteX="0dp"
@@ -34,7 +37,10 @@
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="30sp" />
+                android:layout_weight="1"
+                android:textSize="30sp"
+                tools:layout_editor_absoluteY="334dp" />
+
         </LinearLayout>
     </RelativeLayout>
 
@@ -46,11 +52,26 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <TextView
+        android:id="@+id/countDownTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:gravity="center|center_horizontal"
+        android:text="00:60"
+        android:textColor="@android:color/black"
+        android:textSize="40sp" />
+
     <RelativeLayout
-        android:layout_width="330dp"
-        android:layout_height="242dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="372dp">
+        android:id="@+id/relativeLayout8"
+        android:layout_width="230dp"
+        android:layout_height="187dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="77dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/infoBtn1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout9">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,25 +82,30 @@
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="36sp" />
+                android:background="@drawable/button_questions"
+                android:textAlignment="viewStart"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="36sp" />
+                android:background="@drawable/button_questions"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="36sp" />
+                android:background="@drawable/button_questions"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="36sp" />
+                android:background="@drawable/button_questions"
+                android:textSize="30sp" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -131,5 +157,16 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="325dp"
         tools:layout_editor_absoluteY="35dp" />
+
+    <Button
+        android:id="@+id/optionsBtn"
+        android:layout_width="38dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/cockwheelbtn"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

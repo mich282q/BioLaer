@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F2F2F2"
     tools:context=".HardHsActivity">
 
     <RelativeLayout
+        android:id="@+id/relativeLayout11"
         android:layout_width="195dp"
         android:layout_height="453dp"
-        tools:layout_editor_absoluteX="195dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/relativeLayout10"
         tools:layout_editor_absoluteY="115dp">
 
         <LinearLayout
@@ -33,9 +36,11 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/relativeLayout10"
         android:layout_width="195dp"
         android:layout_height="451dp"
-        tools:layout_editor_absoluteX="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/relativeLayout11"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="115dp">
 
         <LinearLayout
@@ -73,9 +78,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:text="Svær"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="22dp" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_capture_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>
