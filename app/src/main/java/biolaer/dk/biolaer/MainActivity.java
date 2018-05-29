@@ -66,12 +66,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /**Baggrundsmusikken
+
         MusicService mServ = new MusicService();
         Intent music = new Intent();
         music.setClass(this,MusicService.class);
         startService(music);
-         **/
+
 
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -147,5 +147,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
+
+
     }
+    @Override
+    public void onDestroy() {
+
+        super.onDestroy();
+
+        MusicService mServ = new MusicService();
+
+        Intent music = new Intent();
+        music.setClass(this,MusicService.class);
+        stopService(music);
+
+        mServ.onDestroy();
+
+
+    }
+
 }
+
