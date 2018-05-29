@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "435570718312-7s0lt83m8a7n3bb2ti49arnavj3admnp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "biolaer.dk.biolaer",
+            "certificate_hash": "001596756d01c1e510caf3e661322219521fe3fa"
+          }
+        },
+        {
+          "client_id": "435570718312-q1383t49urj8573ffuopjfaicb1ptc63.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "biolaer.dk.biolaer",
+            "certificate_hash": "d3905e2a6daab6ba346b3c4532a4a485237b08cf"
+          }
+        },
+        {
           "client_id": "435570718312-evvemhjka1ie52amtbqufkqshiepasap.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -29,6 +45,10 @@
             "package_name": "biolaer.dk.biolaer",
             "certificate_hash": "f2792ad903186b19da5324d3ee04ec1926bc2d13"
           }
+        },
+        {
+          "client_id": "435570718312-fk20e8ppttrt1te6mp35vt489nc2qnf4.apps.googleusercontent.com",
+          "client_type": 3
         },
         {
           "client_id": "435570718312-fk20e8ppttrt1te6mp35vt489nc2qnf4.apps.googleusercontent.com",
