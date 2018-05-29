@@ -23,7 +23,8 @@ import android.widget.Toast;
  * @version 1.0
  * @since Maj 2018
  *
- * Background music by: www.Bensound.com
+ * Background music obtained from: www.bensound.com
+ * Sound effects obtained from: www.zapsplat.com
  */
 public class MainActivity extends AppCompatActivity {
 
