@@ -1,6 +1,6 @@
 package biolaer.dk.biolaer;
 
-import android.annotation.SuppressLint;
+
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -9,7 +9,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.widget.Toast;
 
-@SuppressLint("Registered")
+
 public class MusicService extends Service  implements MediaPlayer.OnErrorListener{
 
     private final IBinder mBinder = new ServiceBinder();

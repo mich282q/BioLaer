@@ -32,10 +32,45 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private boolean mIsBound = false;
+    private MusicService mServ;
+    private ServiceConnection Scon =new ServiceConnection(){
+
+        public void onServiceConnected(ComponentName name, IBinder
+                binder) {
+            mServ = ((MusicService.ServiceBinder)binder).getService();
+        }
+
+        public void onServiceDisconnected(ComponentName name) {
+            mServ = null;
+        }
+    };
+
+    void doBindService(){
+        bindService(new Intent(this,MusicService.class),
+                Scon, Context.BIND_AUTO_CREATE);
+        mIsBound = true;
+    }
+
+    void doUnbindService()
+    {
+        if(mIsBound)
+        {
+            unbindService(Scon);
+            mIsBound = false;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MusicService mServ = new MusicService();
+        Intent music = new Intent();
+        music.setClass(this,MusicService.class);
+        startService(music);
+
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -54,10 +89,7 @@ public class MainActivity extends AppCompatActivity {
         //Sætter adapteren til spinneren
         categorySpin.setAdapter(adapter);
 
-        MusicService mServ = new MusicService();
-        Intent music = new Intent();
-        music.setClass(this,MusicService.class);
-        startService(music);
+
 
         //Metode som vælger ud fra spinnerens valg
         categorySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -107,34 +139,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private boolean mIsBound = false;
-    private MusicService mServ;
-    private ServiceConnection Scon =new ServiceConnection(){
 
-        public void onServiceConnected(ComponentName name, IBinder
-                binder) {
-            mServ = ((MusicService.ServiceBinder)binder).getService();
-        }
-
-        public void onServiceDisconnected(ComponentName name) {
-            mServ = null;
-        }
-    };
-
-    void doBindService(){
-        bindService(new Intent(this,MusicService.class),
-                Scon, Context.BIND_AUTO_CREATE);
-        mIsBound = true;
-    }
-
-    void doUnbindService()
-    {
-        if(mIsBound)
-        {
-            unbindService(Scon);
-            mIsBound = false;
-        }
-    }
 
 }
 
