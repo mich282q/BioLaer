@@ -22,6 +22,8 @@ import android.widget.Toast;
  * @author Daniel, Mathias, Michael, Sebastian og Thomas.
  * @version 1.0
  * @since Maj 2018
+ *
+ * Background music by: www.Bensound.com
  */
 public class MainActivity extends AppCompatActivity {
 
