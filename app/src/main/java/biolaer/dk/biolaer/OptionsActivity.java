@@ -1,5 +1,6 @@
 package biolaer.dk.biolaer;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,14 +13,24 @@ public class OptionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options);
 
+        Button menuBtn = (Button) findViewById(R.id.menuBtn);
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
 
         //Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(mainActivity);
+            }
+        });//Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 OptionsActivity.super.onBackPressed();
             }
         });
+
+
     }
 }
