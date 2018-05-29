@@ -1,7 +1,6 @@
 package biolaer.dk.biolaer;
 
 import android.content.pm.ActivityInfo;
-import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,11 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -41,12 +40,16 @@ public class EasyHsActivity extends AppCompatActivity {
         DatabaseReference DBnavn_2 = DBnavn.child("highscore_easy");
         DatabaseReference DBnavn_3 = DBnavn_2.child("id1");
         DatabaseReference DBnavn_4 = DBnavn_3.child("navn");
+        DatabaseReference DBnavn_5 = DBnavn_3.child("point");
+
 
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
         scoreList_dynamic.setAdapter(arrayAdapter);
+
+      //  Query queryRef = DBnavn_3.orderByChild("point").limitToLast(100);
 
         DBnavn_4.addValueEventListener(new ValueEventListener() {
             @Override
@@ -55,7 +58,6 @@ public class EasyHsActivity extends AppCompatActivity {
                 String value = dataSnapshot.getValue(String.class);
                 listNavn.add(value);
                 arrayAdapter.notifyDataSetChanged();
-
             }
 
             @Override
@@ -64,38 +66,6 @@ public class EasyHsActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        mDatabase.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
-                String value = dataSnapshot.getValue(String.class);
-                listNavn.add(value);
-                arrayAdapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-*/
 
         //Metode som får returnBtn til at hoppe tilbage til aktiviteten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
@@ -104,9 +74,5 @@ public class EasyHsActivity extends AppCompatActivity {
                 EasyHsActivity.super.onBackPressed();
             }
         });
-
-
-
-
     }
 }
