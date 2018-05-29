@@ -39,7 +39,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        //Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
+        //Metode som får returnBtn til at hoppe tilbage til aktiviteten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -24,6 +24,7 @@
         <activity android:name=".EndActivity" />
         <activity android:name=".GameActivity" />
         <activity android:name=".LevelActivity"></activity>
+        <service android:name=".MusicService" android:enabled="true"></service>
     </application>
 
 </manifest>

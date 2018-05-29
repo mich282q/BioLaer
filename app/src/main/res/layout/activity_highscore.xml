@@ -4,112 +4,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2F2F2"
+    android:background="@drawable/greenbackground"
     tools:context=".HighscoreActivity">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="421dp"
-        android:layout_height="560dp"
-        android:src="@drawable/greenbackground"
-        tools:layout_editor_absoluteX="-33dp"
-        tools:layout_editor_absoluteY="-29dp" />
-
-    <ImageView
-        android:id="@+id/logoImg"
-        android:layout_width="227dp"
-        android:layout_height="237dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-
-        android:src="@drawable/logo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_marginTop="8dp" />
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:orientation="vertical"
-            android:weightSum="2">
-
-
-            <Button
-                android:id="@+id/easyBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/button_default"
-                android:text="Let" />
-
-            <Button
-                android:id="@+id/hardBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
-                android:background="@drawable/button_default"
-                android:text="Svær" />
-
-
-            <!-- android:background="@drawable/info_icon" skal skiftes til det rigtige icon -->
-
-        </LinearLayout>
-    </RelativeLayout>
-
-    <Button
-        android:id="@+id/infoBtn"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="3dp"
-        android:background="@drawable/info_icon"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout2"
-        app:layout_constraintVertical_bias="0.143" />
-
-    <Button
-        android:id="@+id/returnBtn"
-        android:layout_width="74dp"
-        android:layout_height="79dp"
-        android:layout_marginBottom="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@drawable/returnbutton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/optionsBtn"
         android:layout_width="38dp"
         android:layout_height="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/cockwheelbtn"
-        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logoImg"
+        android:layout_width="253dp"
+        android:layout_height="256dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="BioLaer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/easyBtn"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/button_default"
+        android:text="Let"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImg" />
+
+    <Button
+        android:id="@+id/hardBtn"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/button_default"
+        android:text="Svær"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/easyBtn" />
+
+    <Button
+        android:id="@+id/infoBtn"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/info_icon"
+        android:contentDescription="InfoButton"
+        app:layout_constraintBottom_toTopOf="@+id/easyBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/returnBtn"
+        android:layout_width="74dp"
+        android:layout_height="79dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/returnbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hardBtn" />
 
 </android.support.constraint.ConstraintLayout>

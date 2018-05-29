@@ -32,81 +32,6 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        // Tvinger activityen til at være i Portrait orientation mode.
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        final Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
-        final Spinner categorySpin = (Spinner) findViewById(R.id.categorySpinner);
-        Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
-
-        /**Opretter en ArrayApadter med brug af string array og knytter spinner_array på som er
-         lavet i xml-filen under values. */
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.spinners_array, android.R.layout.simple_spinner_item);
-
-        //Bare udseende, så det bliver lidt mere lækkert når man klikker på spinneren.
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        //Sætter adapteren til spinneren
-        categorySpin.setAdapter(adapter);
-
-        MusicService mServ = new MusicService();
-        Intent music = new Intent();
-        music.setClass(this,MusicService.class);
-        startService(music);
-
-        //Metode som vælger ud fra spinnerens valg
-        categorySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0://Her har vi ELISA
-                        //Metode som får confirmBtn til at udføre en ordre
-                        confirmBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                //Intent som hopper videre til GameActivity
-                                Intent gameActivity = new Intent(getApplicationContext(), GameActivity.class);
-                                startActivity(gameActivity);
-                            }
-                        });
-
-                        break;
-                    case 1: //Midlertidig "Test"
-                        //Metode som får confirmBtn til at udføre en ordre
-                        confirmBtn.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                //Viser en lille besked på skærmen :)
-                                Toast.makeText(MainActivity.this, "Virker ikke :)", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                        break;
-                }
-            }
-
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //Metoden er nødvendig for at onItemSelectedListener kan virke
-                //Umiddelbart er det ikke nødvendigt at have noget her
-            }
-        });
-
-        optionsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
-                startActivity(optionsActivity);
-            }
-        });
-    }
-
     private boolean mIsBound = false;
     private MusicService mServ;
     private ServiceConnection Scon =new ServiceConnection(){
@@ -134,6 +59,111 @@ public class MainActivity extends AppCompatActivity {
             unbindService(Scon);
             mIsBound = false;
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        MusicService mServ = new MusicService();
+        Intent music = new Intent();
+        music.setClass(this,MusicService.class);
+        startService(music);
+
+
+        // Tvinger activityen til at være i Portrait orientation mode.
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        final Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
+        final Spinner categorySpin = (Spinner) findViewById(R.id.categorySpinner);
+        Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
+
+        /**Opretter en ArrayApadter med brug af string array og knytter spinner_array på som er
+         lavet i xml-filen under values. */
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.spinners_array, android.R.layout.simple_spinner_item);
+
+        //Bare udseende, så det bliver lidt mere lækkert når man klikker på spinneren.
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        //Sætter adapteren til spinneren
+        categorySpin.setAdapter(adapter);
+
+        //Metode som vælger ud fra spinnerens valg
+        categorySpin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0://Her har vi ELISA
+                        //Metode som får confirmBtn til at udføre en ordre
+                        confirmBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //Intent som hopper videre til GameActivity
+                                Intent gameActivity = new Intent(getApplicationContext(), GameActivity.class);
+                                startActivity(gameActivity);
+                            }
+                        });
+                        break;
+
+                    case 1: //Midlertidig "Test"
+                        //Metode som får confirmBtn til at udføre en ordre
+                        confirmBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //Viser en lille besked på skærmen :)
+                                Toast.makeText(MainActivity.this, "Under udvikling.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        break;
+
+                    case 2: //Midlertidig "Test"
+                        //Metode som får confirmBtn til at udføre en ordre
+                        confirmBtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //Viser en lille besked på skærmen :)
+                                Toast.makeText(MainActivity.this, "Under udvikling.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                //Metoden er nødvendig for at onItemSelectedListener kan virke
+                //Umiddelbart er det ikke nødvendigt at have noget her
+            }
+        });
+
+        optionsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
+                startActivity(optionsActivity);
+            }
+        });
+
+
+    }
+    @Override
+    public void onDestroy() {
+
+        super.onDestroy();
+
+        MusicService mServ = new MusicService();
+
+        Intent music = new Intent();
+        music.setClass(this,MusicService.class);
+        stopService(music);
+
+        mServ.onDestroy();
+
+
     }
 
 }

@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="265dp"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout8"
-        app:layout_constraintTop_toBottomOf="@+id/btn_capture_photo"
+        app:layout_constraintTop_toBottomOf="@+id/greenRectangle_imageView"
         tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
@@ -45,7 +45,7 @@
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/btn_capture_photo"
+        android:id="@+id/greenRectangle_imageView"
         android:layout_width="match_parent"
         android:layout_height="115dp"
         android:src="@drawable/game_rectangle"

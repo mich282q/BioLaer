@@ -2,6 +2,7 @@
 <resources>
     <string-array name="spinners_array">
         <item>ELISA</item>
-        <item>Test</item>
+        <item>DNA</item>
+        <item>ANATOMI</item>
     </string-array>
 </resources>
