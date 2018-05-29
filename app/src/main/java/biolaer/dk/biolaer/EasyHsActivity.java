@@ -95,7 +95,7 @@ public class EasyHsActivity extends AppCompatActivity {
 
             }
         });
-
+*/
 
         //Metode som får returnBtn til at hoppe tilbage til aktiviteten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +104,7 @@ public class EasyHsActivity extends AppCompatActivity {
                 EasyHsActivity.super.onBackPressed();
             }
         });
-        */
+
 
 
 
