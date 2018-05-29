@@ -21,7 +21,8 @@
         android:layout_height="144dp"
         android:layout_marginBottom="2dp"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout5"
-        app:layout_constraintTop_toBottomOf="@+id/btn_capture_photo">
+        app:layout_constraintTop_toBottomOf="@+id/btn_capture_photo"
+        tools:layout_editor_absoluteX="59dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,12 +38,6 @@
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/menuBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/home" />
-
         </LinearLayout>
     </RelativeLayout>
 
@@ -53,6 +48,19 @@
         android:text="Point"
         tools:layout_editor_absoluteX="325dp"
         tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/menuBtn"
+        android:layout_width="53dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="52dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@mipmap/home"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/relativeLayout4" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout5"
@@ -110,6 +118,7 @@
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="308dp"
         tools:layout_editor_absoluteY="35dp" />
+
     <Button
         android:id="@+id/returnBtn"
         android:layout_width="74dp"
