@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class HardHsActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
-    private ListView scoreList_dynamic;
+    private ListView nameList_dynamic;
     private ArrayList<String> listNavn = new ArrayList<>();
 
     @Override
@@ -40,11 +40,11 @@ public class HardHsActivity extends AppCompatActivity {
         DatabaseReference DBnavn_4 = DBnavn_3.child("navn");
         DatabaseReference DBnavn_5 = DBnavn_3.child("point");
 
-        scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
+        nameList_dynamic = (ListView) findViewById(R.id.nameList_dynamic);
 
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
-        scoreList_dynamic.setAdapter(arrayAdapter);
+        nameList_dynamic.setAdapter(arrayAdapter);
 
         Query queryRef = DBnavn_2.orderByChild("point").limitToFirst(100);
 
@@ -55,6 +55,7 @@ public class HardHsActivity extends AppCompatActivity {
                 String navn = (String) dataSnapshot.child("navn").getValue()+ "\n"+
                         (String) dataSnapshot.child("point").getValue();
                 listNavn.add(navn);
+                //listNavn.add(point);
                 arrayAdapter.notifyDataSetChanged();
             }
 

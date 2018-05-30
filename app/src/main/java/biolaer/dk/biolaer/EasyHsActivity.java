@@ -52,7 +52,7 @@ public class EasyHsActivity extends AppCompatActivity {
 
         Query queryRef = DBnavn_2.orderByChild("point").limitToFirst(100);
 
-        queryRef.addChildEventListener(new ChildEventListener() {
+       queryRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
