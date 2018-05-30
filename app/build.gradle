@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 27
+ compileSdkVersion(27)
     defaultConfig {
         applicationId "biolaer.dk.biolaer"
         minSdkVersion 24
@@ -9,7 +9,6 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        buildToolsVersion '27.0.3'
     }
     buildTypes {
         release {
@@ -17,7 +16,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    buildToolsVersion '27.0.3'
+
 }
 
 dependencies {
