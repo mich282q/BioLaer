@@ -60,8 +60,8 @@
 
     <Button
         android:id="@+id/returnBtn"
-        android:layout_width="74dp"
-        android:layout_height="79dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
