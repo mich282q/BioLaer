@@ -38,6 +38,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="70dp"
         android:background="@drawable/button_default"
+        android:contentDescription="Let"
         android:text="Let"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +52,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/button_default"
+        android:contentDescription="Svær"
         android:text="Svær"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,8 +60,8 @@
 
     <Button
         android:id="@+id/infoBtn"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
