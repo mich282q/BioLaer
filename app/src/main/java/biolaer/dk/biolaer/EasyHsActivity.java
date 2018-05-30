@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -41,8 +42,6 @@ public class EasyHsActivity extends AppCompatActivity {
         DatabaseReference DBnavn_3 = DBnavn_2.child("id1");
         DatabaseReference DBnavn_4 = DBnavn_3.child("navn");
         DatabaseReference DBnavn_5 = DBnavn_3.child("point");
-       // DatabaseReference test1 = mDatabase.child("highscore").child("highscore_easy").child("id1");
-        //mRef = FirebaseDatabase.getInstance().getReference("https://biol-33292.firebaseio.com/highscore/highscore_easy");
 
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
@@ -50,22 +49,18 @@ public class EasyHsActivity extends AppCompatActivity {
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
         scoreList_dynamic.setAdapter(arrayAdapter);
 
-      //  Query queryRef = DBnavn_3.orderByChild("point").limitToLast(100);
+        Query queryRef = DBnavn_2.orderByChild("point").limitToFirst(100);
 
-        DBnavn_2.addChildEventListener(new ChildEventListener() {
+        queryRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-               // for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-
-                    // String value = dataSnapshot.getValue(String.class);
-                    //   listNavn.add(value);
-                    String navn = (String) dataSnapshot.child("navn").getValue();
-                    String point = (String) dataSnapshot.child("point").getValue();
+                    String navn = (String) dataSnapshot.child("navn").getValue()+ "\t\t\t\t\t\t\t\t"+
+                            (String) dataSnapshot.child("point").getValue();
+                    //String point = (String) dataSnapshot.child("point").getValue();
                     listNavn.add(navn);
-                    listNavn.add(point);
+                    //listNavn.add(point);
                     arrayAdapter.notifyDataSetChanged();
-            //}
             }
 
             @Override
@@ -88,27 +83,6 @@ public class EasyHsActivity extends AppCompatActivity {
 
             }
         });
-/*
-        DBnavn_2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
-
-                   // String value = dataSnapshot.getValue(String.class);
-                     //   listNavn.add(value);
-                    String navn = (String) childSnapshot.child("navn").getValue();
-                    String point = (String) childSnapshot.child("point").getValue();
-                    listNavn.add(navn);
-                    listNavn.add(point);
-                    arrayAdapter.notifyDataSetChanged();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-*/
 
         //Metode som får returnBtn til at hoppe tilbage til aktiviteten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
