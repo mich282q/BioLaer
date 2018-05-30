@@ -7,6 +7,16 @@
     android:background="#F2F2F2"
     tools:context=".EndActivity">
 
+    <Button
+        android:id="@+id/optionsBtn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cockwheelbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/endTxt"
         android:layout_width="wrap_content"
@@ -113,6 +123,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/button_default"
         android:text="Indsend navn"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"

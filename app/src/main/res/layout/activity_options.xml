@@ -7,6 +7,16 @@
     android:background="#F2F2F2"
     tools:context=".OptionsActivity">
 
+    <Button
+        android:id="@+id/optionsBtn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/cockwheelbtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/greenRectangle_imageView"
         android:layout_width="0dp"
@@ -30,20 +40,38 @@
         app:layout_constraintTop_toBottomOf="@+id/greenRectangle_imageView" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/pointTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:text="Point"
+        android:textAlignment="textEnd"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintHorizontal_bias="0.94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.015" />
+
+    <TextView
+        android:id="@+id/actualPoint_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:text="0"
+        android:textAlignment="textEnd"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/greenRectangle_imageView"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="@+id/greenRectangle_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/pointTxt" />
 
     <Button
         android:id="@+id/menuBtn"
