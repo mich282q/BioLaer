@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -51,6 +52,43 @@ public class EasyHsActivity extends AppCompatActivity {
 
       //  Query queryRef = DBnavn_3.orderByChild("point").limitToLast(100);
 
+        DBnavn_2.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+               // for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+
+                    // String value = dataSnapshot.getValue(String.class);
+                    //   listNavn.add(value);
+                    String navn = (String) dataSnapshot.child("navn").getValue();
+                    String point = (String) dataSnapshot.child("point").getValue();
+                    listNavn.add(navn);
+                    listNavn.add(point);
+                    arrayAdapter.notifyDataSetChanged();
+            //}
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+/*
         DBnavn_2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -70,7 +108,7 @@ public class EasyHsActivity extends AppCompatActivity {
 
             }
         });
-
+*/
 
         //Metode som får returnBtn til at hoppe tilbage til aktiviteten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
