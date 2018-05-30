@@ -18,6 +18,7 @@ public class QuestionsActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
+        Button debugBtn = (Button) findViewById(R.id.debugBtn); //Kun til debug
 
         /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
         når brugeren klikker på cockwheel-ikonet i hjørnet **/
@@ -30,5 +31,15 @@ public class QuestionsActivity extends AppCompatActivity {
             }
         });
 
+        /** Når der klikkes på "Debug" går den automatisk til "EndActivity".
+         * DETTE ER KUN TIL DEBUG! Kan fjernes senere i processen. */
+        debugBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent debug = new Intent(getApplicationContext(), EndActivity.class);
+                startActivity(debug);
+            }
+        });
     }
 }

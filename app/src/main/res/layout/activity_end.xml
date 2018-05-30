@@ -130,4 +130,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/insertNameTxt" />
 
+    <Button
+        android:id="@+id/debugBtn"
+        android:layout_width="58dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="8dp"
+        android:text="Debug"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="176dp" />
+
 </android.support.constraint.ConstraintLayout>

@@ -26,19 +26,18 @@ public class LevelActivity extends AppCompatActivity {
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (easyBtn.getText()=="Let"){
-                easyBtn.setText("Direkte ELISA");
-                hardBtn.setText("Indirekte Sandwich ELISA");}
-                else{
+                if (easyBtn.getText()=="Let") {
+                    easyBtn.setText("Direkte ELISA");
+                    hardBtn.setText("Indirekte Sandwich ELISA");
+                }
+                else {
                     easyBtn.setText("Let");
                     hardBtn.setText("Svær");
                 }
             }
-
         });
 
-
-        //Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
+        //Metode som får returnBtn til at hoppe tilbage activiteten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +53,18 @@ public class LevelActivity extends AppCompatActivity {
 
                 Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
                 startActivity(optionsActivity);
+            }
+        });
+
+        /** Når der klikkes på "Let" går den til QuestionsActivity.
+         * Hvis spillet skal udvides, så der kommer Svær-niveau, skal dette som systemet er
+         * konstrueret lige nu, linke til en anden activity. */
+        easyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent easyActivity = new Intent(getApplicationContext(), QuestionsActivity.class);
+                startActivity(easyActivity);
             }
         });
     }
