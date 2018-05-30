@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         music.setClass(this,MusicService.class);
         startService(music);
 
-
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -139,6 +138,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
+         når brugeren klikker på cockwheel-ikonet i hjørnet **/
         optionsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,9 +148,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
-
-
     }
+
     @Override
     public void onDestroy() {
 

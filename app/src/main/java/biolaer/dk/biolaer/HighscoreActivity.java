@@ -63,6 +63,8 @@ public class HighscoreActivity extends AppCompatActivity {
             }
         });
 
+        /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
+         når brugeren klikker på cockwheel-ikonet i hjørnet **/
         optionsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

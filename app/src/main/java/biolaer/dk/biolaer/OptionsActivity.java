@@ -12,10 +12,8 @@ import android.widget.SeekBar;
 
 public class OptionsActivity extends AppCompatActivity {
 
-
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +42,6 @@ public class OptionsActivity extends AppCompatActivity {
                 OptionsActivity.super.onBackPressed();
             }
         });
-
 
     }
 

@@ -21,7 +21,7 @@ public class GameActivity extends AppCompatActivity {
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
-        //Metode til startBtn som får knappen til at springe videre til LevelActivity
+        //Metode til startBtn som får knappen til at springe videre til LevelActivity.
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +30,7 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        //Metode til startBtn som får knappen til at springe videre til HighscoreActivity
+        //Metode til startBtn som får knappen til at springe videre til HighscoreActivity.
         highscoreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +47,8 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
+        /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
+         når brugeren klikker på cockwheel-ikonet i hjørnet **/
         optionsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

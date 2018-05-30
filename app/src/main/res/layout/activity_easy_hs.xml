@@ -34,7 +34,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:text="Let"
-        android:textSize="36sp"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
