@@ -14,6 +14,7 @@ public class QuestionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
         Timer timer = new Timer();
+
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -21,7 +22,7 @@ public class QuestionsActivity extends AppCompatActivity {
         Button debugBtn = (Button) findViewById(R.id.debugBtn); //Kun til debug
 
         /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
-        når brugeren klikker på cockwheel-ikonet i hjørnet **/
+        når brugeren klikker på cockwheel-ikonet i hjørnet */
         optionsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
