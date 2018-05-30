@@ -1,5 +1,6 @@
 package biolaer.dk.biolaer;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -33,7 +34,7 @@ public class EasyHsActivity extends AppCompatActivity {
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
-
+        Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         DatabaseReference DBnavn = mDatabase.child("highscore");
@@ -109,6 +110,17 @@ public class EasyHsActivity extends AppCompatActivity {
             }
         });
 */
+
+        /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
+         når brugeren klikker på cockwheel-ikonet i hjørnet **/
+        optionsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
+                startActivity(optionsActivity);
+            }
+        });
 
         //Metode som får returnBtn til at hoppe tilbage til aktiviteten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
