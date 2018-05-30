@@ -13,7 +13,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -41,7 +40,8 @@ public class EasyHsActivity extends AppCompatActivity {
         DatabaseReference DBnavn_3 = DBnavn_2.child("id1");
         DatabaseReference DBnavn_4 = DBnavn_3.child("navn");
         DatabaseReference DBnavn_5 = DBnavn_3.child("point");
-
+       // DatabaseReference test1 = mDatabase.child("highscore").child("highscore_easy").child("id1");
+        //mRef = FirebaseDatabase.getInstance().getReference("https://biol-33292.firebaseio.com/highscore/highscore_easy");
 
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
@@ -51,15 +51,20 @@ public class EasyHsActivity extends AppCompatActivity {
 
       //  Query queryRef = DBnavn_3.orderByChild("point").limitToLast(100);
 
-        DBnavn_4.addValueEventListener(new ValueEventListener() {
+        DBnavn_2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
 
-                String value = dataSnapshot.getValue(String.class);
-                listNavn.add(value);
-                arrayAdapter.notifyDataSetChanged();
+                   // String value = dataSnapshot.getValue(String.class);
+                     //   listNavn.add(value);
+                    String navn = (String) childSnapshot.child("navn").getValue();
+                    String point = (String) childSnapshot.child("point").getValue();
+                    listNavn.add(navn);
+                    listNavn.add(point);
+                    arrayAdapter.notifyDataSetChanged();
+                }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -74,5 +79,6 @@ public class EasyHsActivity extends AppCompatActivity {
                 EasyHsActivity.super.onBackPressed();
             }
         });
+
     }
 }
