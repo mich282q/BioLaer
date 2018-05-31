@@ -2,6 +2,7 @@ package biolaer.dk.biolaer;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,15 +39,14 @@ public class EasyHsActivity extends AppCompatActivity {
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         DatabaseReference dbnavn = mDatabase.child("highscore");
-        DatabaseReference dbnavn_2 = dbnavn.child("highscore_easy");
-        DatabaseReference dbnavn_3 = dbnavn_2.child("id1");
-        DatabaseReference dbnavn_4 = dbnavn_3.child("navn");
-        DatabaseReference dbnavn_5 = dbnavn_3.child("point");
+        final DatabaseReference dbnavn_2 = dbnavn.child("highscore_easy");
+
 
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
@@ -56,8 +57,9 @@ public class EasyHsActivity extends AppCompatActivity {
 
 
 
+        final Query queryRef = dbnavn_2.orderByChild("point");
 
-        Query queryRef = dbnavn_2.orderByChild("point");
+
 
 
         queryRef.addChildEventListener(new ChildEventListener() {
@@ -69,26 +71,24 @@ public class EasyHsActivity extends AppCompatActivity {
                     listNavn.add(navn);
 
 
-
-
-
                 arrayAdapter.notifyDataSetChanged();
-
-
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Collections.reverse(listNavn);
 
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
 
+
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
 
             }
 
@@ -97,6 +97,26 @@ public class EasyHsActivity extends AppCompatActivity {
 
             }
         });
+
+        queryRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Collections.reverse(listNavn);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+
+
+
+
+
 
         /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
          når brugeren klikker på cockwheel-ikonet i hjørnet **/
