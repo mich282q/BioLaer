@@ -17,13 +17,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class EasyHsActivity extends AppCompatActivity {
 
     private DatabaseReference mDatabase;
     private ListView scoreList_dynamic;
     private ArrayList<String> listNavn = new ArrayList<>();
-    private ArrayList<Integer> listPoint = new ArrayList<>();
 
 
 
@@ -47,29 +48,31 @@ public class EasyHsActivity extends AppCompatActivity {
         DatabaseReference dbnavn_5 = dbnavn_3.child("point");
 
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
-        //pointList_dynamic = (ListView) findViewById(R.id.pointList_dynamic);
 
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
         scoreList_dynamic.setAdapter(arrayAdapter);
-        final ArrayAdapter<Integer> arrayAdapter1 = new ArrayAdapter<Integer>(this, android.R.layout.simple_list_item_1, listPoint);
-        scoreList_dynamic.setAdapter(arrayAdapter1);
 
 
-        Query queryRef = dbnavn_2.orderByChild("point").limitToLast(100);
+
+
+
+        Query queryRef = dbnavn_2.orderByChild("point");
+
 
         queryRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                    String navn = (String) dataSnapshot.child("navn").getValue()+ "\n";
-                            Integer point = (Integer) dataSnapshot.child("point").getValue();
-                    //String point = (String) dataSnapshot.child("point").getValue();
+                    String navn = (String) dataSnapshot.child("navn").getValue()+ "\n"+
+                            dataSnapshot.child("point").getValue();
                     listNavn.add(navn);
-                    listPoint.add(point);
-                    //listNavn.add(point);
+
+
+
+
+
                 arrayAdapter.notifyDataSetChanged();
-                arrayAdapter1.notifyDataSetChanged();
 
 
             }
@@ -113,6 +116,5 @@ public class EasyHsActivity extends AppCompatActivity {
                 EasyHsActivity.super.onBackPressed();
             }
         });
-
     }
 }
