@@ -2,7 +2,6 @@ package biolaer.dk.biolaer;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +15,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -25,6 +23,10 @@ public class EasyHsActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private ListView scoreList_dynamic;
     private ArrayList<String> listNavn = new ArrayList<>();
+    private ArrayList<Integer> listPoint = new ArrayList<>();
+
+
+
 
 
     @Override
@@ -38,30 +40,38 @@ public class EasyHsActivity extends AppCompatActivity {
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference DBnavn = mDatabase.child("highscore");
-        DatabaseReference DBnavn_2 = DBnavn.child("highscore_easy");
-        DatabaseReference DBnavn_3 = DBnavn_2.child("id1");
-        DatabaseReference DBnavn_4 = DBnavn_3.child("navn");
-        DatabaseReference DBnavn_5 = DBnavn_3.child("point");
+        DatabaseReference dbnavn = mDatabase.child("highscore");
+        DatabaseReference dbnavn_2 = dbnavn.child("highscore_easy");
+        DatabaseReference dbnavn_3 = dbnavn_2.child("id1");
+        DatabaseReference dbnavn_4 = dbnavn_3.child("navn");
+        DatabaseReference dbnavn_5 = dbnavn_3.child("point");
 
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
+        //pointList_dynamic = (ListView) findViewById(R.id.pointList_dynamic);
 
 
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
         scoreList_dynamic.setAdapter(arrayAdapter);
+        final ArrayAdapter<Integer> arrayAdapter1 = new ArrayAdapter<Integer>(this, android.R.layout.simple_list_item_1, listPoint);
+        scoreList_dynamic.setAdapter(arrayAdapter1);
 
-        Query queryRef = DBnavn_2.orderByChild("point").limitToFirst(100);
 
-       queryRef.addChildEventListener(new ChildEventListener() {
+        Query queryRef = dbnavn_2.orderByChild("point").limitToLast(100);
+
+        queryRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                    String navn = (String) dataSnapshot.child("navn").getValue()+ "\n"+
-                            (String) dataSnapshot.child("point").getValue();
+                    String navn = (String) dataSnapshot.child("navn").getValue()+ "\n";
+                            Integer point = (Integer) dataSnapshot.child("point").getValue();
                     //String point = (String) dataSnapshot.child("point").getValue();
                     listNavn.add(navn);
+                    listPoint.add(point);
                     //listNavn.add(point);
-                    arrayAdapter.notifyDataSetChanged();
+                arrayAdapter.notifyDataSetChanged();
+                arrayAdapter1.notifyDataSetChanged();
+
+
             }
 
             @Override
