@@ -39,7 +39,7 @@
         android:layout_marginTop="70dp"
         android:background="@drawable/button_default"
         android:contentDescription="Let"
-        android:text="Let"
+        android:text="@string/Let"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoImg" />
@@ -53,7 +53,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/button_default"
         android:contentDescription="Svær"
-        android:text="Svær"
+        android:text="@string/Svær"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/easyBtn" />
