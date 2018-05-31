@@ -34,7 +34,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="30dp"
         android:contentDescription="Let"
-        android:text="Let"
+        android:text="@string/Let"
         android:textColor="#FFF"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
