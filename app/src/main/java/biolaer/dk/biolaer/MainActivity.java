@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean mIsBound = false;
     private MusicService mServ;
-    private ServiceConnection Scon =new ServiceConnection(){
+    private ServiceConnection Scon = new ServiceConnection() {
 
         public void onServiceConnected(ComponentName name, IBinder
                 binder) {
-            mServ = ((MusicService.ServiceBinder)binder).getService();
+            mServ = ((MusicService.ServiceBinder) binder).getService();
         }
 
         public void onServiceDisconnected(ComponentName name) {
@@ -46,16 +46,14 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    void doBindService(){
-        bindService(new Intent(this,MusicService.class),
+    void doBindService() {
+        bindService(new Intent(this, MusicService.class),
                 Scon, Context.BIND_AUTO_CREATE);
         mIsBound = true;
     }
 
-    void doUnbindService()
-    {
-        if(mIsBound)
-        {
+    void doUnbindService() {
+        if (mIsBound) {
             unbindService(Scon);
             mIsBound = false;
         }
@@ -69,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
         MusicService mServ = new MusicService();
         Intent music = new Intent();
-        music.setClass(this,MusicService.class);
+        music.setClass(this, MusicService.class);
         startService(music);
 
         // Tvinger activityen til at være i Portrait orientation mode.
@@ -156,15 +154,12 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
 
         MusicService mServ = new MusicService();
-
-        Intent music = new Intent();
-        music.setClass(this,MusicService.class);
-        stopService(music);
-
+        stopService(new Intent (this, MusicService.class));
         mServ.onDestroy();
-
-
     }
 
 }
+
+
+
 
