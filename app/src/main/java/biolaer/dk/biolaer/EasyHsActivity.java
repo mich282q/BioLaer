@@ -15,6 +15,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -42,10 +43,12 @@ public class EasyHsActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         DatabaseReference dbnavn = mDatabase.child("highscore");
-        DatabaseReference dbnavn_2 = dbnavn.child("highscore_easy");
-        DatabaseReference dbnavn_3 = dbnavn_2.child("id1");
-        DatabaseReference dbnavn_4 = dbnavn_3.child("navn");
-        DatabaseReference dbnavn_5 = dbnavn_3.child("point");
+       final DatabaseReference dbnavn_2 = dbnavn.child("highscore_easy");
+        //DatabaseReference dbnavn_3 = dbnavn_2.child("id1");
+       // DatabaseReference dbnavn_4 = dbnavn_3.child("navn");
+       // DatabaseReference dbnavn_5 = dbnavn_3.child("point");
+
+
 
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
@@ -57,7 +60,7 @@ public class EasyHsActivity extends AppCompatActivity {
 
 
 
-        Query queryRef = dbnavn_2.orderByChild("point");
+        final Query queryRef = dbnavn_2.orderByChild("point");
 
 
         queryRef.addChildEventListener(new ChildEventListener() {
@@ -75,11 +78,13 @@ public class EasyHsActivity extends AppCompatActivity {
                 arrayAdapter.notifyDataSetChanged();
 
 
+
+
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
+                Collections.reverse(listNavn);
             }
 
             @Override
@@ -90,6 +95,18 @@ public class EasyHsActivity extends AppCompatActivity {
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        queryRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Collections.reverse(listNavn);
             }
 
             @Override
