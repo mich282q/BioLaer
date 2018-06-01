@@ -15,8 +15,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class HardHsActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
@@ -46,31 +48,38 @@ public class HardHsActivity extends AppCompatActivity {
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
         scoreList_dynamic.setAdapter(arrayAdapter);
 
-        Query queryRef = dbnavn_2.orderByChild("point");
+        final Query queryRef = dbnavn_2.orderByChild("point");
+
+
+
 
         queryRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                 String navn = (String) dataSnapshot.child("navn").getValue()+ "\n"+
-                        (String) dataSnapshot.child("point").getValue();
+                        dataSnapshot.child("point").getValue();
                 listNavn.add(navn);
-                //listNavn.add(point);
+
+
                 arrayAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                Collections.reverse(listNavn);
 
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
 
+
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
 
             }
 
@@ -79,6 +88,19 @@ public class HardHsActivity extends AppCompatActivity {
 
             }
         });
+
+        queryRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Collections.reverse(listNavn);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
 
 

@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+
 public class QuestionsActivity extends AppCompatActivity {
 
     @Override
@@ -30,5 +33,10 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
+
+        Question q = new Question();
+
+        q.setmDatabaseEasyQ();
+
     }
 }
