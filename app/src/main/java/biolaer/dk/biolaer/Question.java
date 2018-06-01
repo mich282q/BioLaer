@@ -24,6 +24,7 @@ public class Question {
         this.mDatabase = mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
                 .child("questions_hard").child("questions_all");
+
     }
 
     public void setmDatabaseHardAnswers(DatabaseReference mDatabase) {
@@ -31,5 +32,8 @@ public class Question {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
                 .child("questions_hard").child("questions_answers");
     }
+
+
+
 
 }

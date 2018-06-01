@@ -18,6 +18,19 @@ public class QuestionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_questions);
          Timer timer = new Timer();
 
+
+
+
+
+
+
+
+
+
+
+
+
+
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
@@ -33,8 +46,5 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
-
-
-
     }
 }

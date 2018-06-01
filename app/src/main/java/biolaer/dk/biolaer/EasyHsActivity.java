@@ -51,7 +51,7 @@ public class EasyHsActivity extends AppCompatActivity {
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, listNavn);
         scoreList_dynamic.setAdapter(arrayAdapter);
 
 
