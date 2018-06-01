@@ -34,9 +34,7 @@ public class QuestionsActivity extends AppCompatActivity {
             }
         });
 
-        Question q = new Question();
 
-        q.setmDatabaseEasyQ();
 
     }
 }
