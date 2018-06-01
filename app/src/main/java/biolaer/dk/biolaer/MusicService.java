@@ -9,9 +9,12 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.widget.Toast;
 
-
+/** Denne klasse starter en service som er en længerevarende operation som afspiller musik
+ * i baggrunden på tværs af alle activities så længe at applikationen er åben.
+ */
 public class MusicService extends Service  implements MediaPlayer.OnErrorListener{
 
+    // Definerer interfacet som kommunikerer mellem service og client.
     private final IBinder mBinder = new ServiceBinder();
     MediaPlayer mPlayer;
     private int length = 0;
@@ -31,10 +34,12 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
     @Override
     public void onCreate (){
         super.onCreate();
-
+        // Peger på hvilken musik fil der skal afspilles. Findes i "raw" folder under "res"
         mPlayer = MediaPlayer.create(this, R.raw.baggroundmusic);
         mPlayer.setOnErrorListener(this);
 
+        // Sætter sangen til at loope, og at sangen bliver afspillet med fuld styrke, afhængig af
+        // brugerens egne lydindstillinger.
         if(mPlayer!= null)
         {
             mPlayer.setLooping(true);
@@ -75,9 +80,10 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
         }
     }
 
+    // I tilfælde af fejl, vises der en Toast på skærmen med en fejl besked.
     public boolean onError(MediaPlayer mp, int what, int extra) {
 
-        Toast.makeText(this, "music player failed", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "FEJL: Baggrundsmusik", Toast.LENGTH_SHORT).show();
         if(mPlayer != null)
         {
             try{
