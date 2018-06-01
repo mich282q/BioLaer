@@ -60,32 +60,6 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
         return START_STICKY;
     }
 
-    public void pauseMusic()
-    {
-        if(mPlayer.isPlaying())
-        {
-            mPlayer.pause();
-            length=mPlayer.getCurrentPosition();
-
-        }
-    }
-
-    public void resumeMusic()
-    {
-        if(mPlayer.isPlaying()== false);
-        {
-            mPlayer.seekTo(length);
-            mPlayer.start();
-        }
-    }
-
-    public void stopMusic()
-    {
-        mPlayer.stop();
-        mPlayer.release();
-        mPlayer = null;
-    }
-
     @Override
     public void onDestroy ()
     {
