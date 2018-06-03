@@ -11,7 +11,7 @@ public class Question {
     public void setmDatabaseEasyQ(DatabaseReference mDatabase) {
         this.mDatabase = mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
-                .child("questions_easy").child("questions_all");
+                .child("questions_easy").child("questions_all").child("q4");
     }
 
     public void setmDatabaseEasyAnswers(DatabaseReference mDatabase) {
