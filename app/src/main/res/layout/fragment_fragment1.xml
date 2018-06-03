@@ -41,6 +41,7 @@
         android:layout_marginStart="116dp"
         android:background="@drawable/button_default"
         android:text="Button"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/answerBtn2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -54,6 +55,7 @@
         android:layout_marginStart="116dp"
         android:background="@drawable/button_default"
         android:text="Button"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/answerBtn3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -67,6 +69,7 @@
         android:layout_marginStart="116dp"
         android:background="@drawable/button_default"
         android:text="Button"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -80,6 +83,7 @@
         android:layout_marginStart="116dp"
         android:background="@drawable/button_default"
         android:text="Button"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/answerBtn4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

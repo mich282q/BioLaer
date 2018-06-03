@@ -1,8 +1,6 @@
 package biolaer.dk.biolaer;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
+
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,6 +25,7 @@ import java.util.Random;
 
 
 public class Fragment1 extends Fragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,14 +55,12 @@ public class Fragment1 extends Fragment {
         final Button answerBtn2 = (Button) view.findViewById(R.id.answerBtn2);
         final Button answerBtn3 = (Button) view.findViewById(R.id.answerBtn3);
         final Button answerBtn4 = (Button) view.findViewById(R.id.answerBtn4);
-        Button infoBtn1 = (Button) view.findViewById(R.id.infoBtn1);
-        Button infoBtn2 = (Button) view.findViewById(R.id.infoBtn2);
-        Button infoBtn3 = (Button) view.findViewById(R.id.infoBtn3);
-        Button infoBtn4 = (Button) view.findViewById(R.id.infoBtn4);
+        final Button infoBtn1 = (Button) view.findViewById(R.id.infoBtn1);
+        final Button infoBtn2 = (Button) view.findViewById(R.id.infoBtn2);
+        final Button infoBtn3 = (Button) view.findViewById(R.id.infoBtn3);
+        final Button infoBtn4 = (Button) view.findViewById(R.id.infoBtn4);
         final TextView question_textView = (TextView) view.findViewById(R.id.question_textView);
         final ImageView question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
-
-
 
 
         if (randomQ == 1){
@@ -71,17 +70,39 @@ public class Fragment1 extends Fragment {
                 String question = (String) dataSnapshot.child("question").getValue();
                 question_textView.setText(question);
 
-                String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                String answer4 = (String) dataSnapshot.child("answer4").getValue();
+                final String answer1 = (String) dataSnapshot.child("answer1").getValue();
+                final String answer2 = (String) dataSnapshot.child("answer2").getValue();
+                final String answer3 = (String) dataSnapshot.child("answer3").getValue();
+                final String answer4 = (String) dataSnapshot.child("answer4").getValue();
 
                 answerBtn1.setText(answer1);
                 answerBtn2.setText(answer2);
                 answerBtn3.setText(answer3);
                 answerBtn4.setText(answer4);
 
-                question_imageView.setImageResource(R.drawable.spm1);
+                question_imageView.setImageResource(R.drawable.spm1); //SKAL ÆNDRES
+
+                infoBtn1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
+                    }
+                    });
+                infoBtn2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
+                });
+                infoBtn3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
+                });
+                infoBtn4.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
+                });
 
             }
 
@@ -97,17 +118,39 @@ public class Fragment1 extends Fragment {
                     String question = (String) dataSnapshot.child("question").getValue();
                     question_textView.setText(question);
 
-                    String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                    String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                    String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                    String answer4 = (String) dataSnapshot.child("answer4").getValue();
+                    final String answer1 = (String) dataSnapshot.child("answer1").getValue();
+                    final String answer2 = (String) dataSnapshot.child("answer2").getValue();
+                    final String answer3 = (String) dataSnapshot.child("answer3").getValue();
+                    final String answer4 = (String) dataSnapshot.child("answer4").getValue();
 
                     answerBtn1.setText(answer1);
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
 
-                    question_imageView.setImageResource(R.drawable.spm2);
+                    question_imageView.setImageResource(R.drawable.spm2); //SKAL ÆNDRES
+
+                    infoBtn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    infoBtn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
+                    });
+                    infoBtn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
+                    });
+                    infoBtn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
+                    });
                 }
 
                 @Override
@@ -124,15 +167,37 @@ public class Fragment1 extends Fragment {
                     String question = (String) dataSnapshot.child("question").getValue();
                     question_textView.setText(question);
 
-                    String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                    String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                    String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                    String answer4 = (String) dataSnapshot.child("answer4").getValue();
+                    final String answer1 = (String) dataSnapshot.child("answer1").getValue();
+                    final String answer2 = (String) dataSnapshot.child("answer2").getValue();
+                    final String answer3 = (String) dataSnapshot.child("answer3").getValue();
+                    final String answer4 = (String) dataSnapshot.child("answer4").getValue();
 
                     answerBtn1.setText(answer1);
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
+
+                    infoBtn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    infoBtn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
+                    });
+                    infoBtn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
+                    });
+                    infoBtn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
+                    });
                 }
 
                 @Override
@@ -149,15 +214,37 @@ public class Fragment1 extends Fragment {
                     String question = (String) dataSnapshot.child("question").getValue();
                     question_textView.setText(question);
 
-                    String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                    String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                    String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                    String answer4 = (String) dataSnapshot.child("answer4").getValue();
+                    final String answer1 = (String) dataSnapshot.child("answer1").getValue();
+                    final String answer2 = (String) dataSnapshot.child("answer2").getValue();
+                    final String answer3 = (String) dataSnapshot.child("answer3").getValue();
+                    final String answer4 = (String) dataSnapshot.child("answer4").getValue();
 
                     answerBtn1.setText(answer1);
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
+
+                    infoBtn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    infoBtn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
+                    });
+                    infoBtn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
+                    });
+                    infoBtn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
+                    });
                 }
 
                 @Override
@@ -174,15 +261,37 @@ public class Fragment1 extends Fragment {
                     String question = (String) dataSnapshot.child("question").getValue();
                     question_textView.setText(question);
 
-                    String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                    String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                    String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                    String answer4 = (String) dataSnapshot.child("answer4").getValue();
+                    final String answer1 = (String) dataSnapshot.child("answer1").getValue();
+                    final String answer2 = (String) dataSnapshot.child("answer2").getValue();
+                    final String answer3 = (String) dataSnapshot.child("answer3").getValue();
+                    final String answer4 = (String) dataSnapshot.child("answer4").getValue();
 
                     answerBtn1.setText(answer1);
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
+
+                    infoBtn1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    infoBtn2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
+                    });
+                    infoBtn3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
+                    });
+                    infoBtn4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
+                    });
                 }
 
                 @Override
