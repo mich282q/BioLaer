@@ -42,16 +42,6 @@ public class QuestionsActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
-
-
-
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
