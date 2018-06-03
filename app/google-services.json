@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "435570718312-e1ek2ioufq3kunm9iqlpevf4fquu23e8.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "biolaer.dk.biolaer",
-            "certificate_hash": "5ab52ecfecd047e6f0236b6cf5c9a3b61750b19c"
-          }
-        },
-        {
           "client_id": "435570718312-7s0lt83m8a7n3bb2ti49arnavj3admnp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
