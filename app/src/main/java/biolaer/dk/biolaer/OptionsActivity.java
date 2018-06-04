@@ -1,5 +1,6 @@
 package biolaer.dk.biolaer;
 
+//Nødvendige imports
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -10,11 +11,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 
+/**
+ * Denne klasse indeholder kildekoden til activitien vedr. indstillinger. Det er bl.a. her der
+ * kan skrues op og ned for lyden. Dog findes logikken til dette i MusicService-klassen.
+ */
 public class OptionsActivity extends AppCompatActivity {
 
+    //Variabler til lydindstillinger. Initialiseret til være være null.
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
 
+    //Overrider den default onCreate-metode
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,20 +29,23 @@ public class OptionsActivity extends AppCompatActivity {
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         initControls();
 
-        // Tvinger activityen til at være i Portrait orientation mode.
+        //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        //Forbinder variablerne med knapperne i xml-filen.
         Button menuBtn = (Button) findViewById(R.id.menuBtn);
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
 
-        //Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
+        //Metode som får returnBtn til at hoppe tilbage til activitien, som var før den nuværende.
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(mainActivity);
             }
-        });//Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
+        });
+
+        //Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +55,7 @@ public class OptionsActivity extends AppCompatActivity {
 
     }
 
+    //Metode der håndterer baggrundsmusikken med en try-catch-block.
     private void initControls() {
         try {
             volumeSeekbar = (SeekBar) findViewById(R.id.bgSeek);
@@ -53,7 +64,6 @@ public class OptionsActivity extends AppCompatActivity {
                     .getStreamMaxVolume(AudioManager.STREAM_MUSIC));
             volumeSeekbar.setProgress(audioManager
                     .getStreamVolume(AudioManager.STREAM_MUSIC));
-
 
             volumeSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
@@ -73,6 +83,5 @@ public class OptionsActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
