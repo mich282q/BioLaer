@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class EndActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +29,35 @@ public class EndActivity extends AppCompatActivity {
 
                 Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
                 startActivity(optionsActivity);
+
+
+
+
+
             }
         });
+
+        /*
+ // udkast til rankTxt.
+        TextView rankTxt = (TextView) findViewById(R.id.rankTxt);
+
+
+        public void getpoint(){
+            String rankTitle;
+
+            if (point < 200) {
+                rankTitle = "highschool";
+            }
+            else if (point < 300) {
+                rankTitle = "HF";
+            }
+            else if (point < 400) {
+                rankTitle = "HTX";
+            }
+            else if (point <500) {
+                rankTitle = "EASJ";
+            }
+        }
+        */
     }
 }
