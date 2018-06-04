@@ -1,5 +1,6 @@
 package biolaer.dk.biolaer;
 
+//Nødvendige imports
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
@@ -17,30 +18,33 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-
 /**
  * Denne klasse indeholder bl.a. onCreate-metoden, som starter vores MainActivity.
- * I MainActivity vælger man hvilken kategori indenfor biologiens verden man ønsker
- * der bliver 'quizzet' om.
+ * I MainActivity vælger man hvilken kategori indenfor biologiens verden man ønsker,
+ * der bliver 'quizzet' om. I den første udgave af BioLær App kan der kun vælges ELISA.
+ *
+ * Systemet er udviklet som en del af førsteårseksamen på datamatikerstudiet.
+ * Problemstiller og case-person: Marianne Skov, mask@easj.dk
  *
  * @author Daniel, Mathias, Michael, Sebastian og Thomas.
  * @version 1.0
  * @since Maj 2018
  *
+ * CREDITS:
  * Background music obtained from: www.bensound.com
  * Sound effects obtained from: www.zapsplat.com
  */
 public class MainActivity extends AppCompatActivity {
+    //En Android Activity extender enten Activity-klassen eller AppCompatActivity-klassen.
 
+    //Nødvendige variabler
     private boolean mIsBound = false;
     private MusicService mServ;
-    private ServiceConnection Scon = new ServiceConnection() {
 
-        public void onServiceConnected(ComponentName name, IBinder
-                binder) {
+    private ServiceConnection Scon = new ServiceConnection() {
+        public void onServiceConnected(ComponentName name, IBinder binder) {
             mServ = ((MusicService.ServiceBinder) binder).getService();
         }
-
         public void onServiceDisconnected(ComponentName name) {
             mServ = null;
         }
@@ -59,30 +63,32 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //Overrider den default onCreate-metoden med vores properties til Main Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+        //Vedr. baggrundsmusikken til app'en
         MusicService mServ = new MusicService();
         Intent music = new Intent();
         music.setClass(this, MusicService.class);
         startService(music);
 
-        // Tvinger activityen til at være i Portrait orientation mode.
+        // Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        //Fields der connecter til knapperne i xml-filen.
         final Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
         final Spinner categorySpin = (Spinner) findViewById(R.id.categorySpinner);
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
-        /**Opretter en ArrayApadter med brug af string array og knytter spinner_array på som er
-         lavet i xml-filen under values. */
+        /* Opretter en ArrayApadter med brug af string array og knytter spinner_array på,
+        som er lavet i xml-filen under values. */
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.spinners_array, android.R.layout.simple_spinner_item);
 
-        //Bare udseende, så det bliver lidt mere lækkert når man klikker på spinneren.
+        //Bare udseende, så det bliver lidt mere lækkert, når man klikker på spinneren.
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         //Sætter adapteren til spinneren
@@ -93,36 +99,36 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0://Her har vi ELISA
+                    case 0://Her har vi ELISA.
                         //Metode som får confirmBtn til at udføre en ordre
                         confirmBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                //Intent som hopper videre til GameActivity
+                                //Intent-objekt som hopper videre til GameActivity
                                 Intent gameActivity = new Intent(getApplicationContext(), GameActivity.class);
                                 startActivity(gameActivity);
                             }
                         });
                         break;
 
-                    case 1: //Midlertidig "Test"
+                    case 1: //Her har vi DNA.
                         //Metode som får confirmBtn til at udføre en ordre
                         confirmBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                //Viser en lille besked på skærmen :)
-                                Toast.makeText(MainActivity.this, "Under udvikling.", Toast.LENGTH_SHORT).show();
+                                //Viser en Toast på skærmen, da denne kategori endnu ikke er udviklet.
+                                Toast.makeText(MainActivity.this, "Under udvikling", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
 
-                    case 2: //Midlertidig "Test"
+                    case 2: //Her har vi ANATOMI.
                         //Metode som får confirmBtn til at udføre en ordre
                         confirmBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                //Viser en lille besked på skærmen :)
-                                Toast.makeText(MainActivity.this, "Under udvikling.", Toast.LENGTH_SHORT).show();
+                                //Viser en Toast på skærmen, da denne kategori endnu ikke er udviklet.
+                                Toast.makeText(MainActivity.this, "Under udvikling", Toast.LENGTH_SHORT).show();
                             }
                         });
                         break;
@@ -131,8 +137,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                //Metoden er nødvendig for at onItemSelectedListener kan virke
-                //Umiddelbart er det ikke nødvendigt at have noget her
+                //Metoden er nødvendig for at onItemSelectedListener kan virke.
+                //Umiddelbart er det ikke nødvendigt at have noget her.
             }
         });
 
@@ -141,25 +147,18 @@ public class MainActivity extends AppCompatActivity {
         optionsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
                 startActivity(optionsActivity);
             }
         });
     }
 
+    //Definerer hvad der skal ske, når activitien lukkes.
     @Override
     public void onDestroy() {
-
         super.onDestroy();
-
         MusicService mServ = new MusicService();
         stopService(new Intent (this, MusicService.class));
         mServ.onDestroy();
     }
-
 }
-
-
-
-

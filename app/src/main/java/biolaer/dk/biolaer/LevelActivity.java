@@ -1,5 +1,6 @@
 package biolaer.dk.biolaer;
 
+//Nødvendige imports
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -7,16 +8,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Denne klasse indeholder vores activity for valg af sværhedsgrad i app'en.
+ * Klassen har onCreate og onClick-metoder.
+ */
+public class LevelActivity extends AppCompatActivity { //Extender AppCompatActivity
 
-public class LevelActivity extends AppCompatActivity {
-
+    /**
+     * Overrider den default metode, der automatisk oprettes til en activity, og definerer i stedet
+     * de fields og actions, vi ønsker i vores onCreate-metode. Bl.a. knapper til sværhedsgrad.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-        // Tvinger activityen til at være i Portrait orientation mode.
+
+        // Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        //Connecter fields til buttons fra xml-filen.
         Button infoBtn = (Button) findViewById(R.id.infoBtn);
         final Button easyBtn = (Button) findViewById(R.id.easyBtn);
         final Button hardBtn = (Button) findViewById(R.id.hardBtn);
@@ -26,9 +36,7 @@ public class LevelActivity extends AppCompatActivity {
         //Metode til info-knappen, som ændret teksten på knapperne frem og tilbage.
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-
+            public void onClick(View v) { //Hvad der sker, når der klikkes på knappen.
                 if (easyBtn.getText()=="Let") {
                     easyBtn.setText("Direkte ELISA");
                     hardBtn.setText("Indirekte Sandwich ELISA");
@@ -53,19 +61,18 @@ public class LevelActivity extends AppCompatActivity {
         optionsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
                 startActivity(optionsActivity);
             }
         });
 
-        /** Når der klikkes på "Let" går den til QuestionsActivity.
+        /** VIGTIG INFO:
+         * Når der klikkes på "Let-knappen" går den til QuestionsActivity-klassen.
          * Hvis spillet skal udvides, så der kommer Svær-niveau, skal dette som systemet er
-         * konstrueret lige nu, linke til en anden activity. */
+         * konstrueret lige nu, linke til en anden activity!! */
         easyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent easyActivity = new Intent(getApplicationContext(), QuestionsActivity.class);
                 startActivity(easyActivity);
             }
