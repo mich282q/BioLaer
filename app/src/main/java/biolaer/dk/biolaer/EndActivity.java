@@ -1,5 +1,6 @@
 package biolaer.dk.biolaer;
 
+//Nødvendige imports
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -10,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,22 +25,20 @@ public class EndActivity extends AppCompatActivity {
     Button submitButton;
     String point = "10";
 
+    //Variabler til Firebase-connection
     FirebaseDatabase database;
     DatabaseReference highscore;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end);
 
-        //Firebase
+        //Firebase connection
         database = FirebaseDatabase.getInstance();
         highscore = FirebaseDatabase.getInstance().getReference("highscore");
 
-
-
-        // Tvinger activityen til at være i Portrait orientation mode.
+        //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Knapper
@@ -54,7 +52,6 @@ public class EndActivity extends AppCompatActivity {
         optionsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent optionsActivity = new Intent(getApplicationContext(), OptionsActivity.class);
                 startActivity(optionsActivity);
             }
@@ -72,8 +69,6 @@ public class EndActivity extends AppCompatActivity {
 
    private void addScore(EditText insertName, String point) {
 
-
-
         /*String name = insertName.getText().toString().trim();
         String point = "10";*/
 
@@ -89,10 +84,8 @@ public class EndActivity extends AppCompatActivity {
 
             Toast.makeText(this,"Score tilføjet!", Toast.LENGTH_LONG).show();
 
-        }else {
+        } else {
             Toast.makeText(this,"Indtast navn!", Toast.LENGTH_LONG).show();
         }
-
     }
-
 }

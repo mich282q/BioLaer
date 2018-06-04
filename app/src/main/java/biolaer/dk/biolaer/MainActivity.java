@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Overrider den default onCreate-metoden med vores properties til Main Activity
+    //Overrider den default onCreate-metode med vores properties til Main Activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
