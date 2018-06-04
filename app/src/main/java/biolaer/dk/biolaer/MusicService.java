@@ -1,6 +1,5 @@
 package biolaer.dk.biolaer;
 
-
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -9,17 +8,15 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.widget.Toast;
 
-/** Denne klasse starter en service som er en længerevarende operation som afspiller musik
- * i baggrunden på tværs af alle activities så længe at applikationen er åben.
+/** Denne klasse starter en service som er en længerevarende operation, der afspiller musik
+ * i baggrunden på tværs af alle activities, så længe at applikationen er åben.
  */
-public class MusicService extends Service  implements MediaPlayer.OnErrorListener{
+public class MusicService extends Service implements MediaPlayer.OnErrorListener {
 
     // Definerer interfacet som kommunikerer mellem service og client.
-    private final IBinder mBinder = new ServiceBinder();
-    MediaPlayer mPlayer;
+    private final IBinder mBinder = new ServiceBinder(); //Deklarerer og initialiserer
+    MediaPlayer mPlayer; //Variabel som bruges i onCreate-metoden
     private int length = 0;
-
-    public MusicService() { }
 
     public class ServiceBinder extends Binder {
         MusicService getService()
@@ -29,29 +26,24 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
     }
 
     @Override
-    public IBinder onBind(Intent arg0){return mBinder;}
+    public IBinder onBind(Intent arg0){ return mBinder; }
 
     @Override
-    public void onCreate (){
+    public void onCreate () {
         super.onCreate();
-        // Peger på hvilken musik fil der skal afspilles. Findes i "raw" folder under "res"
+        // Peger på hvilken musikfil der skal afspilles. Findes i mappen "raw" under "res"
         mPlayer = MediaPlayer.create(this, R.raw.baggroundmusic);
         mPlayer.setOnErrorListener(this);
 
-        // Sætter sangen til at loope, og at sangen bliver afspillet med fuld styrke, afhængig af
-        // brugerens egne lydindstillinger.
-        if(mPlayer!= null)
-        {
+        /* Sætter sangen til at loope, og gør at sangen bliver afspillet med fuld styrke,
+        afhængig af brugerens egne lydindstillinger. */
+        if(mPlayer!= null) {
             mPlayer.setLooping(true);
             mPlayer.setVolume(100,100);
         }
 
-
         mPlayer.setOnErrorListener(new OnErrorListener() {
-
-            public boolean onError(MediaPlayer mp, int what, int
-                    extra){
-
+            public boolean onError(MediaPlayer mp, int what, int extra) {
                 onError(mPlayer, what, extra);
                 return true;
             }
@@ -59,22 +51,19 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
     }
 
     @Override
-    public int onStartCommand (Intent intent, int flags, int startId)
-    {
+    public int onStartCommand (Intent intent, int flags, int startId) {
         mPlayer.start();
         return START_STICKY;
     }
 
     @Override
-    public void onDestroy ()
-    {
+    public void onDestroy () {
         super.onDestroy();
-        if(mPlayer != null)
-        {
-            try{
+        if(mPlayer != null) {
+            try {
                 mPlayer.stop();
                 mPlayer.release();
-            }finally {
+            } finally {
                 mPlayer = null;
             }
         }
@@ -82,14 +71,12 @@ public class MusicService extends Service  implements MediaPlayer.OnErrorListene
 
     // I tilfælde af fejl, vises der en Toast på skærmen med en fejl besked.
     public boolean onError(MediaPlayer mp, int what, int extra) {
-
         Toast.makeText(this, "FEJL: Baggrundsmusik", Toast.LENGTH_SHORT).show();
-        if(mPlayer != null)
-        {
-            try{
+        if(mPlayer != null) {
+            try {
                 mPlayer.stop();
                 mPlayer.release();
-            }finally {
+            } finally {
                 mPlayer = null;
             }
         }
