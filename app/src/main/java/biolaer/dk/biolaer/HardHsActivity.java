@@ -37,15 +37,13 @@ public class HardHsActivity extends AppCompatActivity {
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         DatabaseReference dbnavn = mDatabase.child("highscore");
-      final  DatabaseReference dbnavn_2 = dbnavn.child("highscore_hard");
-       // DatabaseReference dbnavn_3 = dbnavn_2.child("id1");
-       // DatabaseReference dbnavn_4 = dbnavn_3.child("navn");
-      //  DatabaseReference dbnavn_5 = dbnavn_3.child("point");
+        DatabaseReference dbnavn_2 = dbnavn.child("highscore_hard");
+
 
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listNavn);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, listNavn);
         scoreList_dynamic.setAdapter(arrayAdapter);
 
         final Query queryRef = dbnavn_2.orderByChild("point");

@@ -12,11 +12,35 @@ import com.google.firebase.database.Query;
 
 public class QuestionsActivity extends AppCompatActivity {
 
+ /*   String point;
+    String navn;
+
+    public QuestionsActivity(){
+
+    }
+
+    public QuestionsActivity(String point, String navn) {
+        this.point = point;
+        this.navn = navn;
+    }
+
+    public String getPoint() {
+        return point;
+    }
+
+    public String getNavn() {
+        return navn;
+    }*/
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
          Timer timer = new Timer();
+
+
+
 
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -33,10 +57,5 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
-
-        Question q = new Question();
-
-      //  q.setmDatabaseEasyQ();
-
     }
 }
