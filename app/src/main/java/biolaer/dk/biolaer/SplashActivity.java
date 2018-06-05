@@ -15,10 +15,10 @@ import android.widget.ProgressBar;
 public class SplashActivity extends AppCompatActivity {
 
     // Hvor længe skal Splash Activity vises, før app'en åbner rigtigt.
-    private final int SPLASH_DISPLAY_LENGTH = 8000;
+    private final int SPLASH_DISPLAY_LENGTH = 9000; //9 sekunder
 
     // Connecter progress baren i bunden af Splash Activity med baren i xml-filen
-    private ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
+    //private ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
     /** Overrider Android's default onCreate-metode og initialiserer med ønsket indhold */
     @Override
@@ -26,11 +26,11 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(icicle);
         setContentView(R.layout.activity_splash);
 
-        /* Handler der starter MainActivity og lukker Splash Screen efter nogle sekunder */
+        // Handler der starter MainActivity og lukker Splash Screen efter nogle sekunder.
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                /* Opretter et intent-objekt der starter MainActivity */
+                // Opretter et intent-objekt der starter MainActivity.
                 Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.finish();
