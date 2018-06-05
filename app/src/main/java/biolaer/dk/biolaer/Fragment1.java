@@ -149,6 +149,7 @@ public class Fragment1 extends Fragment {
                     public void onClick(View v) {
                        // Intent questionsActivity = new Intent(getContext(), QuestionsActivity.class);
                        // startActivity(questionsActivity);
+
                         /*
                         Fragment1 nextFrag= new Fragment1();
                         getActivity().getSupportFragmentManager().beginTransaction()
@@ -157,6 +158,7 @@ public class Fragment1 extends Fragment {
                                 .commit();  */
                         //Fragment1 fragment1 = new Fragment1();
                         //fragmentTransaction.replace(android.R.id.content, fragment1);
+
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.detach(Fragment1.this).attach(Fragment1.this).addToBackStack(null).commit();
 
