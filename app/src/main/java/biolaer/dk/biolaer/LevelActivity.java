@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Denne klasse indeholder vores activity for valg af sværhedsgrad i app'en.
@@ -75,6 +76,14 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
             public void onClick(View v) {
                 Intent easyActivity = new Intent(getApplicationContext(), QuestionsActivity.class);
                 startActivity(easyActivity);
+            }
+        });
+
+        //Toast til knappen "Svær"
+        hardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LevelActivity.this, "Under udvikling", Toast.LENGTH_SHORT).show();
             }
         });
     }
