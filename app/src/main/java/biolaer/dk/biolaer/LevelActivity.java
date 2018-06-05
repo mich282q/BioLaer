@@ -79,7 +79,7 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
             }
         });
 
-        //Toast til knappen "Svær"
+        //Toast til knappen "Svær", da denne sværhedsgrad ikke er udviklet endnu.
         hardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

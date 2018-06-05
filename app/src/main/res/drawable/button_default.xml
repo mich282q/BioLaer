@@ -2,7 +2,6 @@
 
 <!-- Denne XML fil bruges til styling på alle menuknapper som ikke indgår i spillet -->
 
-
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item><layer-list>
         <item><shape>
