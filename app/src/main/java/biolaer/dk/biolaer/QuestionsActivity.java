@@ -19,8 +19,8 @@ import com.google.firebase.database.Query;
 public class QuestionsActivity extends AppCompatActivity {
 
 
-    int point;
-    String navn;
+    int point = 0;
+    String navn = "";
 
     public QuestionsActivity(){
 
@@ -47,7 +47,6 @@ public class QuestionsActivity extends AppCompatActivity {
         return navn;
     }
 
-Question qq = new Question();
 
 
 
@@ -59,14 +58,10 @@ Question qq = new Question();
 
 
        final TextView actualPoint_textView = (TextView) findViewById(R.id.actualPoint_textView);
+       actualPoint_textView.setText((Integer) getPoint() + 50 + "");
 
-        Button test = (Button) findViewById(R.id.answerBtn2);
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actualPoint_textView.setText((Integer) 50 + "");
-            }
-        });
+
+
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 

@@ -34,6 +34,9 @@ import java.util.Random;
 
 public class Fragment1 extends Fragment {
 
+    QuestionsActivity pointTest = new QuestionsActivity();
+
+
     public void wrongAnswer(){
         AlertDialog.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -64,11 +67,19 @@ public class Fragment1 extends Fragment {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
-                        Intent test = new Intent(getContext(), QuestionsActivity.class);
-                        startActivity(test);
+                        //Her skrives hvad der skal ske når man trykker "Ok"
+
+
+
                     }
                 })
                 .show();
+    }
+
+    String something = "";
+    public void doSomething(){
+
+
     }
 
 
