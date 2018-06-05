@@ -1,9 +1,11 @@
 package biolaer.dk.biolaer;
 
 //Nødvendige imports
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Point;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +33,7 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
     private DatabaseReference mDatabase; //Til Firebase-connection
     private ListView scoreList_dynamic;
     private ArrayList<String> listNavn = new ArrayList<>();
+    private ProgressDialog progressDialog; //Til Progress-baren
 
     //Overrider den default onCreate-metode med vores properties til denne aktivitet
     @Override
@@ -118,5 +121,30 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
                 EasyHsActivity.super.onBackPressed();
             }
         });
+    }
+
+    //Progress baren kaldes, når aktiviteten startes
+    public void onStart() {
+        super.onStart();
+
+        //Initialiserer "progressDialog" med titel og besked
+        progressDialog = ProgressDialog.show(this,"Vent venligst","Henter highscore...",true);
+
+        //Laver et nyt CountDownTimer-objekt og sætter det til at blive vist 2 sekunder
+        CountDownTimer timer = new CountDownTimer(2000,1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+               //Metoden skal være tom
+            }
+
+            //Fjerner "progressDialog" igen, når timeren udløber
+            @Override
+            public void onFinish() {
+                progressDialog.dismiss();
+            }
+
+        }
+        //Starter metoden
+        .start();
     }
 }
