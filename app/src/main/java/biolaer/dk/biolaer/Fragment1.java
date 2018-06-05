@@ -2,8 +2,6 @@ package biolaer.dk.biolaer;
 
 
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
@@ -17,9 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,10 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -41,7 +34,7 @@ import java.util.Random;
 
 public class Fragment1 extends Fragment {
 
-    public void dialogBoks(){
+    public void wrongAnswer(){
         AlertDialog.Builder builder;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(getActivity(), android.R.style.Theme_Material_Dialog_Alert);
@@ -59,6 +52,26 @@ public class Fragment1 extends Fragment {
                 .show();
     }
 
+    public void rightAnswer(){
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(getActivity(), android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(getActivity());
+        }
+        builder
+                .setMessage("Rigtigt svar!")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent test = new Intent(getContext(), QuestionsActivity.class);
+                        startActivity(test);
+                    }
+                })
+                .show();
+    }
+
+
     //QuestionsActivity qq = new QuestionsActivity();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -73,8 +86,8 @@ public class Fragment1 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Random random = new Random();
-      // final int randomQ = random.nextInt(5)+1;
-        final int randomQ = 1;
+       final int randomQ = random.nextInt(5)+1;
+       // final int randomQ = 1;
 
        final  FragmentManager fragmentManager = getFragmentManager();
         final FragmentTransaction fragmentTransaction =
@@ -152,21 +165,21 @@ public class Fragment1 extends Fragment {
                     @Override
                     public void onClick(View v) {
 
-                       dialogBoks();
+                       wrongAnswer();
                     }
                 });
                 answerBtn2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        dialogBoks();
+                        wrongAnswer();
                     }
                 });
                 answerBtn3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        dialogBoks();
+                        wrongAnswer();
                     }
                 });
                 answerBtn4.setOnClickListener(new View.OnClickListener() {
@@ -184,10 +197,10 @@ public class Fragment1 extends Fragment {
                         //Fragment1 fragment1 = new Fragment1();
                         //fragmentTransaction.replace(android.R.id.content, fragment1);
 
-                        FragmentTransaction ft = getFragmentManager().beginTransaction();
-                        ft.detach(Fragment1.this).attach(Fragment1.this).addToBackStack(null).commit();
+                       // FragmentTransaction ft = getFragmentManager().beginTransaction();
+                       // ft.detach(Fragment1.this).attach(Fragment1.this).addToBackStack(null).commit();
 
-
+                        rightAnswer();
 
                     }
                 });
@@ -242,29 +255,26 @@ public class Fragment1 extends Fragment {
                     answerBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
+
                         }
                     });
                     answerBtn2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            rightAnswer();
                         }
                     });
                     answerBtn3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            rightAnswer();
                         }
                     });
                     answerBtn4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.detach(Fragment1.this).attach(Fragment1.this).commit();
+                            wrongAnswer();
                         }
                     });
                 }
@@ -316,32 +326,31 @@ public class Fragment1 extends Fragment {
                         public void onClick(View v) {
                             Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
                     });
+
                     answerBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
                         }
                     });
                     answerBtn2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
+
                         }
                     });
                     answerBtn3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
+
                         }
                     });
                     answerBtn4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.detach(Fragment1.this).attach(Fragment1.this).commit();
+                            rightAnswer();
                         }
                     });
                 }
@@ -397,29 +406,28 @@ public class Fragment1 extends Fragment {
                     answerBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
+
                         }
                     });
                     answerBtn2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
+
                         }
                     });
                     answerBtn3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
+
                         }
                     });
                     answerBtn4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.detach(Fragment1.this).attach(Fragment1.this).commit();
+                            rightAnswer();
                         }
                     });
                 }
@@ -472,30 +480,27 @@ public class Fragment1 extends Fragment {
                     answerBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
+
                         }
                     });
                     answerBtn2.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            rightAnswer();
                         }
                     });
                     answerBtn3.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent endActivity = new Intent(getContext(), EndActivity.class);
-                            startActivity(endActivity);
+                            wrongAnswer();
+
                         }
                     });
                     answerBtn4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            FragmentTransaction ft = getFragmentManager().beginTransaction();
-                            ft.detach(Fragment1.this).attach(Fragment1.this).commit();
-
+                            wrongAnswer();
 
                         }
                     });
