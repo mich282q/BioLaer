@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
-    tools:context=".QuestionsActivity">
+    tools:context="biolaer.dk.biolaer.QuestionsActivity">
 
     <Button
         android:id="@+id/optionsBtn"
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/pointTxt" />
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/fragment1"
         android:name="biolaer.dk.biolaer.Fragment1"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -109,5 +109,6 @@
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greenRectangle_imageView" />
+
 
 </android.support.constraint.ConstraintLayout>
