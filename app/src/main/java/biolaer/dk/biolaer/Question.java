@@ -7,7 +7,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Question {
-/*
+
    private DatabaseReference mDatabase;
 
     //Metoder - referencer til forskellige dele af databasen
@@ -35,7 +35,7 @@ public class Question {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
                 .child("questions_hard").child("questions_answers");
     }
-*/
+
 
     String point;
     String navn;
@@ -63,6 +63,7 @@ public class Question {
     public String getNavn() {
         return navn;
     }
+
 
 
 }

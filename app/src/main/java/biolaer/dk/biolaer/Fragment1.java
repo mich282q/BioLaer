@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -44,8 +48,15 @@ public class Fragment1 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Random random = new Random();
-        int randomQ = random.nextInt(5)+1;
-        //final int randomQ = 1;
+      // final int randomQ = random.nextInt(5)+1;
+        final int randomQ = 1;
+
+       final  FragmentManager fragmentManager = getFragmentManager();
+        final FragmentTransaction fragmentTransaction =
+                fragmentManager.beginTransaction();
+
+       final QuestionsActivity qq = new QuestionsActivity();
+     //  final TextView actualPoint_textView = (TextView) view.findViewById(R.id.actualPoint_textView);
 
 
         DatabaseReference mDatabaseq4 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q4");
@@ -56,7 +67,7 @@ public class Fragment1 extends Fragment {
 
 
         //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        Question dbCon = new Question();
+      //  Question dbCon = new Question();
 
         final Button answerBtn1 = (Button) view.findViewById(R.id.answerBtn1);
         final Button answerBtn2 = (Button) view.findViewById(R.id.answerBtn2);
@@ -69,7 +80,6 @@ public class Fragment1 extends Fragment {
         final TextView question_textView = (TextView) view.findViewById(R.id.question_textView);
         final ImageView question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
-        final EditText actualPoint_textView = (EditText) view.findViewById(R.id.actualPoint_textView);
 
         if (randomQ == 1){
             mDatabaseq4.addValueEventListener(new ValueEventListener() {
@@ -137,12 +147,19 @@ public class Fragment1 extends Fragment {
                 answerBtn4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                       // Intent questionsActivity = new Intent(getContext(), QuestionsActivity.class);
+                       // startActivity(questionsActivity);
+                        /*
                         Fragment1 nextFrag= new Fragment1();
                         getActivity().getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment1, nextFrag,"findThisFragment")
                                 .addToBackStack(null)
-                                .commit();
+                                .commit();  */
+                        //Fragment1 fragment1 = new Fragment1();
+                        //fragmentTransaction.replace(android.R.id.content, fragment1);
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.detach(Fragment1.this).attach(Fragment1.this).addToBackStack(null).commit();
+
                     }
                 });
 
@@ -217,11 +234,8 @@ public class Fragment1 extends Fragment {
                     answerBtn4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Fragment1 nextFrag= new Fragment1();
-                            getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.fragment1, nextFrag,"findThisFragment")
-                                    .addToBackStack(null)
-                                    .commit();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.detach(Fragment1.this).attach(Fragment1.this).commit();
                         }
                     });
                 }
@@ -295,11 +309,8 @@ public class Fragment1 extends Fragment {
                     answerBtn4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Fragment1 nextFrag= new Fragment1();
-                            getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.fragment1, nextFrag,"findThisFragment")
-                                    .addToBackStack(null)
-                                    .commit();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.detach(Fragment1.this).attach(Fragment1.this).commit();
                         }
                     });
                 }
@@ -373,11 +384,8 @@ public class Fragment1 extends Fragment {
                     answerBtn4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Fragment1 nextFrag= new Fragment1();
-                            getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.fragment1, nextFrag,"findThisFragment")
-                                    .addToBackStack(null)
-                                    .commit();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.detach(Fragment1.this).attach(Fragment1.this).commit();
                         }
                     });
                 }
@@ -451,11 +459,10 @@ public class Fragment1 extends Fragment {
                     answerBtn4.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Fragment1 nextFrag= new Fragment1();
-                            getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.fragment1, nextFrag,"findThisFragment")
-                                    .addToBackStack(null)
-                                    .commit();
+                            FragmentTransaction ft = getFragmentManager().beginTransaction();
+                            ft.detach(Fragment1.this).attach(Fragment1.this).commit();
+
+
                         }
                     });
                 }

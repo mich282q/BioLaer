@@ -19,18 +19,18 @@ import com.google.firebase.database.Query;
 public class QuestionsActivity extends AppCompatActivity {
 
 
-    String point;
+    int point;
     String navn;
 
     public QuestionsActivity(){
 
     }
 
-    public QuestionsActivity(String point, String navn) {
+    public QuestionsActivity(int point, String navn) {
         this.point = point;
         this.navn = navn;
     }
-    public void setPoint(String point) {
+    public void setPoint(int point) {
         this.point = point;
 
     }
@@ -39,7 +39,7 @@ public class QuestionsActivity extends AppCompatActivity {
         this.navn = navn;
     }
 
-    public String getPoint() {
+    public int getPoint() {
         return point;
     }
 
@@ -48,16 +48,25 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
 Question qq = new Question();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
          Timer timer = new Timer();
 
-       //EditText actualPoint_textView = (EditText) findViewById(R.id.pointTest);
-        //actualPoint_textView.setText(qq.point);
 
+       final TextView actualPoint_textView = (TextView) findViewById(R.id.actualPoint_textView);
 
+        Button test = (Button) findViewById(R.id.answerBtn2);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                actualPoint_textView.setText((Integer) 50 + "");
+            }
+        });
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 

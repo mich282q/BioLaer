@@ -86,6 +86,14 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
             public void onClick(View v) {
                 Toast.makeText(LevelActivity.this, "Under udvikling", Toast.LENGTH_SHORT).show();
 
+                /*Intent questionsActivity = new Intent(getApplicationContext(), QuestionsActivity.class);
+                startActivity(questionsActivity);
+                Fragment1 nextFrag= new Fragment1();
+                getActivty().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment1, nextFrag,"findThisFragment")
+                        .addToBackStack(null)
+                        .commit(); */
+
             }
         });
     }
