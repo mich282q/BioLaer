@@ -4,7 +4,6 @@ package biolaer.dk.biolaer;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -34,17 +33,19 @@ import java.util.Random;
 
 public class Fragment1 extends Fragment {
 
-    QuestionsActivity pointTest = new QuestionsActivity();
+    QuestionsActivity testPoint = new QuestionsActivity();
+    Random random = new Random();
+     int randomQ;
 
+    public  int rollQ(){
+        randomQ = random.nextInt(5)+1;
+        return randomQ;
+    }
 
     public void wrongAnswer(){
         AlertDialog.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             builder = new AlertDialog.Builder(getActivity());
-        } else {
-            builder = new AlertDialog.Builder(getActivity());
-        }
-        builder
+            builder
                 .setMessage("Du svarede desværre forkert!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -57,18 +58,13 @@ public class Fragment1 extends Fragment {
 
     public void rightAnswer(){
         AlertDialog.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(getActivity(), android.R.style.Theme_Material_Dialog_Alert);
-        } else {
             builder = new AlertDialog.Builder(getActivity());
-        }
-        builder
+            builder
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
-                        //Her skrives hvad der skal ske når man trykker "Ok"
-
+                        rollQ();
+                        testPoint.setPoint(50);
 
 
                     }
@@ -76,11 +72,6 @@ public class Fragment1 extends Fragment {
                 .show();
     }
 
-    String something = "";
-    public void doSomething(){
-
-
-    }
 
 
     //QuestionsActivity qq = new QuestionsActivity();
@@ -96,8 +87,8 @@ public class Fragment1 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Random random = new Random();
-       final int randomQ = random.nextInt(5)+1;
+     //   Random random = new Random();
+      // final int randomQ = random.nextInt(5)+1;
        // final int randomQ = 1;
 
        final  FragmentManager fragmentManager = getFragmentManager();
@@ -130,7 +121,7 @@ public class Fragment1 extends Fragment {
         final ImageView question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
 
-        if (randomQ == 1){
+        if (rollQ() == 1){
             mDatabaseq4.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -223,7 +214,7 @@ public class Fragment1 extends Fragment {
 
             }
         }); }
-        else if (randomQ == 2){
+        else if (rollQ() == 2){
             mDatabaseq5.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -297,7 +288,7 @@ public class Fragment1 extends Fragment {
             });
         }
 
-        else if (randomQ == 3){
+        else if (rollQ() == 3){
             mDatabaseq6.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -373,7 +364,7 @@ public class Fragment1 extends Fragment {
             });
         }
 
-        else if (randomQ == 4){
+        else if (rollQ() == 4){
             mDatabaseq7.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -450,7 +441,7 @@ public class Fragment1 extends Fragment {
             });
         }
 
-        else if (randomQ ==5 ){
+        else if (rollQ() ==5 ){
             mDatabaseq8.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

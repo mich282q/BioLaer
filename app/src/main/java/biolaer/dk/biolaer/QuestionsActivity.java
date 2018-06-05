@@ -12,11 +12,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
 public class QuestionsActivity extends AppCompatActivity {
+
+    int request_Code = 1;
 
 
     int point = 0;
@@ -57,8 +60,10 @@ public class QuestionsActivity extends AppCompatActivity {
          Timer timer = new Timer();
 
 
+
+
        final TextView actualPoint_textView = (TextView) findViewById(R.id.actualPoint_textView);
-       actualPoint_textView.setText((Integer) getPoint() + 50 + "");
+       actualPoint_textView.setText((Integer) getPoint() + "");
 
 
 
@@ -77,8 +82,5 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
-
-
-
     }
 }
