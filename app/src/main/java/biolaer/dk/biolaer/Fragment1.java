@@ -81,7 +81,7 @@ public class Fragment1 extends Fragment {
                 answerBtn3.setText(answer3);
                 answerBtn4.setText(answer4);
 
-                question_imageView.setImageResource(R.drawable.spm1); //SKAL ÆNDRES
+                question_imageView.setImageResource(R.drawable.elisa_spm1); //SKAL ÆNDRES
 
                 infoBtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -129,7 +129,7 @@ public class Fragment1 extends Fragment {
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
 
-                    question_imageView.setImageResource(R.drawable.spm2); //SKAL ÆNDRES
+                    question_imageView.setImageResource(R.drawable.elisa_spm2); //SKAL ÆNDRES
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
