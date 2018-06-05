@@ -1,6 +1,7 @@
 package biolaer.dk.biolaer;
 
 //Nødvendige imports
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +39,7 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //Hvad der sker, når der klikkes på knappen.
-                if (easyBtn.getText()=="Let") {
+                if (easyBtn.getText() == "Let") {
                     easyBtn.setText("Direkte ELISA");
                     hardBtn.setText("Indirekte Sandwich ELISA");
                 }
@@ -84,6 +85,7 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
             @Override
             public void onClick(View v) {
                 Toast.makeText(LevelActivity.this, "Under udvikling", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
