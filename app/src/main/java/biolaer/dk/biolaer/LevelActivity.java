@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 /**
  * Denne klasse indeholder vores activity for valg af sværhedsgrad i app'en.
@@ -67,14 +68,22 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
         });
 
         /** VIGTIG INFO:
-         * Når der klikkes på "Let-knappen" går den til QuestionsActivity-klassen.
-         * Hvis spillet skal udvides, så der kommer Svær-niveau, skal dette som systemet er
-         * konstrueret lige nu, linke til en anden activity!! */
+         * Når der klikkes på enten "Let" eller "Svær" går den til QuestionsActivity-klassen.
+         * Hvis du vælger "Let" loades Fragment1 så i aktiviteten.
+         * Hvis du vælger "Svær" loades Fragment2 så i aktiviteten. */
         easyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent easyActivity = new Intent(getApplicationContext(), QuestionsActivity.class);
                 startActivity(easyActivity);
+            }
+        });
+
+        //Toast til knappen "Svær", da denne sværhedsgrad ikke er udviklet endnu.
+        hardBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LevelActivity.this, "Under udvikling", Toast.LENGTH_SHORT).show();
             }
         });
     }

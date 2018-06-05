@@ -1,6 +1,6 @@
 package biolaer.dk.biolaer;
 
-
+//Nødvendige imports
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,18 +13,17 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.Random;
 
-//Nemt
-
+/**
+ * Denne klasse repræsenterer den lette sværhedsgrad.
+ */
 public class Fragment1 extends Fragment {
 
     @Override
@@ -48,7 +47,6 @@ public class Fragment1 extends Fragment {
         DatabaseReference mDatabaseq7 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q7");
         DatabaseReference mDatabaseq8 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q8");
 
-
         //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         Question dbCon = new Question();
 
@@ -63,8 +61,7 @@ public class Fragment1 extends Fragment {
         final TextView question_textView = (TextView) view.findViewById(R.id.question_textView);
         final ImageView question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
-
-        if (randomQ == 1){
+        if (randomQ == 1) {
         mDatabaseq4.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -81,7 +78,7 @@ public class Fragment1 extends Fragment {
                 answerBtn3.setText(answer3);
                 answerBtn4.setText(answer4);
 
-                question_imageView.setImageResource(R.drawable.spm1); //SKAL ÆNDRES
+                question_imageView.setImageResource(R.drawable.elisa_spm1); //SKAL ÆNDRES
 
                 infoBtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -104,7 +101,6 @@ public class Fragment1 extends Fragment {
                     public void onClick(View v) {
                         Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
                 });
-
             }
 
             @Override
@@ -129,7 +125,7 @@ public class Fragment1 extends Fragment {
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
 
-                    question_imageView.setImageResource(R.drawable.spm2); //SKAL ÆNDRES
+                    question_imageView.setImageResource(R.drawable.elisa_spm2); //SKAL ÆNDRES
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override

@@ -1,13 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment2">
+    tools:context=".Fragment1">
+
+
+    <ImageView
+        android:id="@+id/question_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="168dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/loading_img"
+        app:layout_constraintBottom_toTopOf="@+id/question_textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.36" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/question_textView"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/IndlaeserNytSpoergsmaal"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/answerBtn1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/answerBtn1"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginStart="116dp"
+        android:background="@drawable/button_default"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/Indlaeser"
+        android:textSize="14sp"
+        android:scrollHorizontally="true"
+        android:lines="1"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toTopOf="@+id/answerBtn2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/answerBtn2"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginStart="116dp"
+        android:background="@drawable/button_default"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/Indlaeser"
+        android:textSize="14sp"
+        android:scrollHorizontally="true"
+        android:lines="1"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toTopOf="@+id/answerBtn3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/answerBtn4"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginStart="116dp"
+        android:background="@drawable/button_default"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/Indlaeser"
+        android:textSize="14sp"
+        android:scrollHorizontally="true"
+        android:lines="1"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/answerBtn3"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginStart="116dp"
+        android:background="@drawable/button_default"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/Indlaeser"
+        android:textSize="14sp"
+        android:scrollHorizontally="true"
+        android:lines="1"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toTopOf="@+id/answerBtn4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/infoBtn1"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/info_icon"
+        android:contentDescription="InfoButton"
+        app:layout_constraintBottom_toTopOf="@+id/infoBtn2"
+        app:layout_constraintStart_toEndOf="@+id/answerBtn1" />
+
+    <Button
+        android:id="@+id/infoBtn2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="23dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/info_icon"
+        android:contentDescription="InfoButton"
+        app:layout_constraintBottom_toTopOf="@+id/infoBtn3"
+        app:layout_constraintStart_toEndOf="@+id/answerBtn2" />
+
+    <Button
+        android:id="@+id/infoBtn3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="23dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/info_icon"
+        android:contentDescription="InfoButton"
+        app:layout_constraintBottom_toTopOf="@+id/infoBtn4"
+        app:layout_constraintStart_toEndOf="@+id/answerBtn3" />
+
+    <Button
+        android:id="@+id/infoBtn4"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="26dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/info_icon"
+        android:contentDescription="InfoButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/answerBtn4" />
+
+</android.support.constraint.ConstraintLayout>
