@@ -46,6 +46,7 @@ public class Timer {
         /** Formaterer "minutes" og "seconds" ordenligt, hvis dette ikke er predefineret,
          * vil der opstå tilfælde, hvor at formatering ikke vil se ud som ønsket.
          */
+        //
         String timeFormatted = String.format(Locale.getDefault(),
                 "%02d:%02d", minutes, seconds);
 
