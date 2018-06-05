@@ -1,7 +1,12 @@
 package biolaer.dk.biolaer;
 
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -32,7 +37,27 @@ import java.util.Random;
 /**
  * Denne klasse repræsenterer den lette sværhedsgrad.
  */
+
+
 public class Fragment1 extends Fragment {
+
+    public void dialogBoks(){
+        AlertDialog.Builder builder;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            builder = new AlertDialog.Builder(getActivity(), android.R.style.Theme_Material_Dialog_Alert);
+        } else {
+            builder = new AlertDialog.Builder(getActivity());
+        }
+        builder
+                .setMessage("Du svarede desværre forkert!")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent endActivity = new Intent(getContext(), EndActivity.class);
+                        startActivity(endActivity);
+                    }
+                })
+                .show();
+    }
 
     //QuestionsActivity qq = new QuestionsActivity();
     @Override
@@ -98,7 +123,7 @@ public class Fragment1 extends Fragment {
                 answerBtn3.setText(answer3);
                 answerBtn4.setText(answer4);
 
-                question_imageView.setImageResource(R.drawable.elisa_spm1); //SKAL ÆNDRES
+                question_imageView.setImageResource(R.drawable.elisa_spm4); //SKAL ÆNDRES
 
                 infoBtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -126,22 +151,22 @@ public class Fragment1 extends Fragment {
                 answerBtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent endActivity = new Intent(getContext(), EndActivity.class);
-                        startActivity(endActivity);
+
+                       dialogBoks();
                     }
                 });
                 answerBtn2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent endActivity = new Intent(getContext(), EndActivity.class);
-                        startActivity(endActivity);
+
+                        dialogBoks();
                     }
                 });
                 answerBtn3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent endActivity = new Intent(getContext(), EndActivity.class);
-                        startActivity(endActivity);
+
+                        dialogBoks();
                     }
                 });
                 answerBtn4.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +186,8 @@ public class Fragment1 extends Fragment {
 
                         FragmentTransaction ft = getFragmentManager().beginTransaction();
                         ft.detach(Fragment1.this).attach(Fragment1.this).addToBackStack(null).commit();
+
+
 
                     }
                 });
@@ -189,7 +216,7 @@ public class Fragment1 extends Fragment {
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
 
-                    question_imageView.setImageResource(R.drawable.elisa_spm2); //SKAL ÆNDRES
+                    question_imageView.setImageResource(R.drawable.elisa_spm5); //SKAL ÆNDRES
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -265,6 +292,8 @@ public class Fragment1 extends Fragment {
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
+                    question_imageView.setImageResource(R.drawable.elisa_spm6); //SKAL ÆNDRES
+
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -340,6 +369,9 @@ public class Fragment1 extends Fragment {
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
+
+                    question_imageView.setImageResource(R.drawable.elisa_spm7); //SKAL ÆNDRES
+
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
