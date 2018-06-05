@@ -9,6 +9,3 @@
  * BioLaer can not be copied and/or distributed without the express
  * permission of Thomas Christensen, Daniel Lyck, Mathias E. Blomgaard, Sebastian O. Olsen, Michael Trans 
  *******************************************************/
-
-
-see <http://www.gnu.org/licenses/>.
