@@ -4,6 +4,7 @@ package biolaer.dk.biolaer;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -52,6 +53,7 @@ public class Fragment1 extends Fragment {
     Button infoBtn4;
     TextView question_textView;
     ImageView question_imageView;
+    MediaPlayer falseSound, correctSound;
 
    // QuestionsActivity testPoint = new QuestionsActivity();
 
@@ -76,7 +78,15 @@ public class Fragment1 extends Fragment {
         return  go;
     } */
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        falseSound = MediaPlayer.create(getActivity(), R.raw.falsesound);
+        correctSound = MediaPlayer.create(getActivity(), R.raw.correctsound);
+    }
+
     public void wrongAnswer(){
+        falseSound.start();
         AlertDialog.Builder builder;
             builder = new AlertDialog.Builder(getActivity());
             builder
@@ -91,6 +101,7 @@ public class Fragment1 extends Fragment {
     }
 
     public void rightAnswer(){
+        correctSound.start();
         AlertDialog.Builder builder;
             builder = new AlertDialog.Builder(getActivity());
             builder
