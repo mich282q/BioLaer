@@ -95,6 +95,7 @@ public class Fragment1 extends Fragment {
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        int actualPoint = 0;
 
                         //Intent reloadActivity = new Intent(getContext(), QuestionsActivity.class);
                         //startActivity(reloadActivity);
@@ -127,7 +128,7 @@ public class Fragment1 extends Fragment {
         getRandomQ();
 
        final QuestionsActivity qq = new QuestionsActivity();
-     //  final TextView actualPoint_textView = (TextView) view.findViewById(R.id.actualPoint_textView);
+     //final TextView actualPoint_textView = (TextView) view.findViewById(R.id.actualPoint_textView);
 
 
         mDatabaseq4 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q4");
