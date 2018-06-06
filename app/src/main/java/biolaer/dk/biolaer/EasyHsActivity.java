@@ -66,7 +66,7 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 String navn = (String) dataSnapshot.child("navn").getValue()+ "\n"+
-                        dataSnapshot.child("point").getValue();
+                       dataSnapshot.child("point").getValue();
                 listNavn.add(navn);
                 arrayAdapter.notifyDataSetChanged();
             }
