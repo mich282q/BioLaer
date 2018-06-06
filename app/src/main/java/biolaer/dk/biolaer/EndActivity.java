@@ -4,6 +4,7 @@ package biolaer.dk.biolaer;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -24,6 +25,7 @@ public class EndActivity extends AppCompatActivity {
     EditText insertName;
     Button submitButton;
     String point = "10";
+
 
     //Variabler til Firebase-connection
     FirebaseDatabase database;
