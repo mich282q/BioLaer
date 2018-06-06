@@ -8,8 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,12 +55,15 @@ public class Fragment1 extends Fragment {
 
    // QuestionsActivity testPoint = new QuestionsActivity();
 
-    Random random = new Random();
 
-    int randomQ = random.nextInt(5)+1;
-    public int getRandomQ() {
+
+    public static int getRandomQ() {
+        Random random = new Random();
+
+        int randomQ = random.nextInt(5)+1;
         return randomQ;
     }
+
    /* public  int rollQ(){
         randomQ = random.nextInt(5)+1;
 
@@ -95,17 +97,19 @@ public class Fragment1 extends Fragment {
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        Log.d("randomDebug", "onClick: " + Fragment1.getRandomQ());
+
 
                         //Intent reloadActivity = new Intent(getContext(), QuestionsActivity.class);
                         //startActivity(reloadActivity);
                         //getRandomQ();
-                       onDestroyView();
-                       getActivity();
+                    //   onDestroyView();
+                     //  getActivity();
+
                     }
                 })
                 .show();
     }
-
 
 
     //QuestionsActivity qq = new QuestionsActivity();
@@ -117,14 +121,14 @@ public class Fragment1 extends Fragment {
 
     }
 
+
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-     //   Random random = new Random();
-      //  final int randomQ = random.nextInt(5)+1;
-       // final int randomQ = 1;
-        getRandomQ();
+        int questionNumber = Fragment1.getRandomQ();
 
        final QuestionsActivity qq = new QuestionsActivity();
      //  final TextView actualPoint_textView = (TextView) view.findViewById(R.id.actualPoint_textView);
@@ -151,7 +155,7 @@ public class Fragment1 extends Fragment {
         question_textView = (TextView) view.findViewById(R.id.question_textView);
         question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
-        if (getRandomQ() == 1){
+        if (questionNumber == 1){
             mDatabaseq4.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -243,7 +247,7 @@ public class Fragment1 extends Fragment {
 
             }
         }); }
-        else if (getRandomQ() == 2){
+        else if (questionNumber == 2){
             mDatabaseq5.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -316,7 +320,7 @@ public class Fragment1 extends Fragment {
             });
         }
 
-        else if (getRandomQ() == 3){
+        else if (questionNumber == 3){
             mDatabaseq6.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -393,7 +397,7 @@ public class Fragment1 extends Fragment {
             });
         }
 
-        else if (getRandomQ() == 4){
+        else if (questionNumber == 4){
             mDatabaseq7.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
