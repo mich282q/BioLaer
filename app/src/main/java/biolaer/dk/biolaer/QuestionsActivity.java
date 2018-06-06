@@ -63,7 +63,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
 
        final TextView actualPoint_textView = (TextView) findViewById(R.id.actualPoint_textView);
-       actualPoint_textView.setText((Integer) getPoint() + "");
+       actualPoint_textView.setText((Integer) getPoint() +"");
 
 
 
