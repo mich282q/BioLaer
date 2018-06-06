@@ -19,6 +19,10 @@ import com.google.firebase.database.Query;
 
 public class QuestionsActivity extends AppCompatActivity {
 
+
+
+    public static int actualPoint = 0; //laver en int variable til vores point tæller
+
     int request_Code = 1;
 
 
@@ -63,7 +67,8 @@ public class QuestionsActivity extends AppCompatActivity {
 
 
        final TextView actualPoint_textView = (TextView) findViewById(R.id.actualPoint_textView);
-       actualPoint_textView.setText((Integer) getPoint() + "");
+        actualPoint_textView.setText((Integer) getPoint()+"");
+
 
 
 

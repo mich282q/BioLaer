@@ -48,9 +48,11 @@ public class Question {
         this.point = point;
         this.navn = navn;
     }
-    public void setPoint(String point) {
+    public void setPoint(String point)
+    {
         this.point = point;
     }
+
 
     public void setNavn(String navn) {
         this.navn = navn;

@@ -26,12 +26,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Random;
 
+import static biolaer.dk.biolaer.QuestionsActivity.actualPoint;
+
 /**
  * Denne klasse repræsenterer den lette sværhedsgrad.
  */
 
 
 public class Fragment1 extends Fragment {
+
 
    // QuestionsActivity testPoint = new QuestionsActivity();
     Random random = new Random();
@@ -91,6 +94,8 @@ public class Fragment1 extends Fragment {
                     }
                 })
                 .show();
+
+
     }
 
 
