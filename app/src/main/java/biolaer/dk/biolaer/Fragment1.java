@@ -26,8 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Random;
 
-import static biolaer.dk.biolaer.QuestionsActivity.actualPoint;
-
 /**
  * Denne klasse repræsenterer den lette sværhedsgrad.
  */
@@ -35,15 +33,40 @@ import static biolaer.dk.biolaer.QuestionsActivity.actualPoint;
 
 public class Fragment1 extends Fragment {
 
+    DatabaseReference mDatabaseq4;
+    DatabaseReference mDatabaseq5;
+    DatabaseReference mDatabaseq6;
+    DatabaseReference mDatabaseq7;
+    DatabaseReference mDatabaseq8;
+
+
+    //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    //  Question dbCon = new Question();
+
+    Button answerBtn1;
+    Button answerBtn2;
+    Button answerBtn3;
+    Button answerBtn4;
+    Button infoBtn1;
+    Button infoBtn2;
+    Button infoBtn3;
+    Button infoBtn4;
+    TextView question_textView;
+    ImageView question_imageView;
 
    // QuestionsActivity testPoint = new QuestionsActivity();
-    Random random = new Random();
-     int randomQ;
 
-    public  int rollQ(){
-        randomQ = random.nextInt(5)+1;
+    Random random = new Random();
+
+    int randomQ = random.nextInt(5)+1;
+    public int getRandomQ() {
         return randomQ;
     }
+   /* public  int rollQ(){
+        randomQ = random.nextInt(5)+1;
+
+        return randomQ;
+    } */
     /*
     boolean go = false;
     public boolean runQ4(){
@@ -73,29 +96,14 @@ public class Fragment1 extends Fragment {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
-                        rollQ();
-                        if (rollQ() == 1){
-
-                        }
-                        else if (rollQ() == 2){
-
-                        }
-                        else if (rollQ() == 3){
-
-                        }
-                        else if (rollQ() == 4) {
-
-                        }
-                        else if (rollQ() == 5){
-
-                        }
-                       // testPoint.setPoint(50);
-
+                        //Intent reloadActivity = new Intent(getContext(), QuestionsActivity.class);
+                        //startActivity(reloadActivity);
+                        //getRandomQ();
+                       onDestroyView();
+                       getActivity();
                     }
                 })
                 .show();
-
-
     }
 
 
@@ -116,38 +124,34 @@ public class Fragment1 extends Fragment {
      //   Random random = new Random();
       //  final int randomQ = random.nextInt(5)+1;
        // final int randomQ = 1;
-
-       final  FragmentManager fragmentManager = getFragmentManager();
-        final FragmentTransaction fragmentTransaction =
-                fragmentManager.beginTransaction();
+        getRandomQ();
 
        final QuestionsActivity qq = new QuestionsActivity();
      //  final TextView actualPoint_textView = (TextView) view.findViewById(R.id.actualPoint_textView);
 
 
-        DatabaseReference mDatabaseq4 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q4");
-        DatabaseReference mDatabaseq5 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q5");
-        DatabaseReference mDatabaseq6 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q6");
-        DatabaseReference mDatabaseq7 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q7");
-        DatabaseReference mDatabaseq8 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q8");
+        mDatabaseq4 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q4");
+        mDatabaseq5 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q5");
+        mDatabaseq6 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q6");
+        mDatabaseq7 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q7");
+        mDatabaseq8 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q8");
 
 
         //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
       //  Question dbCon = new Question();
 
-        final Button answerBtn1 = (Button) view.findViewById(R.id.answerBtn1);
-        final Button answerBtn2 = (Button) view.findViewById(R.id.answerBtn2);
-        final Button answerBtn3 = (Button) view.findViewById(R.id.answerBtn3);
-        final Button answerBtn4 = (Button) view.findViewById(R.id.answerBtn4);
-        final Button infoBtn1 = (Button) view.findViewById(R.id.infoBtn1);
-        final Button infoBtn2 = (Button) view.findViewById(R.id.infoBtn2);
-        final Button infoBtn3 = (Button) view.findViewById(R.id.infoBtn3);
-        final Button infoBtn4 = (Button) view.findViewById(R.id.infoBtn4);
-        final TextView question_textView = (TextView) view.findViewById(R.id.question_textView);
-        final ImageView question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
+        answerBtn1 = (Button) view.findViewById(R.id.answerBtn1);
+        answerBtn2 = (Button) view.findViewById(R.id.answerBtn2);
+        answerBtn3 = (Button) view.findViewById(R.id.answerBtn3);
+        answerBtn4 = (Button) view.findViewById(R.id.answerBtn4);
+        infoBtn1 = (Button) view.findViewById(R.id.infoBtn1);
+        infoBtn2 = (Button) view.findViewById(R.id.infoBtn2);
+        infoBtn3 = (Button) view.findViewById(R.id.infoBtn3);
+        infoBtn4 = (Button) view.findViewById(R.id.infoBtn4);
+        question_textView = (TextView) view.findViewById(R.id.question_textView);
+        question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
-
-        if (rollQ() == 1){
+        if (getRandomQ() == 1){
             mDatabaseq4.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -239,7 +243,7 @@ public class Fragment1 extends Fragment {
 
             }
         }); }
-        else if (rollQ() == 2){
+        else if (getRandomQ() == 2){
             mDatabaseq5.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -312,7 +316,7 @@ public class Fragment1 extends Fragment {
             });
         }
 
-        else if (rollQ() == 3){
+        else if (getRandomQ() == 3){
             mDatabaseq6.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -328,6 +332,7 @@ public class Fragment1 extends Fragment {
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
+
                     question_imageView.setImageResource(R.drawable.elisa_spm6);
 
 
@@ -388,7 +393,7 @@ public class Fragment1 extends Fragment {
             });
         }
 
-        else if (rollQ() == 4){
+        else if (getRandomQ() == 4){
             mDatabaseq7.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -465,7 +470,7 @@ public class Fragment1 extends Fragment {
             });
         }
 
-        else if (rollQ() ==5 ){
+        else {
             mDatabaseq8.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

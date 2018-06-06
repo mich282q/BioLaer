@@ -17,9 +17,6 @@ public class SplashActivity extends AppCompatActivity {
     // Hvor længe skal Splash Activity vises, før app'en åbner rigtigt.
     private final int SPLASH_DISPLAY_LENGTH = 5000; //7 sekunder
 
-    // Connecter progress baren i bunden af Splash Activity med baren i xml-filen
-    //private ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
     /** Overrider Android's default onCreate-metode og initialiserer med ønsket indhold */
     @Override
     public void onCreate(Bundle icicle) {
