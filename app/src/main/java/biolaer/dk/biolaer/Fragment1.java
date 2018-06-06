@@ -32,16 +32,7 @@ import java.util.Random;
 
 public class Fragment1 extends Fragment {
 
-    DatabaseReference mDatabaseq4;
-    DatabaseReference mDatabaseq5;
-    DatabaseReference mDatabaseq6;
-    DatabaseReference mDatabaseq7;
-    DatabaseReference  mDatabaseq8;
     DatabaseReference mDatabaseX;
-
-
-    //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-    //  Question dbCon = new Question();
 
     Button answerBtn1;
     Button answerBtn2;
@@ -54,16 +45,6 @@ public class Fragment1 extends Fragment {
     TextView question_textView;
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
-
-   // QuestionsActivity testPoint = new QuestionsActivity();
-/*
-    public static int getRandomQ() {
-        Random random = new Random();
-
-        int randomQ = random.nextInt(5)+1;
-        return randomQ;
-    }
-*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -109,29 +90,23 @@ public class Fragment1 extends Fragment {
                 .show();
     }
 
-
     //QuestionsActivity qq = new QuestionsActivity();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment1, container, false);
-
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-       // int questionNumber = Fragment1.getRandomQ();
-
-       Random randomx = new Random();
-       //Tilfældigt tal fra 4 til 8
-       final int x = randomx.nextInt(5)+4;
+        Random randomx = new Random();
+        final int x = randomx.nextInt(5)+4;
         final String questionID = "q" + x;
-
-        //Database reference som tager en tilfældig child fra referencen.
-        mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child(questionID);
+        mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions")
+                .child("questions_easy").child("questions_all").child(questionID);
 
 
         answerBtn1 = (Button) view.findViewById(R.id.answerBtn1);
@@ -145,7 +120,6 @@ public class Fragment1 extends Fragment {
         question_textView = (TextView) view.findViewById(R.id.question_textView);
         question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
-      //  if (questionNumber == 1){
             mDatabaseX.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
