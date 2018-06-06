@@ -33,7 +33,7 @@ import java.util.Random;
 
 public class Fragment1 extends Fragment {
 
-    QuestionsActivity testPoint = new QuestionsActivity();
+   // QuestionsActivity testPoint = new QuestionsActivity();
     Random random = new Random();
      int randomQ;
 
@@ -41,6 +41,12 @@ public class Fragment1 extends Fragment {
         randomQ = random.nextInt(5)+1;
         return randomQ;
     }
+    /*
+    boolean go = false;
+    public boolean runQ4(){
+        go = true;
+        return  go;
+    } */
 
     public void wrongAnswer(){
         AlertDialog.Builder builder;
@@ -63,9 +69,24 @@ public class Fragment1 extends Fragment {
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        rollQ();
-                        testPoint.setPoint(50);
 
+                        rollQ();
+                        if (rollQ() == 1){
+
+                        }
+                        else if (rollQ() == 2){
+
+                        }
+                        else if (rollQ() == 3){
+
+                        }
+                        else if (rollQ() == 4) {
+
+                        }
+                        else if (rollQ() == 5){
+
+                        }
+                       // testPoint.setPoint(50);
 
                     }
                 })
@@ -88,7 +109,7 @@ public class Fragment1 extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
      //   Random random = new Random();
-      // final int randomQ = random.nextInt(5)+1;
+      //  final int randomQ = random.nextInt(5)+1;
        // final int randomQ = 1;
 
        final  FragmentManager fragmentManager = getFragmentManager();
@@ -138,7 +159,7 @@ public class Fragment1 extends Fragment {
                 answerBtn3.setText(answer3);
                 answerBtn4.setText(answer4);
 
-                question_imageView.setImageResource(R.drawable.elisa_spm4); //SKAL ÆNDRES
+                question_imageView.setImageResource(R.drawable.elisa_spm4);
 
                 infoBtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -203,7 +224,6 @@ public class Fragment1 extends Fragment {
                        // ft.detach(Fragment1.this).attach(Fragment1.this).addToBackStack(null).commit();
 
                         rightAnswer();
-
                     }
                 });
 
@@ -231,7 +251,7 @@ public class Fragment1 extends Fragment {
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
 
-                    question_imageView.setImageResource(R.drawable.elisa_spm5); //SKAL ÆNDRES
+                    question_imageView.setImageResource(R.drawable.elisa_spm5);
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -258,7 +278,6 @@ public class Fragment1 extends Fragment {
                         @Override
                         public void onClick(View v) {
                             wrongAnswer();
-
                         }
                     });
                     answerBtn2.setOnClickListener(new View.OnClickListener() {
@@ -304,7 +323,7 @@ public class Fragment1 extends Fragment {
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
-                    question_imageView.setImageResource(R.drawable.elisa_spm6); //SKAL ÆNDRES
+                    question_imageView.setImageResource(R.drawable.elisa_spm6);
 
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
@@ -381,7 +400,7 @@ public class Fragment1 extends Fragment {
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
 
-                    question_imageView.setImageResource(R.drawable.elisa_spm7); //SKAL ÆNDRES
+                    question_imageView.setImageResource(R.drawable.elisa_spm7);
 
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
@@ -457,6 +476,8 @@ public class Fragment1 extends Fragment {
                     answerBtn2.setText(answer2);
                     answerBtn3.setText(answer3);
                     answerBtn4.setText(answer4);
+                    question_imageView.setImageResource(R.drawable.elisa_spm8);
+
 
                     infoBtn1.setOnClickListener(new View.OnClickListener() {
                         @Override
