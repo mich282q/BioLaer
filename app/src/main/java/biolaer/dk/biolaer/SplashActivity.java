@@ -15,7 +15,7 @@ import android.widget.ProgressBar;
 public class SplashActivity extends AppCompatActivity {
 
     // Hvor længe skal Splash Activity vises, før app'en åbner rigtigt.
-    private final int SPLASH_DISPLAY_LENGTH = 1000; //9 sekunder
+    private final int SPLASH_DISPLAY_LENGTH = 1000; //7 sekunder
 
     // Connecter progress baren i bunden af Splash Activity med baren i xml-filen
     //private ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
