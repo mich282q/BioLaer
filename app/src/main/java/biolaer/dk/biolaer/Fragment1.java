@@ -73,7 +73,7 @@ public class Fragment1 extends Fragment {
     }
 
     public void wrongAnswer(){
-        falseSound.start();
+        falseSound.start(); // Afspiller lydeffekt
         AlertDialog.Builder builder;
             builder = new AlertDialog.Builder(getActivity());
             builder
@@ -88,7 +88,7 @@ public class Fragment1 extends Fragment {
     }
 
     public void rightAnswer(){
-        correctSound.start();
+        correctSound.start(); // Afspiller lydeffekt
         AlertDialog.Builder builder;
             builder = new AlertDialog.Builder(getActivity());
             builder
