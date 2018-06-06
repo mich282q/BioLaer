@@ -32,16 +32,9 @@ import java.util.Random;
 
 public class Fragment1 extends Fragment {
 
+    //Genererer en masse variabler
     DatabaseReference mDatabaseX;
-
-    Button answerBtn1;
-    Button answerBtn2;
-    Button answerBtn3;
-    Button answerBtn4;
-    Button infoBtn1;
-    Button infoBtn2;
-    Button infoBtn3;
-    Button infoBtn4;
+    Button answerBtn1, answerBtn2, answerBtn3, answerBtn4, infoBtn1, infoBtn2, infoBtn3, infoBtn4;
     TextView question_textView;
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
@@ -53,6 +46,7 @@ public class Fragment1 extends Fragment {
         correctSound = MediaPlayer.create(getActivity(), R.raw.correctsound);
     }
 
+    //Metode som vil blive kørt, hvis man svarer forkert på spørgsmålet.
     public void wrongAnswer(){
         falseSound.start(); // Afspiller lydeffekt
         AlertDialog.Builder builder;
@@ -68,6 +62,7 @@ public class Fragment1 extends Fragment {
                 .show();
     }
 
+    //Metode som vil blive kørt, hvis man svarer rigtigt på spørgsmålet.
     public void rightAnswer(){
         correctSound.start(); // Afspiller lydeffekt
         AlertDialog.Builder builder;
@@ -76,51 +71,43 @@ public class Fragment1 extends Fragment {
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
-
                         changeQuestion();
                     }
                 })
                 .show();
     }
 
-  /* NOTE:
-+    ALt det, som er pt inde i onViewCreated()  skal trækkes ud i en metode her, der hedder changeQuestion()
-+
-+    public changeQuestion() {
-+     // Her kommer alt guf fra onViewCreated() -- og husk såp at kalde changeQuestion() fra onViewCreated()
-+    }
-+    se, hvordan du skifter et fragment med et andet:
-+    https://developer.android.com/training/basics/fragments/fragment-ui#Replace
-+
-+    */
+
   public void changeQuestion(){
-      Random randomx = new Random();
-      final int x = randomx.nextInt(5)+4;
-      final String questionID = "q" + x;
+      Random randomx = new Random(); //Genererer et Random object
+      final int x = randomx.nextInt(5)+4; //Intialiserer x til at vælge et tal fra 4 til 8
+      final String questionID = "q" + x; //q4, q5, q6, q7, q8
+      //Variabel som refererer til databasen
       mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions")
               .child("questions_easy").child("questions_all").child(questionID);
-
 
 
       mDatabaseX.addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-              String question = (String) dataSnapshot.child("question").getValue();
-              question_textView.setText(question);
 
+              //Genererer og initialiserer variabler til at hente values fra databasen
+              String question = (String) dataSnapshot.child("question").getValue();
               final Integer correctAnswer =  dataSnapshot.child("correctAnswer").getValue(Integer.class);
-              final int correctAnswer2 =  dataSnapshot.child("correctAnswer2").getValue(Integer.class);
+              final Integer correctAnswer2 =  dataSnapshot.child("correctAnswer2").getValue(Integer.class);
               final String answer1 = (String) dataSnapshot.child("answer1").getValue();
               final String answer2 = (String) dataSnapshot.child("answer2").getValue();
               final String answer3 = (String) dataSnapshot.child("answer3").getValue();
               final String answer4 = (String) dataSnapshot.child("answer4").getValue();
 
+              //Viser variablernes values på de valgte steder i layoutet
+              question_textView.setText(question);
               answerBtn1.setText(answer1);
               answerBtn2.setText(answer2);
               answerBtn3.setText(answer3);
               answerBtn4.setText(answer4);
 
+              //If sætninger som sætter det rigtige image ind alt efter det valgte spm.
               if (x == 4){
                   question_imageView.setImageResource(R.drawable.elisa_spm4);
               }
@@ -141,7 +128,7 @@ public class Fragment1 extends Fragment {
 
               }
 
-
+              //Metoder som får info-knappen til at vise svarenes fulde længde
               infoBtn1.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
@@ -165,6 +152,8 @@ public class Fragment1 extends Fragment {
                   }
               });
 
+              //Click metoder til svar-knapperne, som læser i databasen, om man har svaret rigtigt
+              //eller forkert.
               answerBtn1.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
@@ -222,13 +211,7 @@ public class Fragment1 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Random randomx = new Random();
-        final int x = randomx.nextInt(5)+4;
-        final String questionID = "q" + x;
-        mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions")
-                .child("questions_easy").child("questions_all").child(questionID);
-
-
+        //Initialiserer variablerne til deres rigtige id.
         answerBtn1 = (Button) view.findViewById(R.id.answerBtn1);
         answerBtn2 = (Button) view.findViewById(R.id.answerBtn2);
         answerBtn3 = (Button) view.findViewById(R.id.answerBtn3);
@@ -240,111 +223,7 @@ public class Fragment1 extends Fragment {
         question_textView = (TextView) view.findViewById(R.id.question_textView);
         question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
-            mDatabaseX.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String question = (String) dataSnapshot.child("question").getValue();
-                question_textView.setText(question);
+        changeQuestion();
 
-                final Integer correctAnswer =  dataSnapshot.child("correctAnswer").getValue(Integer.class);
-                final int correctAnswer2 =  dataSnapshot.child("correctAnswer2").getValue(Integer.class);
-                final String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                final String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                final String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                final String answer4 = (String) dataSnapshot.child("answer4").getValue();
-
-                answerBtn1.setText(answer1);
-                answerBtn2.setText(answer2);
-                answerBtn3.setText(answer3);
-                answerBtn4.setText(answer4);
-
-                if (x == 4){
-                    question_imageView.setImageResource(R.drawable.elisa_spm4);
-                }
-                else if (x == 5){
-                    question_imageView.setImageResource(R.drawable.elisa_spm5);
-
-                }
-                else if (x == 6){
-                    question_imageView.setImageResource(R.drawable.elisa_spm6);
-
-                }
-                else if (x == 7){
-                    question_imageView.setImageResource(R.drawable.elisa_spm7);
-
-                }
-                else if (x == 8){
-                    question_imageView.setImageResource(R.drawable.elisa_spm8);
-
-                }
-
-
-                infoBtn1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
-                    }
-                    });
-                infoBtn2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
-                });
-                infoBtn3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
-                });
-                infoBtn4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();
-                    }
-                });
-
-                answerBtn1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (correctAnswer==1 || correctAnswer2==1) {
-                            rightAnswer();}
-                        else {
-                            wrongAnswer();}
-                    }
-                });
-                answerBtn2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (correctAnswer==2 || correctAnswer2 ==2) {
-                            rightAnswer();}
-                            else {
-                            wrongAnswer();}
-                    }
-                });
-                answerBtn3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (correctAnswer==3 ||correctAnswer2==3) {
-                            rightAnswer();}
-                        else {
-                            wrongAnswer();}
-                    }
-                });
-                answerBtn4.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (correctAnswer==4 || correctAnswer2==4) {
-                            rightAnswer();}
-                        else {
-                            wrongAnswer();}
-                    }
-                });
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
     }
 }
