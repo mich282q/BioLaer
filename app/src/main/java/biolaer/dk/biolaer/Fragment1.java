@@ -95,6 +95,7 @@ public class Fragment1 extends Fragment {
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+
                    //     Log.d("randomDebug", "onClick: " + Fragment1.getRandomQ());
 
 
