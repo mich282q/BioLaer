@@ -90,6 +90,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:allowUndo="false"
+        android:text="0"
         android:textAlignment="textEnd"
         android:textColor="#FFF"
         android:textSize="18sp"

@@ -32,6 +32,7 @@ import java.util.Random;
 
 
 public class Fragment1 extends Fragment {
+    private int actualPoint = 0; // laver en int variabel til vores point tæller
 
     DatabaseReference mDatabaseq4;
     DatabaseReference mDatabaseq5;
@@ -109,6 +110,7 @@ public class Fragment1 extends Fragment {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         Log.d("randomDebug", "onClick: " + Fragment1.getRandomQ());
+                       actualPoint = actualPoint + 100;
 
 
                         //Intent reloadActivity = new Intent(getContext(), QuestionsActivity.class);
@@ -118,6 +120,7 @@ public class Fragment1 extends Fragment {
                      //  getActivity();
 
                     }
+
                 })
                 .show();
     }
