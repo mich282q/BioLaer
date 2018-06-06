@@ -117,6 +117,18 @@ public class Fragment1 extends Fragment {
 
     }
 
+    /* NOTE: 
+    ALt det, som er pt inde i onViewCreated()  skal trækkes ud i en metode her, der hedder changeQuestion()
+    
+    public changeQuestion() {
+     // Her kommer alt guf fra onViewCreated() -- og husk såp at kalde changeQuestion() fra onViewCreated() 
+    }
+    
+    se, hvordan du skifter et fragment med et andet:
+    https://developer.android.com/training/basics/fragments/fragment-ui#Replace
+    
+    */
+    
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -124,11 +136,21 @@ public class Fragment1 extends Fragment {
      //   Random random = new Random();
       //  final int randomQ = random.nextInt(5)+1;
        // final int randomQ = 1;
+        /* NOTE:
+        int x = lav en random nummer mellem 4 og 8 ( læg 3 til)
+        String questionID = “q” + x;  // q4
+        */
+
         getRandomQ();
+        
 
        final QuestionsActivity qq = new QuestionsActivity();
      //  final TextView actualPoint_textView = (TextView) view.findViewById(R.id.actualPoint_textView);
 
+        /* 
+        NOTE: 
+        mDatabaseq = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child(questionID);
+        */ 
 
         mDatabaseq4 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q4");
         mDatabaseq5 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q5");
@@ -162,7 +184,10 @@ public class Fragment1 extends Fragment {
                 final String answer2 = (String) dataSnapshot.child("answer2").getValue();
                 final String answer3 = (String) dataSnapshot.child("answer3").getValue();
                 final String answer4 = (String) dataSnapshot.child("answer4").getValue();
-
+                /* NOTE: 
+                final int correctAnswer = (int) dataSnapshot.child("correctAnswer").getValue();
+                */ 
+                
                 answerBtn1.setText(answer1);
                 answerBtn2.setText(answer2);
                 answerBtn3.setText(answer3);
@@ -196,14 +221,18 @@ public class Fragment1 extends Fragment {
                 answerBtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        /* NOTE:
+                        if (correctAnswer==1) {correctAnswer();} else {wrongAnswer();}
+                        */
                        wrongAnswer();
                     }
                 });
                 answerBtn2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+  /* NOTE:
+                        if (correctAnswer==2) {correctAnswer();} else {wrongAnswer();}
+                        */
                         wrongAnswer();
                     }
                 });
