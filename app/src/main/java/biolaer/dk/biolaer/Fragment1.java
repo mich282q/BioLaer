@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +36,8 @@ public class Fragment1 extends Fragment {
     DatabaseReference mDatabaseq5;
     DatabaseReference mDatabaseq6;
     DatabaseReference mDatabaseq7;
-    DatabaseReference mDatabaseq8;
+    DatabaseReference  mDatabaseq8;
+    DatabaseReference mDatabaseX;
 
 
     //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -56,27 +56,14 @@ public class Fragment1 extends Fragment {
     MediaPlayer falseSound, correctSound;
 
    // QuestionsActivity testPoint = new QuestionsActivity();
-
-
-
+/*
     public static int getRandomQ() {
         Random random = new Random();
 
         int randomQ = random.nextInt(5)+1;
         return randomQ;
     }
-
-   /* public  int rollQ(){
-        randomQ = random.nextInt(5)+1;
-
-        return randomQ;
-    } */
-    /*
-    boolean go = false;
-    public boolean runQ4(){
-        go = true;
-        return  go;
-    } */
+*/
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -108,7 +95,7 @@ public class Fragment1 extends Fragment {
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Log.d("randomDebug", "onClick: " + Fragment1.getRandomQ());
+                   //     Log.d("randomDebug", "onClick: " + Fragment1.getRandomQ());
 
 
                         //Intent reloadActivity = new Intent(getContext(), QuestionsActivity.class);
@@ -132,28 +119,20 @@ public class Fragment1 extends Fragment {
 
     }
 
-
-
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        int questionNumber = Fragment1.getRandomQ();
+       // int questionNumber = Fragment1.getRandomQ();
 
-       final QuestionsActivity qq = new QuestionsActivity();
-     //  final TextView actualPoint_textView = (TextView) view.findViewById(R.id.actualPoint_textView);
+       Random randomx = new Random();
+       //Tilfældigt tal fra 4 til 8
+       final int x = randomx.nextInt(5)+4;
+        final String questionID = "q" + x;
 
+        //Database reference som tager en tilfældig child fra referencen.
+        mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child(questionID);
 
-        mDatabaseq4 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q4");
-        mDatabaseq5 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q5");
-        mDatabaseq6 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q6");
-        mDatabaseq7 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q7");
-        mDatabaseq8 = FirebaseDatabase.getInstance().getReference().child("questions").child("questions_easy").child("questions_all").child("q8");
-
-
-        //DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-      //  Question dbCon = new Question();
 
         answerBtn1 = (Button) view.findViewById(R.id.answerBtn1);
         answerBtn2 = (Button) view.findViewById(R.id.answerBtn2);
@@ -166,13 +145,15 @@ public class Fragment1 extends Fragment {
         question_textView = (TextView) view.findViewById(R.id.question_textView);
         question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
-        if (questionNumber == 1){
-            mDatabaseq4.addValueEventListener(new ValueEventListener() {
+      //  if (questionNumber == 1){
+            mDatabaseX.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String question = (String) dataSnapshot.child("question").getValue();
                 question_textView.setText(question);
 
+                final Integer correctAnswer =  dataSnapshot.child("correctAnswer").getValue(Integer.class);
+                final int correctAnswer2 =  dataSnapshot.child("correctAnswer2").getValue(Integer.class);
                 final String answer1 = (String) dataSnapshot.child("answer1").getValue();
                 final String answer2 = (String) dataSnapshot.child("answer2").getValue();
                 final String answer3 = (String) dataSnapshot.child("answer3").getValue();
@@ -183,7 +164,26 @@ public class Fragment1 extends Fragment {
                 answerBtn3.setText(answer3);
                 answerBtn4.setText(answer4);
 
-                question_imageView.setImageResource(R.drawable.elisa_spm4);
+                if (x == 4){
+                    question_imageView.setImageResource(R.drawable.elisa_spm4);
+                }
+                else if (x == 5){
+                    question_imageView.setImageResource(R.drawable.elisa_spm5);
+
+                }
+                else if (x == 6){
+                    question_imageView.setImageResource(R.drawable.elisa_spm6);
+
+                }
+                else if (x == 7){
+                    question_imageView.setImageResource(R.drawable.elisa_spm7);
+
+                }
+                else if (x == 8){
+                    question_imageView.setImageResource(R.drawable.elisa_spm8);
+
+                }
+
 
                 infoBtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -211,43 +211,37 @@ public class Fragment1 extends Fragment {
                 answerBtn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
-                       wrongAnswer();
+                        if (correctAnswer==1 || correctAnswer2==1) {
+                            rightAnswer();}
+                        else {
+                            wrongAnswer();}
                     }
                 });
                 answerBtn2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
-                        wrongAnswer();
+                        if (correctAnswer==2 || correctAnswer2 ==2) {
+                            rightAnswer();}
+                            else {
+                            wrongAnswer();}
                     }
                 });
                 answerBtn3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
-                        wrongAnswer();
+                        if (correctAnswer==3 ||correctAnswer2==3) {
+                            rightAnswer();}
+                        else {
+                            wrongAnswer();}
                     }
                 });
                 answerBtn4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                       // Intent questionsActivity = new Intent(getContext(), QuestionsActivity.class);
-                       // startActivity(questionsActivity);
-
-                        /*
-                        Fragment1 nextFrag= new Fragment1();
-                        getActivity().getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment1, nextFrag,"findThisFragment")
-                                .addToBackStack(null)
-                                .commit();  */
-                        //Fragment1 fragment1 = new Fragment1();
-                        //fragmentTransaction.replace(android.R.id.content, fragment1);
-
-                       // FragmentTransaction ft = getFragmentManager().beginTransaction();
-                       // ft.detach(Fragment1.this).attach(Fragment1.this).addToBackStack(null).commit();
-
-                        rightAnswer();
+                        if (correctAnswer==4 || correctAnswer2==4) {
+                            rightAnswer();}
+                        else {
+                            wrongAnswer();}
                     }
                 });
 
@@ -257,308 +251,6 @@ public class Fragment1 extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-        }); }
-        else if (questionNumber == 2){
-            mDatabaseq5.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    String question = (String) dataSnapshot.child("question").getValue();
-                    question_textView.setText(question);
-
-                    final String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                    final String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                    final String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                    final String answer4 = (String) dataSnapshot.child("answer4").getValue();
-
-                    answerBtn1.setText(answer1);
-                    answerBtn2.setText(answer2);
-                    answerBtn3.setText(answer3);
-                    answerBtn4.setText(answer4);
-
-                    question_imageView.setImageResource(R.drawable.elisa_spm5);
-
-                    infoBtn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
-                        }
-                    });
-                    infoBtn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
-                    });
-                    infoBtn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
-                    });
-                    infoBtn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
-                    });
-                    answerBtn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-                        }
-                    });
-                    answerBtn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            rightAnswer();
-                        }
-                    });
-                    answerBtn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            rightAnswer();
-                        }
-                    });
-                    answerBtn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-                        }
-                    });
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
-
-        else if (questionNumber == 3){
-            mDatabaseq6.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    String question = (String) dataSnapshot.child("question").getValue();
-                    question_textView.setText(question);
-
-                    final String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                    final String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                    final String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                    final String answer4 = (String) dataSnapshot.child("answer4").getValue();
-
-                    answerBtn1.setText(answer1);
-                    answerBtn2.setText(answer2);
-                    answerBtn3.setText(answer3);
-                    answerBtn4.setText(answer4);
-
-                    question_imageView.setImageResource(R.drawable.elisa_spm6);
-
-
-                    infoBtn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
-                        }
-                    });
-                    infoBtn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
-                    });
-                    infoBtn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
-                    });
-                    infoBtn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
-                    });
-
-                    answerBtn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-                        }
-                    });
-                    answerBtn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-
-                        }
-                    });
-                    answerBtn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-
-                        }
-                    });
-                    answerBtn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            rightAnswer();
-                        }
-                    });
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
-
-        else if (questionNumber == 4){
-            mDatabaseq7.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    String question = (String) dataSnapshot.child("question").getValue();
-                    question_textView.setText(question);
-
-                    final String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                    final String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                    final String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                    final String answer4 = (String) dataSnapshot.child("answer4").getValue();
-
-                    answerBtn1.setText(answer1);
-                    answerBtn2.setText(answer2);
-                    answerBtn3.setText(answer3);
-                    answerBtn4.setText(answer4);
-
-                    question_imageView.setImageResource(R.drawable.elisa_spm7);
-
-
-                    infoBtn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
-                        }
-                    });
-                    infoBtn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
-                    });
-                    infoBtn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
-                    });
-                    infoBtn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
-                    });
-                    answerBtn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-
-                        }
-                    });
-                    answerBtn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-
-                        }
-                    });
-                    answerBtn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-
-                        }
-                    });
-                    answerBtn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            rightAnswer();
-                        }
-                    });
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
-
-        else {
-            mDatabaseq8.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    String question = (String) dataSnapshot.child("question").getValue();
-                    question_textView.setText(question);
-
-                    final String answer1 = (String) dataSnapshot.child("answer1").getValue();
-                    final String answer2 = (String) dataSnapshot.child("answer2").getValue();
-                    final String answer3 = (String) dataSnapshot.child("answer3").getValue();
-                    final String answer4 = (String) dataSnapshot.child("answer4").getValue();
-
-                    answerBtn1.setText(answer1);
-                    answerBtn2.setText(answer2);
-                    answerBtn3.setText(answer3);
-                    answerBtn4.setText(answer4);
-                    question_imageView.setImageResource(R.drawable.elisa_spm8);
-
-
-                    infoBtn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
-                        }
-                    });
-                    infoBtn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
-                    });
-                    infoBtn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
-                    });
-                    infoBtn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();                  }
-                    });
-                    answerBtn1.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-
-                        }
-                    });
-                    answerBtn2.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            rightAnswer();
-                        }
-                    });
-                    answerBtn3.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-
-                        }
-                    });
-                    answerBtn4.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            wrongAnswer();
-
-                        }
-                    });
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
-        }
+        });
     }
 }
