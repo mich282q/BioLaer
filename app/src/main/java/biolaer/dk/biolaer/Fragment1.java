@@ -117,6 +117,18 @@ public class Fragment1 extends Fragment {
 
     }
 
+    /* NOTE: 
+    ALt det, som er pt inde i onViewCreated()  skal trækkes ud i en metode her, der hedder changeQuestion()
+    
+    public changeQuestion() {
+     // Her kommer alt guf fra onViewCreated() -- og husk såp at kalde changeQuestion() fra onViewCreated() 
+    }
+    
+    se, hvordan du skifter et fragment med et andet:
+    https://developer.android.com/training/basics/fragments/fragment-ui#Replace
+    
+    */
+    
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
