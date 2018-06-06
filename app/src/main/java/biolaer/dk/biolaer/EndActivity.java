@@ -20,6 +20,9 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class EndActivity extends AppCompatActivity {
 
     EditText insertName;
@@ -38,7 +41,7 @@ public class EndActivity extends AppCompatActivity {
 
         //Firebase connection
         database = FirebaseDatabase.getInstance();
-        highscore = FirebaseDatabase.getInstance().getReference("highscore");
+        highscore = FirebaseDatabase.getInstance().getReference("highscore").child("highscore_easy");
 
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -64,19 +67,23 @@ public class EndActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                addScore(insertName, point);
+                addScore();
             }
         });
     }
 
-   private void addScore(EditText insertName, String point) {
+   private void addScore() {
 
-        /*String name = insertName.getText().toString().trim();
-        String point = "10";*/
+        String name = insertName.getText().toString().trim();
+        int point = 10;
+        String key = highscore.push().getKey();
 
         if(!TextUtils.isEmpty(insertName.getText().toString())){
 
-            highscore.child("highscore").child(point).setValue(insertName,point);
+            Map<String, Object> score = new HashMap<>();
+            score.put("navn", name);
+            score.put("point", point);
+            highscore.push().setValue(score);
 
            /* String id = highscore.push().getKey();
 
