@@ -76,21 +76,141 @@ public class Fragment1 extends Fragment {
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                   //     Log.d("randomDebug", "onClick: " + Fragment1.getRandomQ());
 
 
-                        //Intent reloadActivity = new Intent(getContext(), QuestionsActivity.class);
-                        //startActivity(reloadActivity);
-                        //getRandomQ();
-                    //   onDestroyView();
-                     //  getActivity();
-
+                        changeQuestion();
                     }
                 })
                 .show();
     }
 
-    //QuestionsActivity qq = new QuestionsActivity();
+  /* NOTE:
++    ALt det, som er pt inde i onViewCreated()  skal trækkes ud i en metode her, der hedder changeQuestion()
++
++    public changeQuestion() {
++     // Her kommer alt guf fra onViewCreated() -- og husk såp at kalde changeQuestion() fra onViewCreated()
++    }
++    se, hvordan du skifter et fragment med et andet:
++    https://developer.android.com/training/basics/fragments/fragment-ui#Replace
++
++    */
+  public void changeQuestion(){
+      Random randomx = new Random();
+      final int x = randomx.nextInt(5)+4;
+      final String questionID = "q" + x;
+      mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions")
+              .child("questions_easy").child("questions_all").child(questionID);
+
+
+
+      mDatabaseX.addValueEventListener(new ValueEventListener() {
+          @Override
+          public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+              String question = (String) dataSnapshot.child("question").getValue();
+              question_textView.setText(question);
+
+              final Integer correctAnswer =  dataSnapshot.child("correctAnswer").getValue(Integer.class);
+              final int correctAnswer2 =  dataSnapshot.child("correctAnswer2").getValue(Integer.class);
+              final String answer1 = (String) dataSnapshot.child("answer1").getValue();
+              final String answer2 = (String) dataSnapshot.child("answer2").getValue();
+              final String answer3 = (String) dataSnapshot.child("answer3").getValue();
+              final String answer4 = (String) dataSnapshot.child("answer4").getValue();
+
+              answerBtn1.setText(answer1);
+              answerBtn2.setText(answer2);
+              answerBtn3.setText(answer3);
+              answerBtn4.setText(answer4);
+
+              if (x == 4){
+                  question_imageView.setImageResource(R.drawable.elisa_spm4);
+              }
+              else if (x == 5){
+                  question_imageView.setImageResource(R.drawable.elisa_spm5);
+
+              }
+              else if (x == 6){
+                  question_imageView.setImageResource(R.drawable.elisa_spm6);
+
+              }
+              else if (x == 7){
+                  question_imageView.setImageResource(R.drawable.elisa_spm7);
+
+              }
+              else if (x == 8){
+                  question_imageView.setImageResource(R.drawable.elisa_spm8);
+
+              }
+
+
+              infoBtn1.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      Toast.makeText(getActivity(), answer1, Toast.LENGTH_LONG).show();
+                  }
+              });
+              infoBtn2.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
+              });
+              infoBtn3.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
+              });
+              infoBtn4.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      Toast.makeText(getActivity(), answer4, Toast.LENGTH_LONG).show();
+                  }
+              });
+
+              answerBtn1.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      if (correctAnswer==1 || correctAnswer2==1) {
+                          rightAnswer();}
+                      else {
+                          wrongAnswer();}
+                  }
+              });
+              answerBtn2.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      if (correctAnswer==2 || correctAnswer2 ==2) {
+                          rightAnswer();}
+                      else {
+                          wrongAnswer();}
+                  }
+              });
+              answerBtn3.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      if (correctAnswer==3 ||correctAnswer2==3) {
+                          rightAnswer();}
+                      else {
+                          wrongAnswer();}
+                  }
+              });
+              answerBtn4.setOnClickListener(new View.OnClickListener() {
+                  @Override
+                  public void onClick(View v) {
+                      if (correctAnswer==4 || correctAnswer2==4) {
+                          rightAnswer();}
+                      else {
+                          wrongAnswer();}
+                  }
+              });
+
+          }
+
+          @Override
+          public void onCancelled(@NonNull DatabaseError databaseError) {
+
+          }
+      });
+  }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
