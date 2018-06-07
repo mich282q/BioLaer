@@ -37,7 +37,7 @@ public class HighscoreActivity extends AppCompatActivity {
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (easyBtn.getText()=="Let") {
+                if (easyBtn.getText().equals("Let")) {
                     easyBtn.setText("Direkte ELISA");
                     hardBtn.setText("Indirekte Sandwich ELISA");
                 }

@@ -39,13 +39,14 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //Hvad der sker, når der klikkes på knappen.
-                if (easyBtn.getText() == "Let") {
+                if (easyBtn.getText().equals("Let")) {
                     easyBtn.setText("Direkte ELISA");
                     hardBtn.setText("Indirekte Sandwich ELISA");
                 }
                 else {
                     easyBtn.setText("Let");
                     hardBtn.setText("Svær");
+
                 }
             }
         });
