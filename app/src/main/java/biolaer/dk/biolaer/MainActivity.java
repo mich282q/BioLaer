@@ -37,7 +37,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     //En Android Activity extender enten Activity-klassen eller AppCompatActivity-klassen.
 
-    //Nødvendige variabler
+    //Nødvendige klassevariabler
     private boolean mIsBound = false;
     private MusicService mServ;
 

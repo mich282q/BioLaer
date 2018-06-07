@@ -22,18 +22,18 @@ public class HighscoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
 
-        //Tvinger activitien til at være i Portrait orientation mode.
+        //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //Fields der connecter til buttons i xml-filen.
-        //De to knapper eastBtn og hardBtn skal være final for at virke optimalt!
+        /* Fields der connecter til buttons i xml-filen.
+        De to knapper eastBtn og hardBtn skal være final for at virke optimalt! */
         Button infoBtn = (Button) findViewById(R.id.infoBtn);
         final Button easyBtn = (Button) findViewById(R.id.easyBtn);
         final Button hardBtn = (Button) findViewById(R.id.hardBtn);
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
-        //Metode til info-knappen, som ændret teksten på knapperne frem og tilbage.
+        //Metode til info-knappen, som ændrer teksten på knapperne frem og tilbage.
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,7 +67,7 @@ public class HighscoreActivity extends AppCompatActivity {
             }
         });
 
-        //Metode som får returnBtn til at hoppe tilbage activiten, som var før den nuværende.
+        //Metode som får returnBtn til at hoppe tilbage til activiten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

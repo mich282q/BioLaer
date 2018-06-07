@@ -1,5 +1,6 @@
 package biolaer.dk.biolaer;
 
+//Nødvendige imports
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,5 +20,4 @@ public class Fragment2 extends Fragment {
         return inflater.inflate(R.layout.fragment_fragment2, container, false);
 
     }
-
 }
