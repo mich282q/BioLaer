@@ -28,6 +28,7 @@ public class QuestionsActivity extends AppCompatActivity {
         actualPoint_textView.setText(pointT + 100 + "");
     }
 
+    //Instantierer nyt fragment, der definerer spørgsmålene til den lette kategori
     Fragment1 fragment1 = new Fragment1();
 
     @Override

@@ -8,6 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Denne klasse repræsenterer den skærm brugeren ser, når vedkommende har valgt, hvilket emne
+ * der skal quizzes i. Herfra vælger man så, om man vil starte quizzen, eller om man vil se
+ * highscores.
+ */
 public class GameActivity extends AppCompatActivity { //Extender AppCompatActivity
 
     /**
@@ -21,7 +26,7 @@ public class GameActivity extends AppCompatActivity { //Extender AppCompatActivi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        // Tvinger activitien til at være i "Portrait orientation mode".
+        //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Fields der connecter til buttons i xml-filen.
