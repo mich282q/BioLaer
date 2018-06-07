@@ -53,7 +53,7 @@ public class EndActivity extends AppCompatActivity {
     }
 */
     QuestionsActivity questionsActivity = new QuestionsActivity();
-
+    //Scoren + 100 så det bliver den korrekte score
     int samledeScore = questionsActivity.getPointT()+ 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
