@@ -35,6 +35,8 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
     private ArrayList<String> listNavn = new ArrayList<>();
     private ProgressDialog progressDialog; //Til Progress-baren
 
+
+
     //Overrider den default onCreate-metode med vores properties til denne aktivitet
     @Override
     protected void onCreate(Bundle savedInstanceState) {

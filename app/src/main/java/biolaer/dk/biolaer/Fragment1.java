@@ -31,13 +31,21 @@ import java.util.Random;
 
 
 public class Fragment1 extends Fragment {
-
     //Genererer en masse variabler
     DatabaseReference mDatabaseX;
     Button answerBtn1, answerBtn2, answerBtn3, answerBtn4, infoBtn1, infoBtn2, infoBtn3, infoBtn4;
     TextView question_textView;
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
+
+    boolean poinT = false;
+
+    public boolean pointB(boolean poinT){
+        this.poinT = poinT;
+        poinT = true;
+        return  poinT;
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,6 +80,12 @@ public class Fragment1 extends Fragment {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         changeQuestion();
+
+                        ((QuestionsActivity) getActivity()).addPoints();
+
+
+
+
                     }
                 })
                 .show();
