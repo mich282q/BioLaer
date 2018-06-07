@@ -34,7 +34,7 @@ public class EndActivity extends AppCompatActivity {
     //Variabler til Firebase-connection
     FirebaseDatabase database;
     DatabaseReference highscore;
-    @Override
+  /*  @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
 
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
@@ -42,7 +42,7 @@ public class EndActivity extends AppCompatActivity {
         }
         return super.dispatchKeyEvent(event);
     }
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
