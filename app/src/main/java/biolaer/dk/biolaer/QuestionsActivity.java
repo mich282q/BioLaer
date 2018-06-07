@@ -17,12 +17,12 @@ import android.widget.Toast;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
+import org.w3c.dom.Text;
+
 public class QuestionsActivity extends AppCompatActivity {
 
-    int request_Code = 1;
-
-
     int point = 0;
+    //int actualPoint = actualPoint + 50;
     String navn = "";
 
     public QuestionsActivity(){
@@ -35,7 +35,6 @@ public class QuestionsActivity extends AppCompatActivity {
     }
     public void setPoint(int point) {
         this.point = point;
-
     }
 
     public void setNavn(String navn) {
@@ -52,6 +51,15 @@ public class QuestionsActivity extends AppCompatActivity {
 
 
 
+    TextView actualPoint_textView;
+
+    public void addPoints(){
+        int pointT = Integer.parseInt(actualPoint_textView.getText().toString());
+    actualPoint_textView.setText(pointT + 100 + "");
+    }
+
+
+    Fragment1 fragment1 = new Fragment1();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,17 +68,14 @@ public class QuestionsActivity extends AppCompatActivity {
          Timer timer = new Timer();
 
 
-
-
-       final TextView actualPoint_textView = (TextView) findViewById(R.id.actualPoint_textView);
-       actualPoint_textView.setText((Integer) getPoint()+"");
-
-
+        Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
+        actualPoint_textView = (TextView) findViewById(R.id.actualPoint_textView);
 
         // Tvinger activityen til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
+
+
 
         /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
          når brugeren klikker på cockwheel-ikonet i hjørnet */
