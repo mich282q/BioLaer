@@ -1,6 +1,7 @@
 package biolaer.dk.biolaer;
 
 //Nødvendige imports
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -12,6 +13,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,11 +23,16 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class EndActivity extends AppCompatActivity {
 
+    QuestionsActivity fa1 = new QuestionsActivity();
+
+    TextView displayScore;
     EditText insertName;
     Button submitButton;
     String point = "10";
@@ -54,6 +61,15 @@ public class EndActivity extends AppCompatActivity {
 
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+        //Display score
+        displayScore = (TextView) findViewById(R.id.pointTxt);
+
+        displayScore.setText("");
+
+
+
+
 
         //Knapper
         submitButton = (Button)findViewById(R.id.submitBtn_button);
@@ -85,14 +101,14 @@ public class EndActivity extends AppCompatActivity {
    private void addScore() {
 
         String name = insertName.getText().toString().trim();
-        int point = 10;
+
         String key = highscore.push().getKey();
 
         if(!TextUtils.isEmpty(insertName.getText().toString())){
 
             Map<String, Object> score = new HashMap<>();
             score.put("navn", name);
-            score.put("point", point);
+            score.put("point", fa1.actualPoint_textView.getText().toString());
             highscore.push().setValue(score);
 
            /* String id = highscore.push().getKey();

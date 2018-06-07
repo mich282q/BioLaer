@@ -29,6 +29,7 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
 
+
     Fragment1 fragment1 = new Fragment1();
 
     @Override
