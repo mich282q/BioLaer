@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="dialogWrong" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/diaglogWrong</item>
+    </style>
+
+    <style name="dialogCorrect" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:background">@color/dialogCorrect</item>
+    </style>
+
 </resources>
