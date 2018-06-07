@@ -38,8 +38,6 @@ public class Fragment1 extends Fragment {
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
 
-    boolean poinT = false;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
