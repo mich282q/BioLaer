@@ -21,40 +21,11 @@ import org.w3c.dom.Text;
 
 public class QuestionsActivity extends AppCompatActivity {
 
-    int point = 0;
-    //int actualPoint = actualPoint + 50;
-    String navn = "";
-
-    public QuestionsActivity(){
-
-    }
-
-    public QuestionsActivity(int point, String navn) {
-        this.point = point;
-        this.navn = navn;
-    }
-    public void setPoint(int point) {
-        this.point = point;
-    }
-
-    public void setNavn(String navn) {
-        this.navn = navn;
-    }
-
-    public int getPoint() {
-        return point;
-    }
-
-    public String getNavn() {
-        return navn;
-    }
-
-
-
     TextView actualPoint_textView;
 
+    int pointT = Integer.parseInt(actualPoint_textView.getText().toString());
+
     public void addPoints(){
-        int pointT = Integer.parseInt(actualPoint_textView.getText().toString());
     actualPoint_textView.setText(pointT + 100 + "");
     }
 

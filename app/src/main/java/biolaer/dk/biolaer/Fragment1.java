@@ -40,12 +40,6 @@ public class Fragment1 extends Fragment {
 
     boolean poinT = false;
 
-    public boolean pointB(boolean poinT){
-        this.poinT = poinT;
-        poinT = true;
-        return  poinT;
-    }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,12 +74,7 @@ public class Fragment1 extends Fragment {
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         changeQuestion();
-
                         ((QuestionsActivity) getActivity()).addPoints();
-
-
-
-
                     }
                 })
                 .show();
