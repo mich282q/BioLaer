@@ -52,7 +52,9 @@ public class EndActivity extends AppCompatActivity {
         return super.dispatchKeyEvent(event);
     }
 */
+    QuestionsActivity questionsActivity = new QuestionsActivity();
 
+    int samledeScore = questionsActivity.getPointT()+ 100;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,10 +67,13 @@ public class EndActivity extends AppCompatActivity {
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+
+
         //Display score
         displayScore = (TextView) findViewById(R.id.pointTxt);
 
-        displayScore.setText("");
+
+        displayScore.setText(samledeScore + "");
 
 
 
@@ -111,7 +116,7 @@ public class EndActivity extends AppCompatActivity {
 
             Map<String, Object> score = new HashMap<>();
             score.put("navn", name);
-            score.put("point", fa1.actualPoint_textView.getText().toString());
+            score.put("point", samledeScore);
             highscore.push().setValue(score);
 
            /* String id = highscore.push().getKey();

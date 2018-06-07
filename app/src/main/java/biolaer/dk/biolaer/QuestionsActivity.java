@@ -19,14 +19,22 @@ import org.w3c.dom.Text;
 
 public class QuestionsActivity extends AppCompatActivity {
 
+
+
+
     //Klassevariabler el. fields
-    TextView actualPoint_textView;
+    static TextView actualPoint_textView;
+    static int pointT;
 
     //Metode der tilføjer 100 point til dine samlede point
     public void addPoints(){
-        int pointT = Integer.parseInt(actualPoint_textView.getText().toString());
+        pointT = Integer.parseInt(actualPoint_textView.getText().toString());
         actualPoint_textView.setText(pointT + 100 + "");
     }
+
+    public int getPointT() {
+        return pointT; }
+
 
     Fragment1 fragment1 = new Fragment1();
 
