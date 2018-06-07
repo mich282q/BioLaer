@@ -1,13 +1,10 @@
 package biolaer.dk.biolaer;
 
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * I denne klasse er gruppens JUnit Tests placeret. Et krav fra faget Programmering.
  */
 public class ExampleUnitTest {
     @Test
