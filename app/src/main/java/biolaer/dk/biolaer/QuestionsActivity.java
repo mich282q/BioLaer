@@ -23,10 +23,9 @@ public class QuestionsActivity extends AppCompatActivity {
 
     TextView actualPoint_textView;
 
-    int pointT = Integer.parseInt(actualPoint_textView.getText().toString());
-
     public void addPoints(){
-    actualPoint_textView.setText(pointT + 100 + "");
+        int pointT = Integer.parseInt(actualPoint_textView.getText().toString());
+        actualPoint_textView.setText(pointT + 100 + "");
     }
 
 
