@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,14 @@ public class EndActivity extends AppCompatActivity {
     //Variabler til Firebase-connection
     FirebaseDatabase database;
     DatabaseReference highscore;
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +80,7 @@ public class EndActivity extends AppCompatActivity {
             }
         });
     }
+
 
    private void addScore() {
 
