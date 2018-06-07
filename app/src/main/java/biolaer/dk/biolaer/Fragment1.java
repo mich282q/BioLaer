@@ -31,7 +31,7 @@ import java.util.Random;
 
 
 public class Fragment1 extends Fragment {
-
+    private int actualPoint = 0; // laver en int variabel til vores point tæller
     DatabaseReference mDatabaseX;
 
     Button answerBtn1;
@@ -76,7 +76,7 @@ public class Fragment1 extends Fragment {
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
+                        actualPoint = actualPoint +100;
 
                         changeQuestion();
                     }
