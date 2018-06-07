@@ -36,7 +36,7 @@ public class EndActivity extends AppCompatActivity {
     DatabaseReference highscore;
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        
+
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
             return true;
         }
