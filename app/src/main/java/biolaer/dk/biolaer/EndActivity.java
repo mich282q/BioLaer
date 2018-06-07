@@ -41,6 +41,8 @@ public class EndActivity extends AppCompatActivity {
     //Variabler til Firebase-connection
     FirebaseDatabase database;
     DatabaseReference highscore;
+
+    //søger for de ikke kan gå tilbage og svare videre på spørgsmålen.
   /*  @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
 
@@ -50,6 +52,7 @@ public class EndActivity extends AppCompatActivity {
         return super.dispatchKeyEvent(event);
     }
 */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

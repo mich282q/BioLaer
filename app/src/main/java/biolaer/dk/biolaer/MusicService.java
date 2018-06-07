@@ -8,7 +8,8 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.widget.Toast;
 
-/** Denne klasse starter en service som er en længerevarende operation, der afspiller musik
+/**
+ * Denne klasse starter en service, som er en længerevarende operation, der afspiller musik
  * i baggrunden på tværs af alle activities, så længe at applikationen er åben.
  */
 public class MusicService extends Service implements MediaPlayer.OnErrorListener {

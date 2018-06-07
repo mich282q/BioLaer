@@ -81,6 +81,7 @@ public class OptionsActivity extends AppCompatActivity {
                 }
             });
         } catch (Exception e) {
+            //Fanger exception, hvis det skulle opstå
             e.printStackTrace();
         }
     }
