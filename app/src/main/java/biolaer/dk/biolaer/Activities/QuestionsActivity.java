@@ -22,6 +22,7 @@ public class QuestionsActivity extends AppCompatActivity {
     static TextView actualPoint_textView;
     public static int pointT;
 
+
     //Metode der tilføjer 100 point til dine samlede point
     public void addPoints(){
         pointT = Integer.parseInt(actualPoint_textView.getText().toString());

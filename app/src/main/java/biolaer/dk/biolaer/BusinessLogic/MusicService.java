@@ -22,6 +22,7 @@ public class MusicService extends Service implements MediaPlayer.OnErrorListener
     public int length = 0;
 
 
+
     public class ServiceBinder extends Binder {
        public MusicService getService()
         {
@@ -36,7 +37,7 @@ public class MusicService extends Service implements MediaPlayer.OnErrorListener
     public void onCreate () {
         super.onCreate();
         // Peger på hvilken musikfil der skal afspilles. Findes i mappen "raw" under "res"
-        mPlayer = MediaPlayer.create(this, R.raw.dario);
+        mPlayer = MediaPlayer.create(this, R.raw.backgroundmusic);
         mPlayer.setOnErrorListener(this);
 
         /* Sætter sangen til at loope, og gør at sangen bliver afspillet med fuld styrke,
@@ -85,4 +86,6 @@ public class MusicService extends Service implements MediaPlayer.OnErrorListener
             }
         }
         return false;
+
+
     }}
