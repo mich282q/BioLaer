@@ -19,7 +19,7 @@ public class QuestionsActivity extends AppCompatActivity {
 
     //Klassevariabler el. fields
     static TextView actualPoint_textView;
-    static int pointT;
+    public static int pointT;
 
     //Metode der tilføjer 100 point til dine samlede point
     public void addPoints(){
