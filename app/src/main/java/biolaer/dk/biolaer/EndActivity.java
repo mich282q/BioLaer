@@ -2,29 +2,20 @@ package biolaer.dk.biolaer;
 
 //Nødvendige imports
 import android.app.AlertDialog;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.MutableData;
-import com.google.firebase.database.Transaction;
-import com.google.firebase.database.ValueEventListener;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +24,7 @@ public class EndActivity extends AppCompatActivity {
 
     QuestionsActivity fa1 = new QuestionsActivity();
 
-    TextView displayScore;
+    TextView displayScore, displayRank;
     EditText insertName;
     Button submitButton;
     String point = "10";
@@ -87,9 +78,10 @@ public class EndActivity extends AppCompatActivity {
 
         //Display score
         displayScore = (TextView) findViewById(R.id.pointTxt);
-
-
         displayScore.setText(samledeScore + "");
+
+        displayRank = (TextView) findViewById(R.id.rankTxt);
+        displayRank.setText(questionsActivity.getRank());
 
 
 

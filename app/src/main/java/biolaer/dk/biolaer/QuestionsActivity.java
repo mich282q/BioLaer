@@ -37,6 +37,29 @@ public class QuestionsActivity extends AppCompatActivity {
         return  pointT; }
 
 
+
+        public String getRank(){
+        String rank = "";
+        if (pointT == 0){
+            rank = "Noob";
+        }
+        else if (pointT == 100){
+        rank = "Begynder";
+        }
+        else if (pointT == 200){
+            rank = "Folkeskoleelev";
+        }
+        else if (pointT == 300){
+            rank = "Gymnasieelev";
+        }
+       else {
+            rank = "Pro";
+        }
+
+        return rank;
+        }
+
+
     Fragment1 fragment1 = new Fragment1();
 
     @Override
