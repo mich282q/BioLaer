@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
-    tools:context="biolaer.dk.biolaer.QuestionsActivity">
+    tools:context="biolaer.dk.biolaer.Activities.QuestionsActivity">
 
     <Button
         android:id="@+id/optionsBtn"
@@ -102,7 +102,7 @@
 
     <fragment
         android:id="@+id/fragment1"
-        android:name="biolaer.dk.biolaer.Fragment1"
+        android:name="biolaer.dk.biolaer.Activities.Fragment1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

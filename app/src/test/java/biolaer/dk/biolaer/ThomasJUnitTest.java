@@ -1,6 +1,9 @@
 package biolaer.dk.biolaer;
 
 import org.junit.Test;
+
+import biolaer.dk.biolaer.Activities.QuestionsActivity;
+
 import static org.junit.Assert.*;
 
 /**

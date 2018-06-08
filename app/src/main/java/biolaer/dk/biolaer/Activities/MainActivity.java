@@ -1,7 +1,6 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Nødvendige imports
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -11,12 +10,14 @@ import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import biolaer.dk.biolaer.BusinessLogic.MusicService;
+import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse indeholder bl.a. onCreate-metoden, som starter vores MainActivity.

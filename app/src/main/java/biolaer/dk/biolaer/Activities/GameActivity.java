@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Nøvendige imports
 import android.content.Intent;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse repræsenterer den skærm brugeren ser, når vedkommende har valgt, hvilket emne

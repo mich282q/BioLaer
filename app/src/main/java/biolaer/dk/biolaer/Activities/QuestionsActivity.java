@@ -1,21 +1,16 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Importerer nødvendige libraries
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import org.w3c.dom.Text;
+
+import biolaer.dk.biolaer.BusinessLogic.Timer;
+import biolaer.dk.biolaer.R;
 
 public class QuestionsActivity extends AppCompatActivity {
 

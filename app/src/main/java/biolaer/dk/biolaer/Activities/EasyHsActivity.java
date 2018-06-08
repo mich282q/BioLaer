@@ -1,10 +1,9 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Nødvendige imports
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.graphics.Point;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,8 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+
+import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse indeholder fields og logik for klassen "EasyHsActivity", der er den aktivitet,

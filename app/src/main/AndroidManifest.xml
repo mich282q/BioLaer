@@ -9,21 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity" />
-        <activity android:name=".HighscoreActivity" />
-        <activity android:name=".EasyHsActivity" />
-        <activity android:name=".HardHsActivity" />
-        <activity android:name=".OptionsActivity" />
-        <activity android:name=".QuestionsActivity" />
-        <activity android:name=".EndActivity" />
-        <activity android:name=".GameActivity" />
-        <activity android:name=".LevelActivity" />
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.HighscoreActivity" />
+        <activity android:name=".Activities.EasyHsActivity" />
+        <activity android:name=".Activities.HardHsActivity" />
+        <activity android:name=".Activities.OptionsActivity" />
+        <activity android:name=".Activities.QuestionsActivity" />
+        <activity android:name=".Activities.EndActivity" />
+        <activity android:name=".Activities.GameActivity" />
+        <activity android:name=".Activities.LevelActivity" />
 
         <service
-            android:name=".MusicService"
+            android:name=".BusinessLogic.MusicService"
             android:enabled="true" />
 
-        <activity android:name=".SplashActivity">
+        <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

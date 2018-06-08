@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Nødvendige imports
 import android.app.ProgressDialog;
@@ -20,6 +20,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse indeholder fields og logik for klassen "EastHsActivity", der er den aktivitet,

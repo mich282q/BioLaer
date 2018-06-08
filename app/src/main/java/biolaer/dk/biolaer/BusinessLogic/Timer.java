@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.BusinessLogic;
 
 //Nødvendige imports
 import android.content.res.ColorStateList;

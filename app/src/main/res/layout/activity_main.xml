@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/greenbackground"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <Button
         android:id="@+id/optionsBtn"

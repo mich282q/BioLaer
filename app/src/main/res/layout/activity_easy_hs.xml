@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
-    tools:context=".EasyHsActivity">
+    tools:context=".Activities.EasyHsActivity">
 
     <Button
         android:id="@+id/optionsBtn"

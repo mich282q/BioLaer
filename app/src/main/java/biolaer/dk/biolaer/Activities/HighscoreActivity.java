@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Nødvendige imports
 import android.content.Intent;
@@ -7,7 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import biolaer.dk.biolaer.R;
 
 public class HighscoreActivity extends AppCompatActivity {
 

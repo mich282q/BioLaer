@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Nødvendige imports
 import android.content.Context;
@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import biolaer.dk.biolaer.R;
 
 //Tænker det kan bruges til Indirekte Sandwich ELISA?
 

@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 
 import android.app.AlertDialog;
@@ -24,6 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Random;
+
+import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse repræsenterer den lette sværhedsgrad.

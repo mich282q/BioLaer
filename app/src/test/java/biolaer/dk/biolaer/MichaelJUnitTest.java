@@ -2,7 +2,6 @@ package biolaer.dk.biolaer;
 
 import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  * I denne klasse er gruppens JUnit Tests placeret. Et krav fra faget Programmering.
@@ -15,7 +14,7 @@ public  class MichaelJUnitTest {
     @Test
     public void DoesTheObjectExist() {
         try {
-            Class.forName("biolaer.dk.biolaer.HardHsActivity");
+            Class.forName("biolaer.dk.biolaer.Activities.HardHsActivity");
         } catch (ClassNotFoundException e) {
             Assert.fail("object was not found");
         }

@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.BusinessLogic;
 
 import android.view.View;
 import android.widget.Button;

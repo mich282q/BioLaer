@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Nødvendige imports
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+
+import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse indeholder kildekoden til activitien vedr. indstillinger. Det er bl.a. her der

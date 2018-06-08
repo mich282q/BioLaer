@@ -1,11 +1,12 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.Activities;
 
 //Nødvendige imports
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ProgressBar;
+
+import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse udgør den Splash Activity, der vises kort inden selve app'en åbner op.

@@ -1,4 +1,4 @@
-package biolaer.dk.biolaer;
+package biolaer.dk.biolaer.BusinessLogic;
 
 import android.app.Service;
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.widget.Toast;
 
+import biolaer.dk.biolaer.R;
+
 /**
  * Denne klasse starter en service, som er en længerevarende operation, der afspiller musik
  * i baggrunden på tværs af alle activities, så længe at applikationen er åben.
@@ -15,12 +17,13 @@ import android.widget.Toast;
 public class MusicService extends Service implements MediaPlayer.OnErrorListener {
 
     // Definerer interfacet som kommunikerer mellem service og client.
-    private final IBinder mBinder = new ServiceBinder(); //Deklarerer og initialiserer
+    public final IBinder mBinder = new ServiceBinder(); //Deklarerer og initialiserer
     MediaPlayer mPlayer; //Variabel som bruges i onCreate-metoden
-    private int length = 0;
+    public int length = 0;
+
 
     public class ServiceBinder extends Binder {
-        MusicService getService()
+       public MusicService getService()
         {
             return MusicService.this;
         }
