@@ -31,7 +31,7 @@ import java.util.Random;
 
 
 public class Fragment1 extends Fragment {
-    //Genererer en masse variabler!
+    //Genererer en masse variabler
     DatabaseReference mDatabaseX;
     Button answerBtn1, answerBtn2, answerBtn3, answerBtn4, infoBtn1, infoBtn2, infoBtn3, infoBtn4;
     TextView question_textView;
