@@ -33,7 +33,8 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
     public int getPointT() {
-        return pointT; }
+        pointT = Integer.parseInt(actualPoint_textView.getText().toString());
+        return  pointT; }
 
 
     Fragment1 fragment1 = new Fragment1();

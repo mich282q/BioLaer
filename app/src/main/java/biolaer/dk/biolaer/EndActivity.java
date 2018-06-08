@@ -54,8 +54,8 @@ public class EndActivity extends AppCompatActivity {
     }
 */
     QuestionsActivity questionsActivity = new QuestionsActivity();
-    //Scoren + 100 så det bliver den korrekte score
-    int samledeScore = questionsActivity.getPointT()+ 100;
+    //Scoren scoren fra QuestionsActivity
+    int samledeScore = questionsActivity.getPointT();
 
 
     public void dataAdded(){
