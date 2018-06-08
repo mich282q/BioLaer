@@ -26,6 +26,7 @@ public class EndActivity extends AppCompatActivity {
     TextView displayScore, displayRank;
     EditText insertName;
     Button submitButton;
+    Button tryAgainButton;
 
     //Variabler til Firebase-connection
     FirebaseDatabase database;
@@ -71,6 +72,17 @@ public class EndActivity extends AppCompatActivity {
         //Display rank
         displayRank = (TextView) findViewById(R.id.rankTxt);
         displayRank.setText(questionsActivity.getRank());
+
+        //Prøv igen knappen
+        tryAgainButton = (Button)findViewById(R.id.tryAgainBtn_button);
+
+        tryAgainButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent levelActivity = new Intent(getApplicationContext(), LevelActivity.class);
+                startActivity(levelActivity);
+            }
+        });
 
         //Submit knappen
         submitButton = (Button)findViewById(R.id.submitBtn_button);

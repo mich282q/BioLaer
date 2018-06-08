@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="@string/DinScore"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -46,7 +46,8 @@
         app:layout_constraintBottom_toTopOf="@+id/pointTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/endTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/endTxt"
+        app:layout_constraintVertical_bias="0.43" />
 
     <TextView
         android:id="@+id/pointTxt"
@@ -106,7 +107,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rankTxt"
-        app:layout_constraintVertical_bias="0.304" />
+        app:layout_constraintVertical_bias="0.18" />
 
     <ImageView
         android:id="@+id/greenRectangle_imageView"
@@ -130,5 +131,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/insertNameTxt" />
+
+    <Button
+        android:id="@+id/tryAgainBtn_button"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/button_default"
+        android:text="@string/ProevIgen"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/submitBtn_button"
+        app:layout_constraintVertical_bias="0.0" />
+
+
 
 </android.support.constraint.ConstraintLayout>
