@@ -4,12 +4,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * I denne klasse er JUnit-Test uviklet af Thomas.
- * I klassen er udviklet fem tests, som alle bygger på den samme metode.
+ * I denne klasse er JUnit-Test udviklet af Thomas.
+ * I klassen er der udviklet fem tests, som alle bygger på den samme metode.
  * Hver test tjekker om en specifik score giver den ønskede rank.
  * Alle fem tests går succesfuldt igennem.
  */
-public class ThomasUnitTest {
+public class ThomasJUnitTest {
     @Test
    public void testRank1(){
         boolean isRankCorrect = false;
