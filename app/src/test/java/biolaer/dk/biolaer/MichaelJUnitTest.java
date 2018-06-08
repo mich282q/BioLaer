@@ -28,7 +28,7 @@ public  class MichaelJUnitTest {
     @Test
     public void DoesTheObjectExist1() {
         try {
-            Class.forName("biolaer.dk.biolaer.HardHsActivity1");
+            Class.forName("biolaer.dk.biolaer.tester");
         } catch (ClassNotFoundException e) {
             Assert.fail("object was not found");
         }
