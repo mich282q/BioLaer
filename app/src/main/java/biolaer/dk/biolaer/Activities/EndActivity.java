@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +37,7 @@ public class EndActivity extends AppCompatActivity {
     QuestionsActivity questionsActivity = new QuestionsActivity();
 
     //Metode til at udelukker muligheden for at efter forkert svar gå tilbage og spille videre.
-  /*  @Override
+   @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
 
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
@@ -44,7 +45,7 @@ public class EndActivity extends AppCompatActivity {
         }
         return super.dispatchKeyEvent(event);
     }
-*/
+
 
     //Samlet score fra QuestionsActivity
     int samledeScore = questionsActivity.getPointT();

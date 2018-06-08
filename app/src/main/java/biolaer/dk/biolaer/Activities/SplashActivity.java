@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
 
     /* Hvor længe skal Splash Activity vises, før app'en åbner rigtigt.
     Angiv evt. til 500, når der debugges, men husk bagefter at ændre til 5000 */
-    private final int SPLASH_DISPLAY_LENGTH = 1000; //5000 = 5 sekunder
+    private final int SPLASH_DISPLAY_LENGTH = 5000; //5000 = 5 sekunder
 
     /** Overrider Android's default onCreate-metode og initialiserer med ønsket indhold */
     @Override
