@@ -1,6 +1,8 @@
 package biolaer.dk.biolaer;
 
 //Nødvendige imports
+import android.app.AlertDialog;
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -12,6 +14,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,11 +24,16 @@ import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class EndActivity extends AppCompatActivity {
 
+    QuestionsActivity fa1 = new QuestionsActivity();
+
+    TextView displayScore;
     EditText insertName;
     Button submitButton;
     String point = "10";
@@ -45,7 +53,24 @@ public class EndActivity extends AppCompatActivity {
         return super.dispatchKeyEvent(event);
     }
 */
+    QuestionsActivity questionsActivity = new QuestionsActivity();
+    //Scoren scoren fra QuestionsActivity
+    int samledeScore = questionsActivity.getPointT();
 
+
+    public void dataAdded(){
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(EndActivity.this);
+        builder
+                .setMessage("Du er blevet tilføjet til highscorelisten! :)")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainActivity);
+                    }
+                })
+                .show();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +82,18 @@ public class EndActivity extends AppCompatActivity {
 
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
+
+
+        //Display score
+        displayScore = (TextView) findViewById(R.id.pointTxt);
+
+
+        displayScore.setText(samledeScore + "");
+
+
+
+
 
         //Knapper
         submitButton = (Button)findViewById(R.id.submitBtn_button);
@@ -88,15 +125,17 @@ public class EndActivity extends AppCompatActivity {
    private void addScore() {
 
         String name = insertName.getText().toString().trim();
-        int point = 10;
+
         String key = highscore.push().getKey();
 
         if(!TextUtils.isEmpty(insertName.getText().toString())){
 
             Map<String, Object> score = new HashMap<>();
             score.put("navn", name);
-            score.put("point", point);
+            score.put("point", samledeScore);
             highscore.push().setValue(score);
+
+            dataAdded();
 
            /* String id = highscore.push().getKey();
 

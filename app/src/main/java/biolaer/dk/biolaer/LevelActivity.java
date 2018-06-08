@@ -25,7 +25,7 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
 
-        // Tvinger activitien til at være i "Portrait orientation mode".
+        //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Connecter fields til buttons fra xml-filen.
@@ -35,7 +35,7 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
-        //Metode til info-knappen, som ændret teksten på knapperne frem og tilbage.
+        //Metode til info-knappen, som ændrer teksten på knapperne frem og tilbage.
         infoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //Hvad der sker, når der klikkes på knappen.
@@ -51,7 +51,7 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
             }
         });
 
-        //Metode som får returnBtn til at hoppe tilbage activiteten, som var før den nuværende.
+        //Metode som får returnBtn til at hoppe tilbage til activiteten, som var før den nuværende.
         returnBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

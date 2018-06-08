@@ -50,7 +50,7 @@ public class Fragment1 extends Fragment {
     public void wrongAnswer(){
         falseSound.start(); // Afspiller lydeffekt
         AlertDialog.Builder builder;
-            builder = new AlertDialog.Builder(getActivity());
+            builder = new AlertDialog.Builder(getActivity(), R.style.dialogWrong);
             builder
                 .setMessage("Du svarede desværre forkert!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -66,7 +66,7 @@ public class Fragment1 extends Fragment {
     public void rightAnswer(){
         correctSound.start(); // Afspiller lydeffekt
         AlertDialog.Builder builder;
-            builder = new AlertDialog.Builder(getActivity());
+            builder = new AlertDialog.Builder(getActivity(), R.style.dialogCorrect);
             builder
                 .setMessage("Rigtigt svar!")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
