@@ -81,8 +81,9 @@ public class Fragment1 extends Fragment {
 
   public void changeQuestion(){
       Random randomx = new Random(); //Genererer et Random object
-      final int x = randomx.nextInt(5)+4; //Intialiserer x til at vælge et tal fra 4 til 8
+      final int x = randomx.nextInt(5)+4; //Initialiserer x til at vælge et tal fra 4 til 8
       final String questionID = "q" + x; //q4, q5, q6, q7, q8
+
       //Variabel som refererer til databasen
       mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions")
               .child("questions_easy").child("questions_all").child(questionID);
@@ -93,7 +94,7 @@ public class Fragment1 extends Fragment {
           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
               //Genererer og initialiserer variabler til at hente values fra databasen
-              String question = (String) dataSnapshot.child("question").getValue();
+               String question = (String) dataSnapshot.child("question").getValue();
               final Integer correctAnswer =  dataSnapshot.child("correctAnswer").getValue(Integer.class);
               final Integer correctAnswer2 =  dataSnapshot.child("correctAnswer2").getValue(Integer.class);
               final String answer1 = (String) dataSnapshot.child("answer1").getValue();
