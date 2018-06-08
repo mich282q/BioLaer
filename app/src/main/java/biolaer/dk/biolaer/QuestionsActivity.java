@@ -55,10 +55,10 @@ public class QuestionsActivity extends AppCompatActivity {
        else {
             rank = "Pro";
         }
-
         return rank;
         }
 
+        TextView actualTime_textView;
 
     Fragment1 fragment1 = new Fragment1();
 
@@ -67,6 +67,8 @@ public class QuestionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
         Timer timer = new Timer();
+
+        //actualTime_textView = (TextView) findViewById(R.id.actualTime_textView);
 
         //Lokale fields der forbinder til xml-filen
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);

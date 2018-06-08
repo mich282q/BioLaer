@@ -13,7 +13,7 @@ import java.util.Locale;
 public class Timer {
 
     //Variabler der bruges til at definere timerens logik
-    private static final long COUNTDOWN_IN_MILLIS = 60000;
+    private final long COUNTDOWN_IN_MILLIS = 60000;
     private TextView textViewCountDown;
     private ColorStateList textColorDefaultCd; // Sørger for farven skifter til rød under 10 sek
     private CountDownTimer countDownTimer;
@@ -22,7 +22,7 @@ public class Timer {
     /** Jeg føler lige at dette måske bør benyttes i QuestionsActivity klassen,
      *  da onFinish skal vel indholde en funktion som gør at appen siger gameover? /Shrug
      */
-    private void startCountDown() {
+    public void startCountDown() {
         countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -39,7 +39,7 @@ public class Timer {
         }.start();
     }
 
-    private void updateCountDownText() {
+    public void updateCountDownText() {
         int minutes = (int) (timeLeftInMillis / 1000) / 60;
         int seconds = (int) (timeLeftInMillis / 1000) % 60; // Viser hvad der er tilbage efter /60
 
