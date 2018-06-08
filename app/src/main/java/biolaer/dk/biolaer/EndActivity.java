@@ -22,19 +22,19 @@ import java.util.Map;
 
 public class EndActivity extends AppCompatActivity {
 
-    QuestionsActivity fa1 = new QuestionsActivity();
-
+    // Deklarerer variabler
     TextView displayScore, displayRank;
     EditText insertName;
     Button submitButton;
-    String point = "10";
-
 
     //Variabler til Firebase-connection
     FirebaseDatabase database;
     DatabaseReference highscore;
 
-    //søger for de ikke kan gå tilbage og svare videre på spørgsmålen.
+    // Opretter et nyt objekt af QuestionsActivity
+    QuestionsActivity questionsActivity = new QuestionsActivity();
+
+    //Metode til at udelukker muligheden for at gå tilbage og spille videre.
   /*  @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
 
@@ -44,8 +44,8 @@ public class EndActivity extends AppCompatActivity {
         return super.dispatchKeyEvent(event);
     }
 */
-    QuestionsActivity questionsActivity = new QuestionsActivity();
-    //Scoren scoren fra QuestionsActivity
+
+    //Samlet score fra QuestionsActivity
     int samledeScore = questionsActivity.getPointT();
 
 
@@ -62,6 +62,7 @@ public class EndActivity extends AppCompatActivity {
                 })
                 .show();
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +70,9 @@ public class EndActivity extends AppCompatActivity {
 
         //Firebase connection
         database = FirebaseDatabase.getInstance();
-        highscore = FirebaseDatabase.getInstance().getReference("highscore").child("highscore_easy");
+        highscore = FirebaseDatabase.getInstance()
+                .getReference("highscore")
+                .child("highscore_easy");
 
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -80,17 +83,26 @@ public class EndActivity extends AppCompatActivity {
         displayScore = (TextView) findViewById(R.id.pointTxt);
         displayScore.setText(samledeScore + "");
 
+        //Display rank
         displayRank = (TextView) findViewById(R.id.rankTxt);
         displayRank.setText(questionsActivity.getRank());
 
-
-
-
-
-        //Knapper
+        //Submit knappen
         submitButton = (Button)findViewById(R.id.submitBtn_button);
+
+        /** Kalder en "setOnClickListener" på "submitButton"  som indeholder metoden addScore
+         * som tilføjer navn og score til highscore databasen **/
+        submitButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                addScore();
+            }
+        });
+
+        //Indtast navn felt som tager imod brugerinput.
         insertName = (EditText)findViewById(R.id.insertNameTxt);
 
+        //Knap til indstillinger (OptionsActivity)
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
         /** Kalder en "setOnClickListener" på "optionsBtn" der dikterer, hvad der skal ske,
@@ -102,42 +114,40 @@ public class EndActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
-
-        /** Kalder en "setOnClickListener" på "submitButton"  som indeholder metoden addScore
-         * som tilføjer navn og score til highscore databasen **/
-        submitButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                addScore();
-            }
-        });
     }
 
-
+    /** addScore metoden tilføjer brugerindtastet navn og total scoren fra brugerens spil session
+      til firebase databasen. **/
    private void addScore() {
 
+       // Tager imod det indtastede navn.
         String name = insertName.getText().toString().trim();
-
+       // Genererer et unikt ID til databasen.
         String key = highscore.push().getKey();
 
+        // Tjekker om navn er blevet indtastet, og udfører en handling ud fra det.
         if(!TextUtils.isEmpty(insertName.getText().toString())){
 
+            // Opretter HashMap til at samle data.
             Map<String, Object> score = new HashMap<>();
+
+            // Tilføjer elementer til HashMap
             score.put("navn", name);
             score.put("point", samledeScore);
+
+            // Indsender dataerne med deres rigtige værdier til firebase databasen.
+            // Dataen bliver lagt ind i databasen under et unikt ID.
             highscore.push().setValue(score);
 
+            // Viser en dialog box med bekræftelse på at dataen er blevet tilføjet til databasen.
+            // og fører brugeren til MainActivity.
             dataAdded();
 
-           /* String id = highscore.push().getKey();
-
-            QuestionsActivity qa = new QuestionsActivity(name, point);
-
-            highscore.child(id).setValue(qa);*/
-
+            // Laver en toast med bekræftelse på at dataen er blevet tilføjet til databasen.
             Toast.makeText(this,"Score tilføjet!", Toast.LENGTH_LONG).show();
 
         } else {
+            // Viser en fejlmeddelse om at der mangler at blive indtastet navn.
             Toast.makeText(this,"Indtast navn!", Toast.LENGTH_LONG).show();
         }
     }
