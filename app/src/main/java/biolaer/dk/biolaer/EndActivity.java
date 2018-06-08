@@ -48,21 +48,6 @@ public class EndActivity extends AppCompatActivity {
     //Samlet score fra QuestionsActivity
     int samledeScore = questionsActivity.getPointT();
 
-
-    public void dataAdded(){
-        AlertDialog.Builder builder;
-        builder = new AlertDialog.Builder(EndActivity.this);
-        builder
-                .setMessage("Du er blevet tilføjet til highscorelisten! :)")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(mainActivity);
-                    }
-                })
-                .show();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +80,9 @@ public class EndActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                 addScore();
+                startActivity(mainActivity);
             }
         });
 
@@ -138,10 +125,6 @@ public class EndActivity extends AppCompatActivity {
             // Indsender dataerne med deres rigtige værdier til firebase databasen.
             // Dataen bliver lagt ind i databasen under et unikt ID.
             highscore.push().setValue(score);
-
-            /* Viser en dialog box med bekræftelse på at dataen er blevet tilføjet til databasen
-             og fører brugeren til MainActivity. */
-            dataAdded();
 
             // Laver en toast med bekræftelse på at dataen er blevet tilføjet til databasen.
             Toast.makeText(this,"Score tilføjet!", Toast.LENGTH_LONG).show();
