@@ -139,8 +139,8 @@ public class EndActivity extends AppCompatActivity {
             // Dataen bliver lagt ind i databasen under et unikt ID.
             highscore.push().setValue(score);
 
-            // Viser en dialog box med bekræftelse på at dataen er blevet tilføjet til databasen.
-            // og fører brugeren til MainActivity.
+            /* Viser en dialog box med bekræftelse på at dataen er blevet tilføjet til databasen
+             og fører brugeren til MainActivity. */
             dataAdded();
 
             // Laver en toast med bekræftelse på at dataen er blevet tilføjet til databasen.
