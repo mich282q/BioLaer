@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class EndActivity extends AppCompatActivity {
 
-    // Deklarerer variabler
+    //Deklarerer variabler
     TextView displayScore, displayRank;
     EditText insertName;
     Button submitButton;
@@ -32,10 +32,10 @@ public class EndActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference highscore;
 
-    // Opretter et nyt objekt af QuestionsActivity
+    //Opretter et nyt objekt af QuestionsActivity
     QuestionsActivity questionsActivity = new QuestionsActivity();
 
-    //Metode til at udelukker muligheden for at gå tilbage og spille videre.
+    //Metode til at udelukker muligheden for at efter forkert svar gå tilbage og spille videre.
   /*  @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
 
@@ -73,7 +73,7 @@ public class EndActivity extends AppCompatActivity {
         displayRank = (TextView) findViewById(R.id.rankTxt);
         displayRank.setText(questionsActivity.getRank());
 
-        //Prøv igen knappen
+        //Knap til at starte spillet på ny
         tryAgainButton = (Button)findViewById(R.id.tryAgainBtn_button);
 
         tryAgainButton.setOnClickListener(new View.OnClickListener(){

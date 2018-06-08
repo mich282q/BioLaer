@@ -24,8 +24,8 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * Denne klasse indeholder fields og logik for klassen "EastHsActivity", der er den aktivitet,
- * der vises for brugeren, når der vælges den lette sværhedsgrad ifht. highscore-listen.
+ * Denne klasse indeholder fields og logik for klassen "EasyHsActivity", der er den aktivitet,
+ * der vises for brugeren, når der vælges den lette sværhedsgrad ift. highscore-listen.
  */
 public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActivity
 
@@ -43,10 +43,10 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy_hs);
 
-        //Tvinger activityen til at være i Portrait orientation mode.
+        //Tvinger aktiviteten til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //Connecter fields til buttons i xml-filen
+        //Connector fields til buttons i xml-filen
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
 
@@ -73,25 +73,30 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
                 arrayAdapter.notifyDataSetChanged();
             }
 
+
+            // Hvis denne metode fjernes får vi fejl
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 Collections.reverse(listNavn);
             }
-
+            // Hvis denne metode fjernes får vi fejl
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
                 //Umiddelbart intet indhold
             }
-
+            // Hvis denne metode fjernes får vi fejl
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
                 //Umiddelbart intet indhold
             }
 
+            // Hvis denne metode fjernes får vi fejl
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 //Umiddelbart intet indhold
             }
+
+
         });
 
         queryRef.addValueEventListener(new ValueEventListener() {
@@ -100,6 +105,7 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
                 Collections.reverse(listNavn);
             }
 
+            // Hvis denne metode fjernes får vi fejl
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 //Umiddelbart intet indhold
