@@ -1,6 +1,7 @@
 package biolaer.dk.biolaer;
 
 //Nødvendige imports
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -55,6 +56,21 @@ public class EndActivity extends AppCompatActivity {
     QuestionsActivity questionsActivity = new QuestionsActivity();
     //Scoren + 100 så det bliver den korrekte score
     int samledeScore = questionsActivity.getPointT()+ 100;
+
+
+    public void dataAdded(){
+        AlertDialog.Builder builder;
+        builder = new AlertDialog.Builder(EndActivity.this);
+        builder
+                .setMessage("Du er blevet tilføjet til highscorelisten! :)")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(mainActivity);
+                    }
+                })
+                .show();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,6 +134,8 @@ public class EndActivity extends AppCompatActivity {
             score.put("navn", name);
             score.put("point", samledeScore);
             highscore.push().setValue(score);
+
+            dataAdded();
 
            /* String id = highscore.push().getKey();
 
