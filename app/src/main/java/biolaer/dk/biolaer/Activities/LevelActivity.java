@@ -16,7 +16,15 @@ import biolaer.dk.biolaer.R;
  * Klassen har onCreate og onClick-metoder.
  */
 public class LevelActivity extends AppCompatActivity { //Extender AppCompatActivity
+    @Override
+    public void onBackPressed()
+    {
+        //Override return mode
+        //søger for at nå man trykker på return knapper kommer man til Main Class
+        this.startActivity(new Intent(LevelActivity.this,MainActivity.class));
 
+        return;
+    }
     //Metode der fortsat fjerner navigationsbaren, selvom der klikkes et sted i aktiviteten.
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -77,6 +85,8 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
             @Override
             public void onClick(View v) {
                 LevelActivity.super.onBackPressed();
+                //søger for at nå man trykker på return knapper kommer man til Main Class
+                startActivity(new Intent(LevelActivity.this,MainActivity.class));
             }
         });
 
