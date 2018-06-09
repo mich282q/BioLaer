@@ -16,9 +16,9 @@ import biolaer.dk.biolaer.R;
 public class QuestionsActivity extends AppCompatActivity {
 
     //Klassevariabler el. fields
-    static TextView actualPoint_textView;
+    public static TextView actualPoint_textView;
     public static int pointT;
-    TextView actualTime_textView;
+    public static TextView actualTime_textView;
 
     //Metode der tilføjer 100 point til dine samlede point
     public void addPoints(){
@@ -44,7 +44,7 @@ public class QuestionsActivity extends AppCompatActivity {
         else if (pointT == 100){
         rank = "Begynder";
         }
-        else if (pointT >= 300 && pointT <= 500){
+        else if (pointT >= 200 && pointT <= 500){
             rank = "Folkeskoleelev";
         }
         else if (pointT >= 600 && pointT <= 800){
@@ -92,7 +92,9 @@ public class QuestionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_questions);
         Timer timer = new Timer();
 
-        //actualTime_textView = (TextView) findViewById(R.id.actualTime_textView);
+        actualTime_textView = (TextView) findViewById(R.id.actualTime_textView);
+
+
 
         //Lokale fields der forbinder til xml-filen
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
@@ -120,5 +122,7 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
+
+
     }
 }

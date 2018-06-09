@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.Random;
+
+import biolaer.dk.biolaer.BusinessLogic.Timer;
 import biolaer.dk.biolaer.R;
 
 /**
@@ -35,6 +37,7 @@ public class Fragment1 extends Fragment {
     TextView question_textView;
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
+    Timer timer = new Timer();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,7 @@ public class Fragment1 extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent endActivity = new Intent(getContext(), EndActivity.class);
                         startActivity(endActivity);
+                        timer.stopTimer();
                     }
                 })
                 .show();
@@ -70,6 +74,7 @@ public class Fragment1 extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         changeQuestion();
                         ((QuestionsActivity) getActivity()).addPoints();
+                        timer.resetTimer();
                     }
                 })
                 .show();
@@ -220,6 +225,6 @@ public class Fragment1 extends Fragment {
         question_imageView =(ImageView) view.findViewById(R.id.question_imageView);
 
         changeQuestion();
-
+        timer.startTimer();
     }
 }
