@@ -115,9 +115,7 @@ public class EndActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                 addScore();
-                startActivity(mainActivity);
             }
         });
 
@@ -163,6 +161,9 @@ public class EndActivity extends AppCompatActivity {
 
             // Laver en toast med bekræftelse på at dataen er blevet tilføjet til databasen.
             Toast.makeText(this,"Score tilføjet!", Toast.LENGTH_LONG).show();
+
+            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(mainActivity);
 
         } else {
             // Viser en fejlmeddelse om at der mangler at blive indtastet navn.
