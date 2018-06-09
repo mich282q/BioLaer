@@ -82,6 +82,11 @@ public class MainActivity extends AppCompatActivity {
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        // Følgende kodestykke fjerner navigationsbaren i bunden af aktiviteten.
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        decorView.setSystemUiVisibility(uiOptions);
+
         //Fields der connecter til knapperne i xml-filen.
         final Button confirmBtn = (Button) findViewById(R.id.confirmBtn);
         final Spinner categorySpin = (Spinner) findViewById(R.id.categorySpinner);

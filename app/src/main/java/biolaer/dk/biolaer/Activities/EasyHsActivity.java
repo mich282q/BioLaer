@@ -44,6 +44,11 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
         //Tvinger aktiviteten til at være i Portrait orientation mode.
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        // Følgende kodestykke fjerner navigationsbaren i bunden af aktiviteten.
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        decorView.setSystemUiVisibility(uiOptions);
+
         //Connector fields til buttons i xml-filen
         Button returnBtn = (Button) findViewById(R.id.returnBtn);
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);

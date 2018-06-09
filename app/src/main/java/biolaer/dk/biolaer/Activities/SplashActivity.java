@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import biolaer.dk.biolaer.R;
 
@@ -24,6 +25,11 @@ public class SplashActivity extends AppCompatActivity {
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.activity_splash);
+
+        // Følgende kodestykke fjerner navigationsbaren i bunden af aktiviteten.
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        decorView.setSystemUiVisibility(uiOptions);
 
         // Handler der starter MainActivity og lukker Splash Screen efter nogle sekunder.
         new Handler().postDelayed(new Runnable(){

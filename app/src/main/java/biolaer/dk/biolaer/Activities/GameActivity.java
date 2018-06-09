@@ -31,6 +31,11 @@ public class GameActivity extends AppCompatActivity { //Extender AppCompatActivi
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
+        // Følgende kodestykke fjerner navigationsbaren i bunden af aktiviteten.
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
+        decorView.setSystemUiVisibility(uiOptions);
+
         //Fields der connecter til buttons i xml-filen.
         Button startBtn = (Button) findViewById(R.id.startBtn);
         Button highscoreBtn = (Button) findViewById(R.id.highscoreBtn);
