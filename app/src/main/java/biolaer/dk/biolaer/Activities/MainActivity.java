@@ -9,6 +9,7 @@ import android.content.pm.ActivityInfo;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -169,5 +170,14 @@ public class MainActivity extends AppCompatActivity {
         MusicService mServ = new MusicService();
         stopService(new Intent (this, MusicService.class));
         mServ.onDestroy();
+    }
+    //Metode til at udelukke muligheden for at gå tilbage.
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 }

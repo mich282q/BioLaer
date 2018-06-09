@@ -16,7 +16,15 @@ import biolaer.dk.biolaer.R;
  * Klassen har onCreate og onClick-metoder.
  */
 public class LevelActivity extends AppCompatActivity { //Extender AppCompatActivity
+    @Override
+    public void onBackPressed()
+    {
+        //Override return mode
+        //søger for at nå man trykker på return knapper kommer man til Main Class
+        this.startActivity(new Intent(LevelActivity.this,MainActivity.class));
 
+        return;
+    }
     /**
      * Overrider den default metode, der automatisk oprettes til en activity, og definerer i stedet
      * de fields og actions, vi ønsker i vores onCreate-metode. Bl.a. knapper til sværhedsgrad.
@@ -62,6 +70,8 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
             @Override
             public void onClick(View v) {
                 LevelActivity.super.onBackPressed();
+                //søger for at nå man trykker på return knapper kommer man til Main Class
+                startActivity(new Intent(LevelActivity.this,MainActivity.class));
             }
         });
 
