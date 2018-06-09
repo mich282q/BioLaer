@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean mIsBound = false;
     private MusicService mServ;
 
+    /**
+     * De følgende metoder omhandler den service, som baggrundsmusikken repræsenterer.
+     */
     private ServiceConnection Scon = new ServiceConnection() {
         public void onServiceConnected(ComponentName name, IBinder binder) {
             mServ = ((MusicService.ServiceBinder) binder).getService();
@@ -76,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         music.setClass(this, MusicService.class);
         startService(music);
 
-        // Tvinger activitien til at være i "Portrait orientation mode".
+        //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         //Fields der connecter til knapperne i xml-filen.
@@ -162,5 +165,4 @@ public class MainActivity extends AppCompatActivity {
         stopService(new Intent (this, MusicService.class));
         mServ.onDestroy();
     }
-
 }

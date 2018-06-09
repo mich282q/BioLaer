@@ -30,7 +30,8 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Opretter et intent-objekt der starter MainActivity.
-                Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+                Intent mainIntent = new Intent(SplashActivity.this,
+                        MainActivity.class);
                 SplashActivity.this.startActivity(mainIntent);
                 SplashActivity.this.finish();
             }

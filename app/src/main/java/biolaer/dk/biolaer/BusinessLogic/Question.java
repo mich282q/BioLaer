@@ -1,14 +1,13 @@
 package biolaer.dk.biolaer.BusinessLogic;
 
-import android.view.View;
-import android.widget.Button;
-
+//Importerer nødvendige libraries
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Question {
 
-   private DatabaseReference mDatabase;
+    //Klassevariabler
+   private DatabaseReference mDatabase; //Variabel til Firebase-connection
 
     //Metoder - referencer til forskellige dele af databasen
     public void setmDatabaseEasyQ(DatabaseReference mDatabase) {
@@ -27,7 +26,6 @@ public class Question {
         this.mDatabase = mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
                 .child("questions_hard").child("questions_all");
-
     }
 
     public void setmDatabaseHardAnswers(DatabaseReference mDatabase) {
@@ -36,23 +34,22 @@ public class Question {
                 .child("questions_hard").child("questions_answers");
     }
 
-
+    //Variabler til highscoren
     String point;
     String navn;
 
     public Question(){
-
     }
 
     public Question(String point, String navn) {
         this.point = point;
         this.navn = navn;
     }
+
     public void setPoint(String point)
     {
         this.point = point;
     }
-
 
     public void setNavn(String navn) {
         this.navn = navn;
@@ -65,7 +62,5 @@ public class Question {
     public String getNavn() {
         return navn;
     }
-
-
 
 }

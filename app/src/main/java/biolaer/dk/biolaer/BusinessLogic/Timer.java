@@ -15,12 +15,13 @@ public class Timer {
     //Variabler der bruges til at definere timerens logik
     private final long COUNTDOWN_IN_MILLIS = 60000;
     private TextView textViewCountDown;
-    private ColorStateList textColorDefaultCd; // Sørger for farven skifter til rød under 10 sek
+    private ColorStateList textColorDefaultCd; //Sørger for farven skifter til rød under 10 sek
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis;
 
-    /** Jeg føler lige at dette måske bør benyttes i QuestionsActivity klassen,
-     *  da onFinish skal vel indholde en funktion som gør at appen siger gameover? /Shrug
+    /**
+     * Jeg føler lige at dette måske bør benyttes i QuestionsActivity klassen,
+     * da onFinish skal vel indholde en funktion som gør at appen siger gameover? /Shrug
      */
     public void startCountDown() {
         countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
@@ -43,7 +44,8 @@ public class Timer {
         int minutes = (int) (timeLeftInMillis / 1000) / 60;
         int seconds = (int) (timeLeftInMillis / 1000) % 60; // Viser hvad der er tilbage efter /60
 
-        /** Formaterer "minutes" og "seconds" ordenligt, hvis dette ikke er predefineret,
+        /**
+         * Formaterer "minutes" og "seconds" ordenligt, hvis dette ikke er predefineret,
          * vil der opstå tilfælde, hvor at formatering ikke vil se ud som ønsket.
          */
         String timeFormatted = String.format(Locale.getDefault(),

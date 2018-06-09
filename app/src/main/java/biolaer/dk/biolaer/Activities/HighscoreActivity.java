@@ -10,6 +10,10 @@ import android.widget.Button;
 
 import biolaer.dk.biolaer.R;
 
+/**
+ * Denne klasse udgør det skærmbillede brugeren ser, når der skal vælges, hvilken sværhedsgrad
+ * der skal vises highscore for.
+ */
 public class HighscoreActivity extends AppCompatActivity {
 
     /**
@@ -47,7 +51,6 @@ public class HighscoreActivity extends AppCompatActivity {
                     hardBtn.setText("Svær");
                 }
             }
-
         });
 
         //Metode som får easyBtn til at hoppe til EasyHsActivity

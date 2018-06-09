@@ -23,7 +23,7 @@ import biolaer.dk.biolaer.R;
 
 public class EndActivity extends AppCompatActivity {
 
-    //Deklarerer variabler
+    //Deklarerer variabler/fields
     TextView displayScore, displayRank;
     EditText insertName;
     Button submitButton;
@@ -36,8 +36,8 @@ public class EndActivity extends AppCompatActivity {
     //Opretter et nyt objekt af QuestionsActivity
     QuestionsActivity questionsActivity = new QuestionsActivity();
 
-    //Metode til at udelukker muligheden for at efter forkert svar gå tilbage og spille videre.
-   @Override
+    //Metode til at udelukke muligheden for at gå tilbage, når man har svaret forkert.
+    @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
 
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
@@ -45,7 +45,6 @@ public class EndActivity extends AppCompatActivity {
         }
         return super.dispatchKeyEvent(event);
     }
-
 
     //Samlet score fra QuestionsActivity
     int samledeScore = questionsActivity.getPointT();
@@ -63,8 +62,6 @@ public class EndActivity extends AppCompatActivity {
 
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-
 
         //Display score
         displayScore = (TextView) findViewById(R.id.pointTxt);

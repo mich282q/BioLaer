@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * I denne klasse er gruppens JUnit Tests placeret. Et krav fra faget Programmering.
+ * I denne klasse er Michaels JUnit Tests placeret. Et krav fra faget Programmering.
  */
 
 public  class MichaelJUnitTest {

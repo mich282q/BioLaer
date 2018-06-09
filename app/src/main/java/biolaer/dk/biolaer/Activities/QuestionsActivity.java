@@ -15,13 +15,10 @@ import biolaer.dk.biolaer.R;
 
 public class QuestionsActivity extends AppCompatActivity {
 
-
-
-
     //Klassevariabler el. fields
     static TextView actualPoint_textView;
     public static int pointT;
-
+    TextView actualTime_textView;
 
     //Metode der tilføjer 100 point til dine samlede point
     public void addPoints(){
@@ -29,41 +26,45 @@ public class QuestionsActivity extends AppCompatActivity {
         actualPoint_textView.setText(pointT + 100 + "");
     }
 
+    //Metode der parser brugerens point til integer og returnerer
     public int getPointT() {
         pointT = Integer.parseInt(actualPoint_textView.getText().toString());
-        return  pointT; }
+        return pointT;
+    }
 
+    /**
+     * Denne betode beregner din rang. Baseret på dine samlede point.
+     */
+    public String getRank(){
+        String rank = ""; //Pr. default ingen rang
 
-
-        public String getRank(){
-        String rank = "";
         if (pointT == 0){
             rank = "Noob";
         }
         else if (pointT == 100){
         rank = "Begynder";
         }
-        else if (pointT == 200){
+        else if (pointT >= 300 && pointT <= 500){
             rank = "Folkeskoleelev";
         }
-        else if (pointT == 300){
+        else if (pointT >= 600 && pointT <= 800){
             rank = "Gymnasieelev";
         }
-       else {
-            rank = "Pro";
+        else if (pointT >= 900 && pointT <= 1200){
+            rank = "Biologientusiast";
         }
-        return rank;
+       else {
+            rank = "Pro!";
         }
 
-        TextView actualTime_textView;
+        return rank;
+    }
 
     Fragment1 fragment1 = new Fragment1();
 
-
-    //Metode til at udelukker muligheden for at efter forkert svar gå tilbage og spille videre.
+    //Metode til at udelukke muligheden for gå tilbage, hvis der svares forkert på spg.
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
             return true;
         }
@@ -94,7 +95,5 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
-
-
     }
 }

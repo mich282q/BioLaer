@@ -35,8 +35,6 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
     private ArrayList<String> listNavn = new ArrayList<>();
     private ProgressDialog progressDialog; //Til Progress-baren
 
-
-
     //Overrider den default onCreate-metode med vores properties til denne aktivitet
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +71,6 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
                 arrayAdapter.notifyDataSetChanged();
             }
 
-
             // Hvis denne metode fjernes får vi fejl
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
@@ -95,7 +92,6 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
             public void onCancelled(DatabaseError databaseError) {
                 //Umiddelbart intet indhold
             }
-
 
         });
 
@@ -136,7 +132,8 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
         super.onStart();
 
         //Initialiserer "progressDialog" med titel og besked
-        progressDialog = ProgressDialog.show(this,"Vent venligst","Henter highscore...",true);
+        progressDialog = ProgressDialog.show(this,"Vent venligst",
+                "Henter highscore...",true);
 
         //Laver et nyt CountDownTimer-objekt og sætter det til at blive vist 2 sekunder
         CountDownTimer timer = new CountDownTimer(2000,1000) {

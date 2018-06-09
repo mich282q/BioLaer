@@ -1,12 +1,13 @@
 package biolaer.dk.biolaer;
 
+//Importerer nødvendige libraries
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * I denne klasse er gruppens JUnit Tests placeret. Et krav fra faget Programmering.
+ * Denne klasse udgør Daniels JUnit-test.
  */
-public class ExampleUnitTest {
+public class DanielJUnitTest {
     @Test
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);

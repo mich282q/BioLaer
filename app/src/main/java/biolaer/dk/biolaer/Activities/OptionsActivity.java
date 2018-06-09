@@ -19,7 +19,7 @@ import biolaer.dk.biolaer.R;
  */
 public class OptionsActivity extends AppCompatActivity {
 
-    //Variabler til lydindstillinger. Initialiseret til være være null.
+    //Variabler til lydindstillinger. Initialiseret til være være null pr. default.
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
 
@@ -57,7 +57,7 @@ public class OptionsActivity extends AppCompatActivity {
 
     }
 
-    //Metode der håndterer baggrundsmusikken med en try-catch-block.
+    //Metode der håndterer baggrundsmusikkens seekbar med en try-catch-block.
     private void initControls() {
         try {
             volumeSeekbar = (SeekBar) findViewById(R.id.bgSeek);

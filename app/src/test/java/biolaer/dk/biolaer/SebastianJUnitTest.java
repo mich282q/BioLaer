@@ -7,7 +7,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * I denne klasse er min JUnit Test placeret. Et krav fra faget Programmering.
+ * I denne klasse er Sebastians JUnit Test placeret. Et krav fra faget Programmering.
  */
 
 public class SebastianJUnitTest {

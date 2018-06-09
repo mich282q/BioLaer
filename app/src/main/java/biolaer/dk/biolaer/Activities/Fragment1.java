@@ -1,6 +1,6 @@
 package biolaer.dk.biolaer.Activities;
 
-
+//Importerer nødvendige libraries
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,30 +16,25 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.Random;
-
 import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse repræsenterer den lette sværhedsgrad.
  */
 
-
 public class Fragment1 extends Fragment {
-    //Genererer en masse variabler
+    //Deklarerer variabler
     DatabaseReference mDatabaseX;
     Button answerBtn1, answerBtn2, answerBtn3, answerBtn4, infoBtn1, infoBtn2, infoBtn3, infoBtn4;
     TextView question_textView;
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -81,7 +76,7 @@ public class Fragment1 extends Fragment {
     }
 
 
-  public void changeQuestion(){
+    public void changeQuestion(){
       Random randomx = new Random(); //Genererer et Random object
       final int x = randomx.nextInt(5)+4; //Initialiserer x til at vælge et tal fra 4 til 8
       final String questionID = "q" + x; //q4, q5, q6, q7, q8
@@ -90,13 +85,12 @@ public class Fragment1 extends Fragment {
       mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions")
               .child("questions_easy").child("questions_all").child(questionID);
 
-
       mDatabaseX.addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
               //Genererer og initialiserer variabler til at hente values fra databasen
-               String question = (String) dataSnapshot.child("question").getValue();
+              String question = (String) dataSnapshot.child("question").getValue();
               final Integer correctAnswer =  dataSnapshot.child("correctAnswer").getValue(Integer.class);
               final Integer correctAnswer2 =  dataSnapshot.child("correctAnswer2").getValue(Integer.class);
               final String answer1 = (String) dataSnapshot.child("answer1").getValue();
@@ -117,19 +111,15 @@ public class Fragment1 extends Fragment {
               }
               else if (x == 5){
                   question_imageView.setImageResource(R.drawable.elisa_spm5);
-
               }
               else if (x == 6){
                   question_imageView.setImageResource(R.drawable.elisa_spm6);
-
               }
               else if (x == 7){
                   question_imageView.setImageResource(R.drawable.elisa_spm7);
-
               }
               else if (x == 8){
                   question_imageView.setImageResource(R.drawable.elisa_spm8);
-
               }
 
               //Metoder som får info-knappen til at vise svarenes fulde længde
@@ -142,12 +132,14 @@ public class Fragment1 extends Fragment {
               infoBtn2.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
-                      Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();                  }
+                      Toast.makeText(getActivity(), answer2, Toast.LENGTH_LONG).show();
+                  }
               });
               infoBtn3.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
-                      Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();                  }
+                      Toast.makeText(getActivity(), answer3, Toast.LENGTH_LONG).show();
+                  }
               });
               infoBtn4.setOnClickListener(new View.OnClickListener() {
                   @Override
@@ -156,12 +148,12 @@ public class Fragment1 extends Fragment {
                   }
               });
 
-              //Click metoder til svar-knapperne, som læser i databasen, om man har svaret rigtigt
-              //eller forkert.
+              /* Click metoder til svar-knapperne, som læser i databasen, om man har svaret rigtigt
+              eller forkert. */
               answerBtn1.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
-                      if (correctAnswer==1 || correctAnswer2==1) {
+                      if (correctAnswer == 1 || correctAnswer2 == 1) {
                           rightAnswer();}
                       else {
                           wrongAnswer();}
@@ -170,7 +162,7 @@ public class Fragment1 extends Fragment {
               answerBtn2.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
-                      if (correctAnswer==2 || correctAnswer2 ==2) {
+                      if (correctAnswer == 2 || correctAnswer2 == 2) {
                           rightAnswer();}
                       else {
                           wrongAnswer();}
@@ -179,7 +171,7 @@ public class Fragment1 extends Fragment {
               answerBtn3.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
-                      if (correctAnswer==3 ||correctAnswer2==3) {
+                      if (correctAnswer == 3 ||correctAnswer2 == 3) {
                           rightAnswer();}
                       else {
                           wrongAnswer();}
@@ -188,21 +180,21 @@ public class Fragment1 extends Fragment {
               answerBtn4.setOnClickListener(new View.OnClickListener() {
                   @Override
                   public void onClick(View v) {
-                      if (correctAnswer==4 || correctAnswer2==4) {
+                      if (correctAnswer == 4 || correctAnswer2 == 4) {
                           rightAnswer();}
                       else {
                           wrongAnswer();}
                   }
               });
-
           }
 
+          //Metoden skal være her for ikke at få fejl
           @Override
           public void onCancelled(@NonNull DatabaseError databaseError) {
 
           }
       });
-  }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

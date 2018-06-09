@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 
 import biolaer.dk.biolaer.R;
 
-//Tænker det kan bruges til Indirekte Sandwich ELISA?
-
+/**
+ * Denne klasse er tiltænkt at skulle bruges til det svære niveau.
+ * På samme måde som Fragment1 bliver brugt til det lette niveau.
+ */
 public class Fragment2 extends Fragment {
 
     @Override
