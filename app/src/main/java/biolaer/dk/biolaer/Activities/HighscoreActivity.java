@@ -16,6 +16,21 @@ import biolaer.dk.biolaer.R;
  */
 public class HighscoreActivity extends AppCompatActivity {
 
+    //Metode der fortsat fjerner navigationsbaren, selvom der klikkes et sted i aktiviteten.
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+    }
+
     /**
      * Denne metode overrider den default onCreate-metode, og initialiserer den med de fields,
      * der skal præsenteres på vores HighscoreActivity.
