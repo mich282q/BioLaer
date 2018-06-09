@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  * I denne klasse er JUnit-Test udviklet af Thomas.
  * I klassen er der udviklet fem tests, som alle bygger på den samme metode.
  * Hver test tjekker om en specifik score giver den ønskede rank.
- * Alle fem tests går succesfuldt igennem.
+ * Alle 6 tests går succesfuldt igennem.
  */
 public class ThomasJUnitTest {
     @Test
@@ -60,7 +60,7 @@ public class ThomasJUnitTest {
         boolean isRankCorrect = false;
 
         QuestionsActivity obj = new QuestionsActivity();
-        QuestionsActivity.pointT = 300;
+        QuestionsActivity.pointT = 600;
 
         if (obj.getRank().equals("Gymnasieelev")){
             isRankCorrect = true;
@@ -74,14 +74,26 @@ public class ThomasJUnitTest {
         boolean isRankCorrect = false;
 
         QuestionsActivity obj = new QuestionsActivity();
-        QuestionsActivity.pointT = 301;
+        QuestionsActivity.pointT = 1000;
 
-        if (obj.getRank().equals("Pro")){
+        if (obj.getRank().equals("Biologientusiast")){
             isRankCorrect = true;
         }
 
         assertTrue(isRankCorrect);
 
+    }
+    @Test
+    public void testRank6(){
+        boolean isRankCorrect = false;
+        QuestionsActivity obj = new QuestionsActivity();
+        QuestionsActivity.pointT = 1201;
+
+        if (obj.getRank().equals("Pro!")){
+            isRankCorrect = true;
+        }
+
+        assertTrue(isRankCorrect);
     }
 
 }
