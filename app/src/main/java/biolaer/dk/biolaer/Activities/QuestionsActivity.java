@@ -86,13 +86,19 @@ public class QuestionsActivity extends AppCompatActivity {
         }
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
+
         Timer timer = new Timer();
 
         actualTime_textView = (TextView) findViewById(R.id.actualTime_textView);
+       /* if (timer.mTimeLeftInMillis < 2000){
+            Intent endActivity = new Intent(getApplicationContext(), EndActivity.class);
+            startActivity(endActivity);
+        } */
 
 
         //Lokale fields der forbinder til xml-filen

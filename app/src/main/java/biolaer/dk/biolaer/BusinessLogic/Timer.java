@@ -13,6 +13,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.Locale;
 
 import biolaer.dk.biolaer.Activities.EndActivity;
@@ -82,7 +84,7 @@ public class Timer extends AppCompatActivity{
     }
 
     public long mTimeLeftInMillis = START_TIME_IN_MILLIS;
-    public boolean maybeDead = false;
+    public static boolean maybeDead = true;
 
     public void startTimer() {
         mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
@@ -91,12 +93,12 @@ public class Timer extends AppCompatActivity{
                 mTimeLeftInMillis = millisUntilFinished;
                 updateCountDownText();
 
+
             }
 
             @Override
             public void onFinish() {
-                maybeDead = true;
-                finish();
+              updateCountDownText();
 
 
             }
@@ -127,12 +129,11 @@ public class Timer extends AppCompatActivity{
         // Når der er under 10 sekunder tilbage skifter, farven til rød.
         if (mTimeLeftInMillis < 10000) {
             acutalTime_textView.setTextColor(Color.RED);
-            maybeDead = true;
-
         }
         else{
             acutalTime_textView.setTextColor(Color.WHITE);
         }
+
 
 
         acutalTime_textView.setText(timeLeftFormatted);

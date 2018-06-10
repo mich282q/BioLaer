@@ -7,7 +7,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Question {
 
     //Klassevariabler
-   private DatabaseReference mDatabase; //Variabel til Firebase-connection
+    private DatabaseReference mDatabase; //Variabel til Firebase-connection
 
     //Metoder - referencer til forskellige dele af databasen
     public void setmDatabaseEasyQ(DatabaseReference mDatabase) {

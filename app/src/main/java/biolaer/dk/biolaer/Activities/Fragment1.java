@@ -39,7 +39,7 @@ public class Fragment1 extends Fragment {
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
     Timer timer = new Timer();
-    Question question = new Question();
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,7 @@ public class Fragment1 extends Fragment {
 
     //Metode som vil blive kørt, hvis man svarer forkert på spørgsmålet.
     public void wrongAnswer(){
+        timer.stopTimer();
         falseSound.start(); // Afspiller lydeffekt
         AlertDialog.Builder builder;
             builder = new AlertDialog.Builder(getActivity(), R.style.dialogWrong);
@@ -60,7 +61,7 @@ public class Fragment1 extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent endActivity = new Intent(getContext(), EndActivity.class);
                         startActivity(endActivity);
-                        timer.stopTimer();
+
 
                     }
                 })
