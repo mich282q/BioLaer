@@ -95,7 +95,6 @@ public class QuestionsActivity extends AppCompatActivity {
         actualTime_textView = (TextView) findViewById(R.id.actualTime_textView);
 
 
-
         //Lokale fields der forbinder til xml-filen
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
         actualPoint_textView = (TextView) findViewById(R.id.actualPoint_textView);

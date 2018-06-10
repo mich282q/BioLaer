@@ -23,6 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.Random;
 
+import biolaer.dk.biolaer.BusinessLogic.Question;
 import biolaer.dk.biolaer.BusinessLogic.Timer;
 import biolaer.dk.biolaer.R;
 
@@ -38,6 +39,7 @@ public class Fragment1 extends Fragment {
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
     Timer timer = new Timer();
+    Question question = new Question();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,11 +55,13 @@ public class Fragment1 extends Fragment {
             builder = new AlertDialog.Builder(getActivity(), R.style.dialogWrong);
             builder
                 .setMessage("Du svarede desværre forkert!")
+                .setCancelable(false)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent endActivity = new Intent(getContext(), EndActivity.class);
                         startActivity(endActivity);
                         timer.stopTimer();
+
                     }
                 })
                 .show();
@@ -70,6 +74,7 @@ public class Fragment1 extends Fragment {
             builder = new AlertDialog.Builder(getActivity(), R.style.dialogCorrect);
             builder
                 .setMessage("Rigtigt svar!")
+                .setCancelable(false)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         changeQuestion();
