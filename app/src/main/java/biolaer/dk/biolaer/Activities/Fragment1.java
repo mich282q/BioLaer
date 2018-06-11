@@ -31,6 +31,7 @@ import biolaer.dk.biolaer.R;
  */
 
 public class Fragment1 extends Fragment {
+
     //Deklarerer variabler
     DatabaseReference mDatabaseX;
     Button answerBtn1, answerBtn2, answerBtn3, answerBtn4, infoBtn1, infoBtn2, infoBtn3, infoBtn4;
@@ -38,7 +39,6 @@ public class Fragment1 extends Fragment {
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
     Timer timer = new Timer();
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -83,7 +83,7 @@ public class Fragment1 extends Fragment {
                 .show();
     }
 
-
+    //Udskifter spørgsmålet
     public void changeQuestion(){
       Random randomx = new Random(); //Genererer et Random object
       final int x = randomx.nextInt(5)+4; //Initialiserer x til at vælge et tal fra 4 til 8

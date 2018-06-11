@@ -85,7 +85,6 @@ public class QuestionsActivity extends AppCompatActivity {
         }
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,7 +94,7 @@ public class QuestionsActivity extends AppCompatActivity {
         actualTime_textView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                if (actualTime_textView.getText().equals("0")){
+                if (actualTime_textView.getText().equals("Tiden er gået!")) {
                     Intent endActivity = new Intent(getApplicationContext(), EndActivity.class);
                     startActivity(endActivity);
                     Toast.makeText(getApplicationContext(),"Tiden er gået!", Toast.LENGTH_LONG).show();

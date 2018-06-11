@@ -79,7 +79,6 @@ public class OptionsActivity extends AppCompatActivity {
                 OptionsActivity.super.onBackPressed();
             }
         });
-
     }
 
     //Metode der håndterer baggrundsmusikkens seekbar med en try-catch-block.

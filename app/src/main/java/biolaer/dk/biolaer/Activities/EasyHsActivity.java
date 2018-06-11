@@ -152,22 +152,22 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
         });
     }
 
-    //Progress baren kaldes, når aktiviteten startes
+    //Progress baren kaldes, når aktiviteten startes.
     public void onStart() {
         super.onStart();
 
-        //Initialiserer "progressDialog" med titel og besked
+        //Initialiserer "progressDialog" med titel og besked.
         progressDialog = ProgressDialog.show(this,"Vent venligst",
                 "Henter highscore...",true);
 
-        //Laver et nyt CountDownTimer-objekt og sætter det til at blive vist 2 sekunder
+        //Laver et nyt CountDownTimer-objekt og sætter det til at blive vist 2 sekunder.
         CountDownTimer timer = new CountDownTimer(2000,1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                //Metoden skal være tom
             }
 
-            //Fjerner "progressDialog" igen, når timeren udløber
+            //Fjerner "progressDialog" igen, når timeren udløber.
             @Override
             public void onFinish() {
                 progressDialog.dismiss();
