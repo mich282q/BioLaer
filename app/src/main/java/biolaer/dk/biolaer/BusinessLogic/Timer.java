@@ -7,7 +7,7 @@ import android.widget.TextView;
 import java.util.Locale;
 import biolaer.dk.biolaer.Activities.QuestionsActivity;
 
-/*
+/**
  * Denne klasse styrer business logic i forhold til den timer, der er på besvarelse af spørgsmål.
  */
 public class Timer {
