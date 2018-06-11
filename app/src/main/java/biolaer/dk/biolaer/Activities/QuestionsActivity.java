@@ -9,8 +9,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import biolaer.dk.biolaer.BusinessLogic.Timer;
+import android.widget.Toast;
 import biolaer.dk.biolaer.R;
 
 public class QuestionsActivity extends AppCompatActivity {
@@ -92,14 +91,17 @@ public class QuestionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
 
-        Timer timer = new Timer();
-
         actualTime_textView = (TextView) findViewById(R.id.actualTime_textView);
-       /* if (timer.mTimeLeftInMillis < 2000){
-            Intent endActivity = new Intent(getApplicationContext(), EndActivity.class);
-            startActivity(endActivity);
-        } */
-
+        actualTime_textView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                if (actualTime_textView.getText().equals("0")){
+                    Intent endActivity = new Intent(getApplicationContext(), EndActivity.class);
+                    startActivity(endActivity);
+                    Toast.makeText(getApplicationContext(),"Tiden er gået!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
         //Lokale fields der forbinder til xml-filen
         Button optionsBtn = (Button) findViewById(R.id.optionsBtn);
@@ -127,7 +129,5 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
-
-
     }
 }

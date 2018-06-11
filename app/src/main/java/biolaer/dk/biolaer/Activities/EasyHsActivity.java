@@ -85,7 +85,7 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
 
         scoreList_dynamic.setAdapter(arrayAdapter);
 
-        final Query queryRef = dbnavn_2.orderByChild("point");
+        final Query queryRef = dbnavn_2.orderByChild("point").limitToLast(20);
 
         queryRef.addChildEventListener(new ChildEventListener() {
             @Override

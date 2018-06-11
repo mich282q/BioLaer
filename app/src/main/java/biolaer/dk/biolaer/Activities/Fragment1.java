@@ -23,7 +23,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.Random;
 
-import biolaer.dk.biolaer.BusinessLogic.Question;
 import biolaer.dk.biolaer.BusinessLogic.Timer;
 import biolaer.dk.biolaer.R;
 
@@ -61,8 +60,6 @@ public class Fragment1 extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent endActivity = new Intent(getContext(), EndActivity.class);
                         startActivity(endActivity);
-
-
                     }
                 })
                 .show();
