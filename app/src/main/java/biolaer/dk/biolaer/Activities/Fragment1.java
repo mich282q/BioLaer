@@ -19,9 +19,8 @@ import android.widget.Toast;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import java.util.Random;
+import biolaer.dk.biolaer.BusinessLogic.Question;
 import biolaer.dk.biolaer.BusinessLogic.Timer;
 import biolaer.dk.biolaer.R;
 
@@ -83,16 +82,10 @@ public class Fragment1 extends Fragment {
     }
 
     //Udskifter spørgsmålet
+
     public void changeQuestion(){
-      Random randomx = new Random(); //Genererer et Random object
-      final int x = randomx.nextInt(5)+4; //Initialiserer x til at vælge et tal fra 4 til 8
-      final String questionID = "q" + x; //q4, q5, q6, q7, q8
-
-      //Variabel som refererer til databasen
-      mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions")
-              .child("questions_easy").child("questions_all").child(questionID);
-
-      mDatabaseX.addValueEventListener(new ValueEventListener() {
+        final Question questionClass = new Question();
+      questionClass.randomEasyRef(mDatabaseX).addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -113,19 +106,19 @@ public class Fragment1 extends Fragment {
               answerBtn4.setText(answer4);
 
               //If sætninger som sætter det rigtige image ind alt efter det valgte spm.
-              if (x == 4){
+              if (questionClass.getX() == 4){
                   question_imageView.setImageResource(R.drawable.elisa_spm4);
               }
-              else if (x == 5){
+              else if (questionClass.getX() == 5){
                   question_imageView.setImageResource(R.drawable.elisa_spm5);
               }
-              else if (x == 6){
+              else if (questionClass.getX() == 6){
                   question_imageView.setImageResource(R.drawable.elisa_spm6);
               }
-              else if (x == 7){
+              else if (questionClass.getX() == 7){
                   question_imageView.setImageResource(R.drawable.elisa_spm7);
               }
-              else if (x == 8){
+              else if (questionClass.getX() == 8){
                   question_imageView.setImageResource(R.drawable.elisa_spm8);
               }
 

@@ -79,7 +79,6 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
                 else {
                     easyBtn.setText("Let");
                     hardBtn.setText("Svær");
-
                 }
             }
         });

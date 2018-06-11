@@ -4,63 +4,26 @@ package biolaer.dk.biolaer.BusinessLogic;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Random;
+
 public class Question {
 
-    //Klassevariabler
-    private DatabaseReference mDatabase; //Variabel til Firebase-connection
 
-    //Metoder - referencer til forskellige dele af databasen
-    public void setmDatabaseEasyQ(DatabaseReference mDatabase) {
-        this.mDatabase = mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
-                .child("questions_easy").child("questions_all").child("q4");
+    DatabaseReference mDatabaseX; //Databasereference variabel
+
+    Random randomx = new Random(); //Genererer et Random object
+    final int x = randomx.nextInt(5) + 4; //Initialiserer x til at vælge et tal fra 4 til 8
+    final String questionID = "q" + x; //q4, q5, q6, q7, q8
+
+    //Metode til at referere til et tilfældigt spørgsmål fra de nemme spørgsmål
+    public DatabaseReference randomEasyRef(DatabaseReference databaseReference) {
+        //Variabel som refererer til databasen
+        mDatabaseX = FirebaseDatabase.getInstance().getReference().child("questions")
+                .child("questions_easy").child("questions_all").child(questionID);
+        return mDatabaseX;
     }
-
-    public void setmDatabaseEasyAnswers(DatabaseReference mDatabase) {
-        this.mDatabase = mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
-                .child("questions_easy").child("questions_answers");
+    //Metoder som henter den random værdi: x
+    public int getX() {
+        return x;
     }
-
-    public void setmDatabaseHardQ(DatabaseReference mDatabase) {
-        this.mDatabase = mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
-                .child("questions_hard").child("questions_all");
-    }
-
-    public void setmDatabaseHardAnswers(DatabaseReference mDatabase) {
-        this.mDatabase = mDatabase;
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("questions")
-                .child("questions_hard").child("questions_answers");
-    }
-
-    //Variabler til highscoren
-    String point;
-    String navn;
-
-    public Question(){
-    }
-
-    public Question(String point, String navn) {
-        this.point = point;
-        this.navn = navn;
-    }
-
-    public void setPoint(String point)
-    {
-        this.point = point;
-    }
-
-    public void setNavn(String navn) {
-        this.navn = navn;
-    }
-
-    public String getPoint() {
-        return point;
-    }
-
-    public String getNavn() {
-        return navn;
-    }
-
-}
+  }
