@@ -11,14 +11,22 @@ import static org.junit.Assert.assertEquals;
  */
 
 public class SebastianJUnitTest {
-        @Test
-        public void DoesTheObjectExist1() {
-            try {
-                Class.forName("");
-            } catch (ClassNotFoundException e) {
-                Assert.fail("object was not found");
-            }
 
-        }}
+    /**
+     * Denne metode tester om "Questions" eksisterer.
+     * Hvis ikke thrower den en ClassNotFound-exception.
+     */
+    @Test
+    public void DoesTheObjectExist1() {
+        try {
+            Class.forName("biolaer.dk.biolaer.BusinessLogic.Question");
+        } catch (ClassNotFoundException e) {
+
+            Assert.fail("object was not found");
+        }
+
+    }
+}
+
 
 
