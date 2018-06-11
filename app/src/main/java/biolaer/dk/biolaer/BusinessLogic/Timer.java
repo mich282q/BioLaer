@@ -18,6 +18,7 @@ public class Timer {
     private CountDownTimer mCountDownTimer;
     private long mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
+    //Metode som opretter en CountDownTimer og starter tiden
     public void startTimer() {
         mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
             @Override
@@ -26,6 +27,7 @@ public class Timer {
                 updateCountDownText();
             }
 
+            //Metode som kører når tiden er løbet ud
             @Override
             public void onFinish() {
             actualTime_textView.setText("Tiden er gået!");
@@ -33,30 +35,32 @@ public class Timer {
             }
         }.start();
     }
-
+    //Metode som stopper tiden og sætter en ny i gang
     public void resetTimer() {
         mCountDownTimer.cancel();
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
         startTimer();
     }
-
+    //Metode til at stoppe tiden
     public void stopTimer(){
         mCountDownTimer.cancel();
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
-        updateCountDownText();
-    }
 
+    }
+    //Metode til at updatere millisekunderne
     public void updateCountDownText() {
+        //Initialiserer variablen til at være = QuestionsActivity's varibalen "actualTime_textView"
         actualTime_textView = QuestionsActivity.actualTime_textView;
 
         //Lokale variabler
         int minutes = (int) (mTimeLeftInMillis / 1000) / 60;
         int seconds = (int) (mTimeLeftInMillis / 1000) % 60;
 
+        //Formaterer millisekunderne til minutter og sekunder
         String timeLeftFormatted = String.format(Locale.getDefault(),
                 "%02d:%02d", minutes, seconds);
 
-        // Når der er under 10 sekunder tilbage skifter, farven til rød.
+        // Når der er under 10 sekunder tilbage skifter, farven til rød. Ellers er den hvid
         if (mTimeLeftInMillis < 10000) {
             actualTime_textView.setTextColor(Color.RED);
         }
