@@ -18,6 +18,14 @@ import java.util.HashMap;
 import java.util.Map;
 import biolaer.dk.biolaer.R;
 
+/**
+ * Denne klasse viser slutningen på spillet, hvor man kan se ens point, rank og indtaste navn.
+ * Der er blevet benyttet metoder til at vise data fra QuestionsActivity til EndActivity, så som
+ * point og rank. Der er også oprettet en metode addScore() som tager imod et brugerinput
+ * "navn" og tager point fra sessionen og putter det i Firebase Databasen, under Highscore, som
+ * også findes i applikationen.
+ */
+
 public class EndActivity extends AppCompatActivity {
 
     //Deklarerer variabler/fields
