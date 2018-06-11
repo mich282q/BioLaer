@@ -1,8 +1,6 @@
 package biolaer.dk.biolaer.BusinessLogic;
 
 //Nødvendige imports
-
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.widget.TextView;

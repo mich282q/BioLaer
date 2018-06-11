@@ -16,7 +16,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
-
 import biolaer.dk.biolaer.BusinessLogic.MusicService;
 import biolaer.dk.biolaer.R;
 
