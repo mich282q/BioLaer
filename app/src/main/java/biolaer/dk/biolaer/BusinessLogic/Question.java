@@ -6,8 +6,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Random;
 
+/**
+ * Denne klasse håndterer dele af den business logic, der kommer til udtryk i forbindelse med
+ * rigtige og forkerte svar på spørgsmålene i app'en. Eksempelvis står den for tilfældig
+ * generering af spørgsmål fra Firebase.
+ */
 public class Question {
-
 
     DatabaseReference mDatabaseX; //Databasereference variabel
 
@@ -22,6 +26,7 @@ public class Question {
                 .child("questions_easy").child("questions_all").child(questionID);
         return mDatabaseX;
     }
+
     //Metoder som henter den random værdi: x
     public int getX() {
         return x;

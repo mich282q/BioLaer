@@ -82,10 +82,9 @@ public class Fragment1 extends Fragment {
     }
 
     //Udskifter spørgsmålet
-
-    public void changeQuestion(){
+    public void changeQuestion() {
         final Question questionClass = new Question();
-      questionClass.randomEasyRef(mDatabaseX).addValueEventListener(new ValueEventListener() {
+        questionClass.randomEasyRef(mDatabaseX).addValueEventListener(new ValueEventListener() {
           @Override
           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
