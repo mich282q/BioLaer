@@ -49,7 +49,7 @@ public class HardHsActivity extends AppCompatActivity { //Extender AppCompatActi
         }
     }
 
-    //Overrider den default onCreate-metode med vores properties til denne aktivitet
+    //Overrider den default onCreate-metode med vores properties til denne aktivitet.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,11 +80,14 @@ public class HardHsActivity extends AppCompatActivity { //Extender AppCompatActi
         //Forbinder scoreList_dynamic med listview i xml-filen
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
+        //Definerer ArrayAdapter og initialiserer den
         final ArrayAdapter<String> arrayAdapter =new ArrayAdapter<String>(this,
                 android.R.layout.simple_expandable_list_item_1, listNavn);
 
+        //Tager arrayAdapteren ind i scoreList
         scoreList_dynamic.setAdapter(arrayAdapter);
 
+        //Laver en query reference til point
         final Query queryRef = dbnavn_2.orderByChild("point");
 
         queryRef.addChildEventListener(new ChildEventListener() {

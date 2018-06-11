@@ -12,12 +12,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 import biolaer.dk.biolaer.R;
 
+/**
+ * Denne klasse fungerer som skærmbillede til alle spørgsmålene.
+ * Det er her brugerens point og tid vises.
+ * Den er desuden pladsholder for det fragment, der automatisk genererer et nyt spørgsmål,
+ * som hentes fra Firebase.
+ */
 public class QuestionsActivity extends AppCompatActivity {
 
     //Klassevariabler el. fields
-    public static TextView actualPoint_textView;
+    public static TextView actualPoint_textView; //Skal være static for at virke
     public static int pointT;
-    public static TextView actualTime_textView;
+    public static TextView actualTime_textView; //Skal være static for at virke
 
     //Metode der tilføjer 100 point til dine samlede point
     public void addPoints(){
@@ -59,6 +65,7 @@ public class QuestionsActivity extends AppCompatActivity {
         return rank;
     }
 
+    //Deklarerer og initialiserer et nyt fragment.
     Fragment1 fragment1 = new Fragment1();
 
     //Metode til at udelukke muligheden for gå tilbage, hvis der svares forkert på spg.

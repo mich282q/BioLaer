@@ -35,6 +35,7 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
     private ProgressDialog progressDialog; //Til Progress-baren
 
     //Metode der fortsat fjerner navigationsbaren, selvom der klikkes et sted i aktiviteten.
+    //Med "hasFocus" menes der netop, hvis brugeren klikker et sted på skærmen.
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
@@ -49,7 +50,7 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
         }
     }
 
-    //Overrider den default onCreate-metode med vores properties til denne aktivitet
+    //Overrider den default onCreate-metode med vores properties til denne aktivitet.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,10 +81,14 @@ public class EasyHsActivity extends AppCompatActivity { //Extender AppCompatActi
         //Forbinder scoreList_dynamic med listview i xml-filen
         scoreList_dynamic = (ListView) findViewById(R.id.scoreList_dynamic);
 
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, listNavn);
+        //Definerer ArrayAdapter og initialiserer den
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
+                (this, android.R.layout.simple_expandable_list_item_1, listNavn);
 
+        //Tager arrayAdapteren ind i scoreList
         scoreList_dynamic.setAdapter(arrayAdapter);
 
+        //Laver en query reference til point
         final Query queryRef = dbnavn_2.orderByChild("point").limitToLast(20);
 
         queryRef.addChildEventListener(new ChildEventListener() {
