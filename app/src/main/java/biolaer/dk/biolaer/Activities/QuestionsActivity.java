@@ -3,6 +3,7 @@ package biolaer.dk.biolaer.Activities;
 //Importerer nødvendige libraries
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -24,6 +25,7 @@ public class QuestionsActivity extends AppCompatActivity {
     public static TextView actualPoint_textView; //Skal være static for at virke
     public static int pointT;
     public static TextView actualTime_textView; //Skal være static for at virke
+    private MediaPlayer timesUp;
 
     //Metode der tilføjer 100 point til dine samlede point
     public void addPoints(){
@@ -98,10 +100,13 @@ public class QuestionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_questions);
 
         actualTime_textView = (TextView) findViewById(R.id.actualTime_textView);
+        timesUp = MediaPlayer.create(getApplicationContext(), R.raw.timesup);
+
         actualTime_textView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
                 if (actualTime_textView.getText().equals("Tiden er gået!")) {
+                    timesUp.start();
                     Intent endActivity = new Intent(getApplicationContext(), EndActivity.class);
                     startActivity(endActivity);
                     Toast.makeText(getApplicationContext(),"Tiden er gået!", Toast.LENGTH_LONG).show();
