@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
+
+import biolaer.dk.biolaer.BusinessLogic.Timer;
 import biolaer.dk.biolaer.R;
 
 /**
@@ -21,6 +23,7 @@ public class OptionsActivity extends AppCompatActivity {
     //Variabler til lydindstillinger. Initialiseret til være være null pr. default.
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
+    Timer timer = Fragment1.timer; //timer object som sættes til at være timeren i Fragment1
 
     //Metode der fortsat fjerner navigationsbaren, selvom der klikkes et sted i aktiviteten.
     @Override
@@ -66,6 +69,7 @@ public class OptionsActivity extends AppCompatActivity {
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                timer.stopTimer(); //Stopper tider når man går til menu
                 Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(mainActivity);
             }

@@ -36,7 +36,7 @@ public class Fragment1 extends Fragment {
     TextView question_textView;
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
-    Timer timer = new Timer();
+    static Timer timer = new Timer();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
