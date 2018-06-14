@@ -40,7 +40,6 @@ public class ThomasJUnitTest {
         }
 
         assertTrue(isRankCorrect);
-
     }
     @Test
     public void testRank3(){

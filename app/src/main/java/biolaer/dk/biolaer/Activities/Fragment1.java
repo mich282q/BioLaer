@@ -37,6 +37,7 @@ public class Fragment1 extends Fragment {
     ImageView question_imageView;
     MediaPlayer falseSound, correctSound;
     static Timer timer = new Timer();
+    static QuestionsActivity questionsActivity = new QuestionsActivity();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,8 +74,8 @@ public class Fragment1 extends Fragment {
                 .setCancelable(false)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        questionsActivity.addPoints();
                         changeQuestion();
-                        ((QuestionsActivity) getActivity()).addPoints();
                         timer.resetTimer();
                     }
                 })
