@@ -148,8 +148,6 @@ public class EndActivity extends AppCompatActivity {
 
        // Tager imod det indtastede navn.
         String name = insertName.getText().toString().trim();
-       // Genererer et unikt ID til databasen.
-        String key = highscore.push().getKey();
 
         // Tjekker om navn er blevet indtastet, og udfører en handling ud fra det.
         if(!TextUtils.isEmpty(insertName.getText().toString())){
