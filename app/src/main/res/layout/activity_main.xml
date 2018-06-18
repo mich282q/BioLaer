@@ -60,4 +60,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categorySpinner" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="51dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/categorySpinner"
+        app:layout_constraintEnd_toEndOf="@+id/categorySpinner"
+        app:layout_constraintTop_toTopOf="@+id/categorySpinner"
+        app:srcCompat="@drawable/dropdown" />
+
 </android.support.constraint.ConstraintLayout>
