@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import biolaer.dk.biolaer.BusinessLogic.Timer;
 import biolaer.dk.biolaer.R;
 
 /**
@@ -26,6 +28,8 @@ public class QuestionsActivity extends AppCompatActivity {
     public static int pointT;
     public static TextView actualTime_textView; //Skal være static for at virke
     private MediaPlayer timesUp;
+    Timer timer = Fragment1.timer; //timer object som sættes til at være timeren i Fragment1
+
 
     //Metode der tilføjer 100 point til dine samlede point
     public void addPoints(){
@@ -110,6 +114,7 @@ public class QuestionsActivity extends AppCompatActivity {
                     Intent endActivity = new Intent(getApplicationContext(), EndActivity.class);
                     startActivity(endActivity);
                     Toast.makeText(getApplicationContext(),"Tiden er gået!", Toast.LENGTH_LONG).show();
+                    timer.stopTimer();
                 }
             }
         });
@@ -140,5 +145,23 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
+     /*   android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+        android.support.v4.app.FragmentTransaction fragmentTransaction =
+                fragmentManager.beginTransaction();
+         boolean fragNumber = true;
+
+     //   if (fragNumber = true)
+       // {
+            Fragment1 fragment1 = new Fragment1();
+            fragmentTransaction.replace(R.id.fragment1, fragment1);
+            fragmentTransaction.addToBackStack(null);
+        //}
+        else if (fragNumber = false)
+        {
+            Fragment2 fragment2 = new Fragment2();
+            fragmentTransaction.replace(R.id.fragment2, fragment2);
+            fragmentTransaction.addToBackStack(null);
+        }
+        fragmentTransaction.commit(); */
     }
 }
