@@ -28,7 +28,7 @@ public class QuestionsActivity extends AppCompatActivity {
     public static int pointT;
     public static TextView actualTime_textView; //Skal være static for at virke
     private MediaPlayer timesUp;
-    Timer timer = Fragment1.timer; //timer object som sættes til at være timeren i Fragment1
+    Timer timer = biolaer.dk.biolaer.Activities.easyFragment.timer; //timer object som sættes til at være timeren i easyFragment
 
 
     //Metode der tilføjer 100 point til dine samlede point
@@ -72,7 +72,7 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
     //Deklarerer og initialiserer et nyt fragment.
-    Fragment1 fragment1 = new Fragment1();
+    easyFragment easyFragment = new easyFragment();
 
     //Metode til at udelukke muligheden for gå tilbage, hvis der svares forkert på spg.
     @Override
@@ -152,13 +152,13 @@ public class QuestionsActivity extends AppCompatActivity {
 
      //   if (fragNumber = true)
        // {
-            Fragment1 fragment1 = new Fragment1();
-            fragmentTransaction.replace(R.id.fragment1, fragment1);
+            easyFragment easyFragment = new easyFragment();
+            fragmentTransaction.replace(R.id.easyFragment, easyFragment);
             fragmentTransaction.addToBackStack(null);
         //}
         else if (fragNumber = false)
         {
-            Fragment2 fragment2 = new Fragment2();
+            hardFragment fragment2 = new hardFragment();
             fragmentTransaction.replace(R.id.fragment2, fragment2);
             fragmentTransaction.addToBackStack(null);
         }

@@ -105,8 +105,8 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
 
         /** VIGTIG INFO:
          * Når der klikkes på enten "Let" eller "Svær" går den til QuestionsActivity-klassen.
-         * Hvis du vælger "Let" loades Fragment1 så i aktiviteten.
-         * Hvis du vælger "Svær" loades Fragment2 så i aktiviteten. */
+         * Hvis du vælger "Let" loades easyFragment så i aktiviteten.
+         * Hvis du vælger "Svær" loades hardFragment så i aktiviteten. */
         easyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

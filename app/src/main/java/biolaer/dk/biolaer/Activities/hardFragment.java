@@ -11,15 +11,15 @@ import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse er tiltænkt at skulle bruges til det svære niveau.
- * På samme måde som Fragment1 bliver brugt til det lette niveau.
+ * På samme måde som easyFragment bliver brugt til det lette niveau.
  */
-public class Fragment2 extends Fragment {
+public class hardFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment2, container, false);
+        return inflater.inflate(R.layout.fragment_hardfragment, container, false);
 
     }
 }

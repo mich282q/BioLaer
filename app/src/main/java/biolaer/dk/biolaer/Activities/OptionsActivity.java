@@ -23,7 +23,7 @@ public class OptionsActivity extends AppCompatActivity {
     //Variabler til lydindstillinger. Initialiseret til være være null pr. default.
     private SeekBar volumeSeekbar = null;
     private AudioManager audioManager = null;
-    Timer timer = Fragment1.timer; //timer object som sættes til at være timeren i Fragment1
+    Timer timer = easyFragment.timer; //timer object som sættes til at være timeren i easyFragment
 
     //Metode der fortsat fjerner navigationsbaren, selvom der klikkes et sted i aktiviteten.
     @Override
