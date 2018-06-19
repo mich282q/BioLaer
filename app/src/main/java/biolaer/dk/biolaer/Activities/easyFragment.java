@@ -66,6 +66,7 @@ public class easyFragment extends Fragment {
 
     //Metode som vil blive kørt, hvis man svarer rigtigt på spørgsmålet.
     public void rightAnswer(){
+        timer.stopTimer();
         correctSound.start(); // Afspiller lydeffekt
         AlertDialog.Builder builder;
             builder = new AlertDialog.Builder(getActivity(), R.style.dialogCorrect);
@@ -76,7 +77,7 @@ public class easyFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int which) {
                         questionsActivity.addPoints();
                         changeQuestion();
-                        timer.resetTimer();
+                        timer.startTimer();
                     }
                 })
                 .show();
