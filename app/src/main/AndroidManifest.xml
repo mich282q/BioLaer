@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="biolaer.dk.biolaer">
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="biolaer.dk.biolaer">
 
     <application
         android:allowBackup="true"
@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
         <activity android:name=".Activities.MainActivity" />
         <activity android:name=".Activities.HighscoreActivity" />
         <activity android:name=".Activities.EasyHsActivity" />

@@ -31,4 +31,4 @@ public class Question {
     public int getX() {
         return x;
     }
-  }
+}

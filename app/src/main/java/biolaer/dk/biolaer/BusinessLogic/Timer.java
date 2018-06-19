@@ -35,18 +35,21 @@ public class Timer {
             }
         }.start();
     }
+
     //Metode som stopper tiden og sætter en ny i gang
     public void resetTimer() {
         mCountDownTimer.cancel();
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
         startTimer();
     }
+
     //Metode til at stoppe tiden
     public void stopTimer(){
         mCountDownTimer.cancel();
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
     }
+
     //Metode til at updatere millisekunderne
     public void updateCountDownText() {
         //Initialiserer variablen til at være = QuestionsActivity's varibalen "actualTime_textView"

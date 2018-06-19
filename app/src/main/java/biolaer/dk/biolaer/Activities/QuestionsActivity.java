@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import biolaer.dk.biolaer.BusinessLogic.Timer;
 import biolaer.dk.biolaer.R;
 
@@ -53,7 +52,7 @@ public class QuestionsActivity extends AppCompatActivity {
             rank = "Noob";
         }
         else if (pointT == 100){
-        rank = "Begynder";
+            rank = "Begynder";
         }
         else if (pointT >= 200 && pointT <= 500){
             rank = "Folkeskoleelev";
