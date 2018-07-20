@@ -101,8 +101,8 @@
         app:layout_constraintTop_toBottomOf="@+id/pointTxt" />
 
     <fragment
-        android:id="@+id/fragment1"
-        android:name="biolaer.dk.biolaer.Activities.easyFragment"
+        android:id="@+id/easyFragment"
+        android:name="biolaer.dk.biolaer.Activities.EasyFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -110,6 +110,5 @@
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greenRectangle_imageView" />
-
 
 </android.support.constraint.ConstraintLayout>

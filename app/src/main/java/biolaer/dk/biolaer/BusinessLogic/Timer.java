@@ -47,7 +47,6 @@ public class Timer {
     public void stopTimer(){
         mCountDownTimer.cancel();
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
-
     }
 
     //Metode til at updatere millisekunderne

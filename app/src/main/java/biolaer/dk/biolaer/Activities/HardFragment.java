@@ -11,9 +11,13 @@ import biolaer.dk.biolaer.R;
 
 /**
  * Denne klasse er tiltænkt at skulle bruges til det svære niveau.
- * På samme måde som easyFragment bliver brugt til det lette niveau.
+ * På samme måde som EasyFragment bliver brugt til det lette niveau.
  */
-public class hardFragment extends Fragment {
+public class HardFragment extends Fragment {
+
+    public void hideLayout(){
+        hideLayout();
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

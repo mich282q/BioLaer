@@ -16,7 +16,7 @@ public class ThomasJUnitTest {
 
     @Test
    public void testRank1(){
-        boolean isRankCorrect = false;
+        boolean isRankCorrect  = false;
 
         QuestionsActivity obj = new QuestionsActivity();
         QuestionsActivity.pointT = 0;

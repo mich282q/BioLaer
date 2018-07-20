@@ -16,6 +16,14 @@ import biolaer.dk.biolaer.R;
  */
 public class LevelActivity extends AppCompatActivity { //Extender AppCompatActivity
 
+    //variabel som bliver brugt til at vælge den rette kategori (easy/hard)
+    public static int fragmentNumber = 0;
+
+    public static int getFragmentNumber() {
+        return fragmentNumber;
+    }
+
+
     @Override
     public void onBackPressed() { //Overrider return mode
         //Søger for at når man trykker på return knap, kommer man til Main Class
@@ -105,22 +113,25 @@ public class LevelActivity extends AppCompatActivity { //Extender AppCompatActiv
 
         /** VIGTIG INFO:
          * Når der klikkes på enten "Let" eller "Svær" går den til QuestionsActivity-klassen.
-         * Hvis du vælger "Let" loades easyFragment så i aktiviteten.
-         * Hvis du vælger "Svær" loades hardFragment så i aktiviteten. */
+         * Hvis du vælger "Let" loades EasyFragment så i aktiviteten.
+         * Hvis du vælger "Svær" loades HardFragment så i aktiviteten. */
         easyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent easyActivity = new Intent(getApplicationContext(), QuestionsActivity.class);
                 startActivity(easyActivity);
+                fragmentNumber = 1;
             }
         });
 
-        //Toast til knappen "Svær", da denne sværhedsgrad ikke er udviklet endnu.
+
         hardBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LevelActivity.this, "Under udvikling", Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(LevelActivity.this, "Under udvikling", Toast.LENGTH_SHORT).show();
+                Intent hardActivity = new Intent(getApplicationContext(), QuestionsActivity.class);
+                startActivity(hardActivity);
+                fragmentNumber = 2;
             }
         });
     }

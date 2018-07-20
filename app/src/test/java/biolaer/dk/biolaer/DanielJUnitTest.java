@@ -19,19 +19,19 @@ public class DanielJUnitTest {
     /**
      * INDLEDNING:
      * Da hele vores applikation er bygget på, at brugeren kan svare på biologispørgsmål,
-     * er det utrolig vigtigt, at klassen "easyFragment" eksisterer, da det er den, som fremkalder
+     * er det utrolig vigtigt, at klassen "EasyFragment" eksisterer, da det er den, som fremkalder
      * random spørgsmål i den lette kategori af quizzen.
      *
      * TEST:
-     * Derfor tester denne metode, om "easyFragment" eksisterer i folderen "Activities".
+     * Derfor tester denne metode, om "EasyFragment" eksisterer i folderen "Activities".
      * Hvis den ikke findes, bliver der throwet en ClassNotFound-exception.
      */
     @Test
     public void testClassExists() {
         try {
-            Class.forName("biolaer.dk.biolaer.Activities.easyFragment");
+            Class.forName("biolaer.dk.biolaer.Activities.EasyFragment");
         } catch (ClassNotFoundException e) {
-            Assert.fail("Der skal være en klasse kaldet easyFragment!");
+            Assert.fail("Der skal være en klasse kaldet EasyFragment!");
         }
     }
 

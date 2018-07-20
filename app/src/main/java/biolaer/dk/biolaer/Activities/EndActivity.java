@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 import biolaer.dk.biolaer.R;
 
+import static biolaer.dk.biolaer.Activities.LevelActivity.fragmentNumber;
+
 /**
  * Denne klasse viser slutningen på spillet, hvor man kan se ens point, rank og indtaste navn.
  * Der er blevet benyttet metoder til at vise data fra QuestionsActivity til EndActivity, så som
@@ -37,6 +39,7 @@ public class EndActivity extends AppCompatActivity {
     //Variabler til Firebase-connection
     FirebaseDatabase database;
     DatabaseReference highscore;
+    DatabaseReference highscoreHard;
 
     //Opretter et nyt objekt af QuestionsActivity
     QuestionsActivity questionsActivity = new QuestionsActivity();
@@ -79,6 +82,7 @@ public class EndActivity extends AppCompatActivity {
         highscore = FirebaseDatabase.getInstance()
                 .getReference("highscore")
                 .child("highscore_easy");
+        highscoreHard = FirebaseDatabase.getInstance().getReference("highscore").child("highscore_hard");
 
         //Tvinger activitien til at være i "Portrait orientation mode".
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -120,7 +124,11 @@ public class EndActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                addScore();
+                if (fragmentNumber == 1){
+                addScore();}
+                else if (fragmentNumber == 2){
+                addScoreHard();
+                }
             }
         });
 
@@ -161,6 +169,37 @@ public class EndActivity extends AppCompatActivity {
             // Indsender dataerne med deres rigtige værdier til firebase databasen.
             // Dataen bliver lagt ind i databasen under et unikt ID.
             highscore.push().setValue(score);
+
+            // Laver en toast med bekræftelse på at dataen er blevet tilføjet til databasen.
+            Toast.makeText(this,"Score tilføjet!", Toast.LENGTH_LONG).show();
+
+            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(mainActivity);
+
+        } else {
+            // Viser en fejlmeddelse om at der mangler at blive indtastet navn.
+            Toast.makeText(this,"Indtast navn!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void addScoreHard() {
+
+        // Tager imod det indtastede navn.
+        String name = insertName.getText().toString().trim();
+
+        // Tjekker om navn er blevet indtastet, og udfører en handling ud fra det.
+        if(!TextUtils.isEmpty(insertName.getText().toString())){
+
+            // Opretter HashMap til at samle data.
+            Map<String, Object> score = new HashMap<>();
+
+            // Tilføjer elementer til HashMap
+            score.put("navn", name);
+            score.put("point", samledeScore);
+
+            // Indsender dataerne med deres rigtige værdier til firebase databasen.
+            // Dataen bliver lagt ind i databasen under et unikt ID.
+            highscoreHard.push().setValue(score);
 
             // Laver en toast med bekræftelse på at dataen er blevet tilføjet til databasen.
             Toast.makeText(this,"Score tilføjet!", Toast.LENGTH_LONG).show();

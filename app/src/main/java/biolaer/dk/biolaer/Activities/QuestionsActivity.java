@@ -1,6 +1,7 @@
 package biolaer.dk.biolaer.Activities;
 
 //Importerer nødvendige libraries
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.media.MediaPlayer;
@@ -27,7 +28,9 @@ public class QuestionsActivity extends AppCompatActivity {
     public static int pointT;
     public static TextView actualTime_textView; //Skal være static for at virke
     private MediaPlayer timesUp;
-    Timer timer = biolaer.dk.biolaer.Activities.easyFragment.timer; //timer object som sættes til at være timeren i easyFragment
+    Timer timer = EasyFragment.timer; //timer object som sættes til at være timeren i EasyFragment
+
+    LevelActivity levelActivity = new biolaer.dk.biolaer.Activities.LevelActivity();
 
 
     //Metode der tilføjer 100 point til dine samlede point
@@ -70,8 +73,6 @@ public class QuestionsActivity extends AppCompatActivity {
         return rank;
     }
 
-    //Deklarerer og initialiserer et nyt fragment.
-    easyFragment easyFragment = new easyFragment();
 
     //Metode til at udelukke muligheden for gå tilbage, hvis der svares forkert på spg.
     @Override
@@ -144,23 +145,36 @@ public class QuestionsActivity extends AppCompatActivity {
                 startActivity(optionsActivity);
             }
         });
+
      /*   android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 fragmentManager.beginTransaction();
-         boolean fragNumber = true;
 
-     //   if (fragNumber = true)
-       // {
-            easyFragment easyFragment = new easyFragment();
-            fragmentTransaction.replace(R.id.easyFragment, easyFragment);
-            fragmentTransaction.addToBackStack(null);
-        //}
-        else if (fragNumber = false)
+        EasyFragment easyFragment = new EasyFragment();
+        HardFragment hardFragment = new HardFragment();
+
+
+        fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .replace(android.R.id.content, easyFragment)
+                .commit();
+*/
+
+        /*fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .hide(hardFragment).commit(); */
+
+        /*fragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                .hide(hardFragment).commit(); */
+/*
+      if (levelActivity.fragmentNumber == 1)
         {
-            hardFragment fragment2 = new hardFragment();
-            fragmentTransaction.replace(R.id.fragment2, fragment2);
+            fragmentTransaction.replace(android.R.id.content, easyFragment);
             fragmentTransaction.addToBackStack(null);
         }
-        fragmentTransaction.commit(); */
+        else if (levelActivity.fragmentNumber == 2)
+        {
+            fragmentTransaction.replace(android.R.id.content, hardFragment);
+            fragmentTransaction.addToBackStack(null);
+        } */
+
     }
 }
